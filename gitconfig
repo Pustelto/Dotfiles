@@ -1,0 +1,30 @@
+[alias]
+	st = status
+	ci = commit
+	ai = add -i
+[user]
+	name = Tomas Pustelnik
+	email = pustelnik.to@gmail.com
+[core]
+	excludesfile = ~/.gitignore
+  autocrlf = input
+[fetch]
+  prune = true
+[help]
+  autocorrect = 1
+[push]
+  followTags = true
+[rebase]
+  autoSquash = true
+[status]
+  showUntrackedFiles = all
+[commit]
+  template = ~/.git-commit-template
+#[merge]
+#  ff = only - allow only fast-forward merges
+#  ff = false - always create merge comit even when fast-forwarded
+
+[github]
+	user = pustelto
+[ghi]
+	token = !security find-internet-password -a pustelto -s github.com -l 'ghi token' -w

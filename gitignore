@@ -1,0 +1,19 @@
+# Ignore npm and bower
+node_modules/
+bower_components/
+
+# Ignore Sublime workspace
+*.sublime-workspace
+*.sublime-project
+
+# Ignore JetBrains editor's settings (WebStorm...)
+.idea/
+
+# Ignore built folders and files
+build/
+dist/
+.sass-cache/
+
+# Ignore log files
+npm-debug.log
+yarn-error.log

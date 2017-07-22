@@ -1,0 +1,6 @@
+[dotfiles]
+repository = ~/Dotfiles
+ignore = [
+  'zsh',
+  '.git',
+  '.gitignore',]
