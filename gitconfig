@@ -4,7 +4,7 @@
 	ai = add -i
 [user]
 	name = Tomas Pustelnik
-	email = pustelnik.to@gmail.com
+	email = 10606260+Pustelto@users.noreply.github.com
 [core]
 	excludesfile = ~/.gitignore
   autocrlf = input
