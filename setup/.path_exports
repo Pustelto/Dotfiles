@@ -1,0 +1,12 @@
+# Space for custom path variables
+# This file servers only as a template and will be copied to $HOME via setup.sh
+
+# Paths to projects
+# examples:
+# export WORK=~/Work
+# export WEB=~/Work/coolweb_project
+
+# Custom PATH variables
+# this is used to add files to $PATH without need to enter them into .zshrc
+# export CUSTOM_PATH=:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+export CUSTOM_PATH=
