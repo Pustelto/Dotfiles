@@ -16,9 +16,9 @@ PS: sorry for czech, those are my internal notes what I want to add in the futur
   - vim: .vimrc,
 - [x] save global npm packages to file
 - [x] install global npm packages defined in backup file
-- [ ] backup brew and brew cask programs
+- [x] backup brew and brew cask programs
 - [ ] write script to install brew if necessary and then install brew nad brew cask programes defined in backup file
-- [ ] link ZSH theme from Dotfiles folder to zsh install folder
 - [ ] write OS config script which will setup mac and install all necessary programs
   - install git, nodejs, npm, brew and global npm, zsh, hyper, tmux..., link zsh theme
+- [ ] link ZSH theme from Dotfiles folder to zsh install folder
 - [ ] better formatted scripts output

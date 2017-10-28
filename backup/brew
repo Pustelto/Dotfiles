@@ -1,0 +1,27 @@
+# brew
+ack
+ghi
+gradle
+libevent
+lzo
+mas
+openssl
+openvpn
+pcre
+pwgen
+readline
+tidy-html5
+tig
+tmux
+watchman
+
+# brew-cask
+android-sdk
+cyberduck
+fastlane
+firefox
+macdown
+opera
+skype
+tunnelblick
+visual-studio-code
