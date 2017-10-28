@@ -5,4 +5,5 @@ ignore = [
   'setup',
   'zsh',
   '.git',
-  '.gitignore',]
+  '.gitignore',
+  'backup',]

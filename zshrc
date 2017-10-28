@@ -54,4 +54,5 @@ alias gpfl="git push --force-with-lease"
 alias gstau="git stash -u"
 alias gstap="git stash apply"
 alias gcn!!='git commit -v --no-edit --amend --no-verify'
+alias grs1='git reset --soft @~1'
 alias myghi="ghi list --mine"
