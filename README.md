@@ -22,3 +22,7 @@ PS: sorry for czech, those are my internal notes what I want to add in the futur
   - install git, nodejs, npm, brew and global npm, zsh, hyper, tmux..., link zsh theme
 - [ ] link ZSH theme from Dotfiles folder to zsh install folder
 - [ ] better formatted scripts output
+- [ ] update ZSH theme (inpiro: [spaceship](https://github.com/denysdovhan/spaceship-zsh-theme))
+  - improve git repo status handlers and symbols
+  - rename device, evaluate all prompt parts if they are necessary
+  - possible make a new repo for theme and publish it separately for easier installation in the future

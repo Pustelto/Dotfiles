@@ -1,5 +1,5 @@
 PROMPT='
-%F{cyan}%B%n@%m:%F{white}%~ $(git_prompt_info)%b%F{black}$(package_version)
+%F{cyan}%B%n@%m:%F{white}%~ $(git_prompt_info)%b%F{008}$(package_version)
 %B%f$(return_code)%f%b '
 
 RPROMPT=''
@@ -109,4 +109,3 @@ function package_version() {
   local ver=$(cat package.json | grep "version" | head -1 | awk -F: '{ print $2}' | sed 's/[ ",]//g')
   echo $name@$ver
 }
-
