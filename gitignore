@@ -9,6 +9,9 @@ bower_components/
 # Ignore JetBrains editor's settings (WebStorm...)
 .idea/
 
+# Ignore VS Code config
+.vscode/
+
 # Ignore built folders and files
 build/
 dist/

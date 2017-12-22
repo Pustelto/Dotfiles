@@ -1,8 +1,9 @@
-# brew
+# brew:start
 ack
 ghi
 gradle
 libevent
+libzip
 lzo
 mas
 openssl
@@ -12,16 +13,21 @@ pwgen
 readline
 tidy-html5
 tig
+tldr
 tmux
 watchman
+# brew:end
 
-# brew-cask
+# brew-cask:start
 android-sdk
 cyberduck
 fastlane
 firefox
-macdown
+google-cloud-sdk
 opera
+sequel-pro
 skype
+spotify
 tunnelblick
 visual-studio-code
+# brew-cask:end
