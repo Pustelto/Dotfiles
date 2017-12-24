@@ -16,7 +16,7 @@ For the dotfiles managment I'm using [dotfiles](https://github.com/jbernard/dotf
 - [x] install global npm packages defined in backup file
 - [x] backup brew and brew cask programs
 - [x] write script to install brew nad brew cask programes defined in backup file
-- [ ] move alias definitions to separate file for better portability across different shell paltforms
+- [x] move alias definitions to separate file for better portability across different shell paltforms
 - [ ] update brew and npm scripts to check if brew/npm exist and then run the scripts or quit with error
 - [ ] instal ZSH
 - [ ] link ZSH theme from Dotfiles folder to zsh install folder

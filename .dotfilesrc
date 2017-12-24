@@ -2,8 +2,10 @@
 repository = ~/Dotfiles
 ignore = [
   'README.md',
-  'setup',
+  'backup',
+  'setup_scripts',
+  'shell',
   'zsh',
   '.git',
   '.gitignore',
-  'backup',]
+  ]
