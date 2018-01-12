@@ -18,6 +18,7 @@ For the dotfiles managment I'm using [dotfiles](https://github.com/jbernard/dotf
 - [x] write script to install brew nad brew cask programes defined in backup file
 - [x] move alias definitions to separate file for better portability across different shell paltforms
 - [ ] update brew and npm scripts to check if brew/npm exist and then run the scripts or quit with error
+- [ ] backup VS code extensions and settings `code --list-extensions`
 - [ ] instal ZSH
 - [ ] link ZSH theme from Dotfiles folder to zsh install folder
 - [ ] write OS config script which will setup mac and install all necessary programs
@@ -26,6 +27,6 @@ For the dotfiles managment I'm using [dotfiles](https://github.com/jbernard/dotf
 - [ ] better formatted scripts output
 - [ ] move paths in scripts to export file/separate config instead of hardcoding it
 - [ ] update ZSH theme (inpiro: [spaceship](https://github.com/denysdovhan/spaceship-zsh-theme))
-  - improve git repo status handlers and symbols
+  - improve git repo status handlers and symbols - for branch use this symbol: ⌥ (U+2325)
   - rename device, evaluate all prompt parts if they are necessary
   - possible make a new repo for theme and publish it separately for easier installation in the future
