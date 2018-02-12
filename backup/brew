@@ -1,5 +1,6 @@
 # brew:start
 ack
+gdbm
 ghi
 gradle
 libevent
@@ -10,12 +11,15 @@ openssl
 openvpn
 pcre
 pwgen
+python3
 readline
+sqlite
 tidy-html5
 tig
 tldr
 tmux
 watchman
+xz
 # brew:end
 
 # brew-cask:start
@@ -24,6 +28,7 @@ cyberduck
 fastlane
 firefox
 google-cloud-sdk
+iterm2
 opera
 sequel-pro
 skype

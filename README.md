@@ -25,6 +25,7 @@ For the dotfiles managment I'm using [dotfiles](https://github.com/jbernard/dotf
   - install git, nodejs, npm, brew and global npm, zsh, hyper, tmux..., link zsh theme
   - configure some macOS settings (sound at startup, invisible folders, tab navigation in dialogs...)
 - [ ] better formatted scripts output
+- [ ] automate syncing/backup of changed files
 - [ ] move paths in scripts to export file/separate config instead of hardcoding it
 - [ ] update ZSH theme (inpiro: [spaceship](https://github.com/denysdovhan/spaceship-zsh-theme))
   - improve git repo status handlers and symbols - for branch use this symbol: ⌥ (U+2325)

@@ -4,6 +4,7 @@ create-react-app@1.1.0
 firebase-bolt@0.8.2
 firebase-tools@3.10.1
 flow-bin@0.40.0
+generator-code@1.1.22
 gtop@0.1.4
 gulp@3.9.1
 hpm-cli@2.0.1
@@ -13,5 +14,7 @@ react-native-cli@2.0.1
 reason-cli@1.13.7
 rnpm@1.9.0
 serve@6.0.6
+typescript@2.6.1
 vue-cli@2.9.1
 yarn@0.21.3
+yo@2.0.1
