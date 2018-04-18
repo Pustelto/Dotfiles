@@ -17,9 +17,11 @@ For the dotfiles managment I'm using [dotfiles](https://github.com/jbernard/dotf
 - [x] backup brew and brew cask programs
 - [x] write script to install brew nad brew cask programes defined in backup file
 - [x] move alias definitions to separate file for better portability across different shell paltforms
-- [ ] update brew and npm scripts to check if brew/npm exist and then run the scripts or quit with error
 - [ ] backup VS code extensions and settings `code --list-extensions`
-- [ ] instal ZSH
+- [ ] backup AppStore apps - via MAS command
+- [ ] update brew and npm scripts to check if brew/npm exist and then run the scripts or quit with error
+- [ ] install ZSH
+- [ ] install/backup zsh plugins (autocomplete, syntax highlight)
 - [ ] link ZSH theme from Dotfiles folder to zsh install folder
 - [ ] write OS config script which will setup mac and install all necessary programs
   - install git, nodejs, npm, brew and global npm, zsh, hyper, tmux..., link zsh theme
@@ -27,7 +29,11 @@ For the dotfiles managment I'm using [dotfiles](https://github.com/jbernard/dotf
 - [ ] better formatted scripts output
 - [ ] automate syncing/backup of changed files
 - [ ] move paths in scripts to export file/separate config instead of hardcoding it
-- [ ] update ZSH theme (inpiro: [spaceship](https://github.com/denysdovhan/spaceship-zsh-theme))
+- [ ] update ZSH theme
+  - inpiro: [spaceship](https://github.com/denysdovhan/spaceship-zsh-theme)
+  - inpiro: [pure](https://github.com/sindresorhus/pure)
+  - possible colors: #37da99 #8bd445 #64D9F9 #282C34 #9FE9F7 # #2F3240
+  - existuje něco jako iterm theme s definici bareva text stylů [see](https://github.com/sindresorhus/iterm2-snazzy)
   - improve git repo status handlers and symbols - for branch use this symbol: ⌥ (U+2325)
   - rename device, evaluate all prompt parts if they are necessary
   - possible make a new repo for theme and publish it separately for easier installation in the future

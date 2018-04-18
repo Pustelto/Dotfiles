@@ -20,9 +20,10 @@
   showUntrackedFiles = all
 [commit]
   template = ~/.git-commit-template
-#[merge]
-#  ff = only - allow only fast-forward merges
-#  ff = false - always create merge comit even when fast-forwarded
+[merge]
+	conflictstyle = diff3
+	# ff = false - always create merge comit even when fast-forwarded
+	# ff = only - allow only fast-forward merges
 
 [github]
 	user = pustelto

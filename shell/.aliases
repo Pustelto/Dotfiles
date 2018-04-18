@@ -16,10 +16,17 @@ alias nodeclr="rm -rf ./node_modules && yarn"
 alias tmux="tmux -2"
 alias ll="ls -lhFG"
 alias la="ls -lahFG"
+alias cdw="cd $WORK"
+
+# my git aliases
 alias gpfl="git push --force-with-lease"
 alias gstau="git stash -u"
 alias gstap="git stash apply"
 alias gcnn='git commit -v --no-edit --amend --no-verify'
 alias grs1='git reset --soft @~1'
 alias gbls='git branch -v'
+alias glg="git log --color --pretty=format:' %C(yellow)%h%Creset %s %C(bold green)<%an>%Creset %C(blue dim)%cD%Creset'"
+alias glgg="git log --graph --color --pretty=format:' %C(yellow)%h%Creset %s %C(bold green)<%an>%Creset %C(blue dim)%cD%Creset'"
+
+# github issues alias
 alias myghi="ghi list --mine"
