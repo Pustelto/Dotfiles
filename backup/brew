@@ -1,38 +1,52 @@
 # brew:start
 ack
+antibody
+bat
+fd
+fzf
 gdbm
 ghi
+git
 gradle
+htop
+jq
 libevent
 libzip
+lz4
 lzo
 mas
+oniguruma
 openssl
 openvpn
 pcre
+pkg-config
 pwgen
+python
 python3
 readline
+sphinx-doc
 sqlite
+terminal-notifier
 tidy-html5
 tig
 tldr
 tmux
+unrar
 watchman
 xz
+zsh
 # brew:end
 
 # brew-cask:start
 android-sdk
+browserstacklocal
 cyberduck
 fastlane
 firefox
 google-cloud-sdk
 iterm2
-opera
 sequel-pro
 skype
-spotify
 tunnelblick
 visual-studio-code
 # brew-cask:end
