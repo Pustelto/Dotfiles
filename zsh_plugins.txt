@@ -1,0 +1,9 @@
+zdharma/fast-syntax-highlighting
+zsh-users/zsh-autosuggestions
+zsh-users/zsh-history-substring-search
+zsh-users/zsh-completions
+marzocchi/zsh-notify
+mdumitru/git-aliases
+hlissner/zsh-autopair
+robbyrussell/oh-my-zsh folder:plugins/extract
+Pustelto/shell_theme
