@@ -1,15 +1,16 @@
 [alias]
-	st = status
-	ci = commit
-	ai = add -i
+
 [user]
 	name = Tomas Pustelnik
 	email = 10606260+Pustelto@users.noreply.github.com
 [core]
 	excludesfile = ~/.gitignore
   autocrlf = input
+	ignorecase = false
+	pager = less -R
 [fetch]
   prune = true
+	pruneTags = true
 [help]
   autocorrect = 1
 [push]
@@ -22,7 +23,7 @@
   template = ~/.git-commit-template
 [merge]
 	conflictstyle = diff3
-	# ff = false - always create merge comit even when fast-forwarded
+	ff = false - always create merge comit even when fast-forwarded
 	# ff = only - allow only fast-forward merges
 
 [github]
