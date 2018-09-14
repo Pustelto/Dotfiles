@@ -13,6 +13,9 @@ export PATH=$PATH$CUSTOM_PATH
 # ENV AND PLUGINS
 # -------------------------------------
 
+# Path to theme
+export THEME_PATH=/Users/pustelto/Library/Caches/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-Pustelto-SLASH-shell_theme
+
 # Load autocompletitions
 autoload -Uz compaudit compinit
 
@@ -48,14 +51,17 @@ setopt auto_list # automatically list choices on ambiguous completion
 setopt auto_menu # automatically use menu completion
 setopt always_to_end # move cursor to end if word had one match
 
-zstyle ':completion:*' menu select # select completions with arrow keys
-zstyle ':completion:*' group-name '' # group results by category
-zstyle ':completion:::::' completer _expand _complete _ignored _approximate # enable approximate matches for completion
+# select completions with arrow keys
+zstyle ':completion:*' menu select
+# group results by category
+zstyle ':completion:*' group-name ''
+# enable approximate matches for completion
+zstyle ':completion:::::' completer _expand _complete _ignored _approximate
 
 # Enable ls colors
 autoload colors
 export LSCOLORS="Gxfxcxdxbxegedabagacad"
-colors
+
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
 # Load plugins
@@ -89,6 +95,8 @@ export LESS="-RF"
 
 # USER CONFIGURATION
 # -------------------------------------
+
+export GIT_BRANCH_CLEANER_BLACKLIST=master
 
 source ~/Dotfiles/shell/git.zsh #shamelessly taken from oh-my-zsh
 source ~/Dotfiles/shell/.aliases

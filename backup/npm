@@ -6,6 +6,7 @@ firebase-tools@3.18.6
 fkill-cli@4.1.0
 flow-bin@0.76.0
 flow-typed@2.4.0
+gbdel@1.0.0
 generator-code@1.1.22
 gtop@0.1.4
 gulp@3.9.1

@@ -1,6 +1,7 @@
 # brew:start
 ack
 antibody
+asciinema
 bat
 fd
 fzf
