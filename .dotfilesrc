@@ -5,7 +5,7 @@ ignore = [
   'backup',
   'setup_scripts',
   'shell',
-  'zsh',
   '.git',
   '.gitignore',
+  'code',
   ]

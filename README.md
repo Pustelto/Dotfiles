@@ -6,10 +6,6 @@ For the dotfiles managment I'm using [dotfiles](https://github.com/jbernard/dotf
 
 ## To-Do
 
-- [ ] backup VS code extensions and settings `code --list-extensions`
-  - how to restore the backup
-  - save code settings and keybindings as well
-- [ ] install/restore code extentions
 - [ ] update brew and npm scripts to check if brew/npm exist and then run the scripts or quit with error
 - [ ] install ZSH - via Brew, need to change shell using `chsh -s /usr/local/bin/zsh`
 - [ ] write OS config script which will setup mac and install all necessary programs

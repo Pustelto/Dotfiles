@@ -1,0 +1,161 @@
+{
+/*
+	// Place your snippets for JavaScript here. Each snippet is defined under a snippet name and has a prefix, body and
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the
+	// same ids are connected.
+	// Example:
+*/
+"React component": {
+	"prefix": "rcom",
+	"body": [
+		"// @flow",
+		"",
+		"import * as React from 'react';",
+		"",
+		"class ${1:Name} extends React.Component {",
+		"\trender() {",
+		"\t\t${2:const { $3 \\} = this.props;}",
+		"",
+		"\t\treturn (",
+		"\t\t\t${4:<div>$0</div>}",
+		"\t\t)",
+		"\t}",
+		"}",
+		"",
+		"export default ${1:Name};"
+	],
+	"description": "Basic react component template"
+},
+"React pure component": {
+	"prefix": "rpcm",
+	"body": [
+		"// @flow",
+		"",
+		"import * as React from 'react';",
+		"",
+		"class ${1:Name} extends React.PureComponent {",
+		"\trender() {",
+		"\t\t${2:const { $3 \\} = this.props;}",
+		"",
+		"\t\treturn (",
+		"\t\t\t${4:<div>$0</div>}",
+		"\t\t)",
+		"\t}",
+		"}",
+		"",
+		"export default ${1:Name};"
+	],
+	"description": "Pure react component template"
+},
+"React functional component": {
+	"prefix": "rfcm",
+	"body": [
+		"// @flow",
+		"",
+		"import * as React from 'react';",
+		"",
+		"type Props = {",
+		"${3}",
+		"}",
+		"",
+		"const ${1:Name} = ({$2}: Props) => {",
+		"\treturn (",
+		"\t\t${4:<div>$0</div>}",
+		"\t)",
+		"}",
+		"",
+		"export default ${1:Name};"
+	],
+	"description": "Functional react component template"
+},
+"React native component": {
+	"prefix": "rncom",
+	"body": [
+		"// @flow",
+		"",
+		"import * as React from 'react';",
+		"import { View, Text } from 'react-native';",
+		"",
+		"type Props = {",
+		"${3}",
+		"}",
+		"",
+		"class ${1:Name} extends React.Component<Props> {",
+		"\trender() {",
+		"\t\t${2:const { $4 \\} = this.props;}",
+		"",
+		"\t\treturn (",
+		"\t\t\t${5:<View>$0</View>}",
+		"\t\t)",
+		"\t}",
+		"}",
+		"",
+		"export default ${1:Name};"
+	],
+	"description": "Basic react component template"
+},
+"React native functional component": {
+	"prefix": "rnfcom",
+	"body": [
+		"// @flow",
+		"",
+		"import * as React from 'react';",
+		"import { View, Text } from 'react-native';",
+		"",
+		"type Props = {",
+		"${3}",
+		"}",
+		"",
+		"const ${1:Name} = ({$2}: Props) => {",
+		"\treturn (",
+		"\t\t${4:<View>$0</View>}",
+		"\t)",
+		"}",
+		"",
+		"export default ${1:Name};"
+	],
+	"description": "Basic react component template"
+},
+"React native pure component": {
+	"prefix": "rnpcm",
+	"body": [
+		"// @flow",
+		"",
+		"import * as React from 'react';",
+		"import { View, Text } from 'react-native';",
+		"",
+		"class ${1:Name} extends React.PureComponent {",
+		"\trender() {",
+		"\t\t${2:const { $3 \\} = this.props;}",
+		"",
+		"\t\treturn (",
+		"\t\t\t${4:<View>$0</View>}",
+		"\t\t)",
+		"\t}",
+		"}",
+		"",
+		"export default ${1:Name};"
+	],
+	"description": "Pure react component template"
+},
+"Story": {
+	"prefix": "story",
+	"body": [
+		"// @flow",
+		"",
+		"import * as React from 'react';",
+		"import { storiesOf } from '@storybook/react';",
+		"import styles from './story.module.css'",
+		"",
+		"import ${1} from './index'",
+		"",
+		"storiesOf('${2:Module}', module)",
+		"\t.add('${3:Submodule}', () => (",
+		"\t\t${4}",
+		"\t))",
+		""
+	],
+	"description": "Storybook template"
+},
+}
