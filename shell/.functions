@@ -1,0 +1,14 @@
+fbr() {
+  local branches branch
+  branches=$(git --no-pager branch -vv) &&
+  branch=$(echo "$branches" | fzf +m) &&
+  git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
+}
+
+# after scripts var check the return code if it is 130 do not run npm run to avoid help print
+# jq '.scripts | keys[]' package.json - vrátí pouze klíče
+nr() {
+  local scripts
+  scripts=$(jq '.scripts' package.json -c | gsed -E 's/[{}]//g' | gsed 's/",/"\n/g' | gsed 's/":"/": "/g'| fzf +m --cycle) &&
+  npm run $(echo "$scripts" | awk -F ': "' '{print $1}' | gsed 's/"//g')
+}
