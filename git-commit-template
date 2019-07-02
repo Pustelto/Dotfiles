@@ -1,3 +1,9 @@
-[#000000] Subject
 
-Body
+# type: feat, fix, refactor, chore, test, docs, revert
+#<type>[optional scope]: <description>
+
+#[optional body]
+
+#[optional footer] - PR/issue reference
+
+

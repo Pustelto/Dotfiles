@@ -20,3 +20,6 @@ dist/
 # Ignore log files
 npm-debug.log
 yarn-error.log
+
+# Ignore my dev todo
+dev-todo.md
