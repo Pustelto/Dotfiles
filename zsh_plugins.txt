@@ -5,5 +5,5 @@ zsh-users/zsh-completions
 marzocchi/zsh-notify
 mdumitru/git-aliases
 hlissner/zsh-autopair
-robbyrussell/oh-my-zsh folder:plugins/extract
+robbyrussell/oh-my-zsh path:plugins/extract
 Pustelto/shell_theme

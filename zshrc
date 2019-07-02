@@ -17,6 +17,11 @@ export PATH=$PATH$CUSTOM_PATH
 export THEME_PATH=/Users/pustelto/Library/Caches/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-Pustelto-SLASH-shell_theme
 
 # Load autocompletitions
+# First load Brew autocompletions
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+fi
+
 autoload -Uz compaudit compinit
 
 typeset -i updated_at=$(date +'%j' -r ~/.zcompdump 2>/dev/null || stat -f '%Sm' -t '%j' ~/.zcompdump 2>/dev/null)
@@ -86,12 +91,12 @@ export TERM=xterm-256color
 export FZF_DEFAULT_OPTS='--height=100% --border'
 
 # Bat config
-export BAT_THEME="Monokai Extended"
-export BAT_PAGER=less
+# export BAT_THEME="Monokai Extended"
+# export BAT_PAGER=less
 
 # Set default pager and force it clear screen after quit
-export PAGER=less
-export LESS="-RF"
+# export PAGER=less
+# export LESS="-RF"
 
 # USER CONFIGURATION
 # -------------------------------------
