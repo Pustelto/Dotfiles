@@ -4,11 +4,17 @@ List of my dotfiles and configurations for easy setup of my dev environment. Fee
 
 For the dotfiles managment I'm using [dotfiles](https://github.com/jbernard/dotfiles) utility.
 
-## To-Do
+## Notes
 
+On mac you have to install gnu-sed and use it instead of default mac sed.
+
+## To-Do
+- brew should support something like brewrc to install files.
+- glg/glgg not working for small list (less wont activate pagination)
 - [ ] update brew and npm scripts to check if brew/npm exist and then run the scripts or quit with error
 - [ ] install ZSH - via Brew, need to change shell using `chsh -s /usr/local/bin/zsh`
 - [ ] write OS config script which will setup mac and install all necessary programs
+  - [inpiro](https://github.com/kentcdodds/dotfiles)
   - install git, nodejs, npm, brew and global npm, zsh, hyper, tmux..., link zsh theme
   - configure some macOS settings (sound at startup, invisible folders, tab navigation in dialogs...)
 - [ ] better formatted scripts output
@@ -18,3 +24,9 @@ For the dotfiles managment I'm using [dotfiles](https://github.com/jbernard/dotf
   - cron?
 - [ ] script to do complete backup/restore
 - [ ] move paths in scripts to export file/separate config instead of hardcoding it
+
+### MacOO
+show hidden files: `defaults write com.apple.finder AppleShowAllFiles YES`
+
+
+`npm config set save-exact true`

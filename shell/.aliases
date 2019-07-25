@@ -24,6 +24,7 @@ alias du="du -hd 1  | sort -hr | head -n 10"
 alias ealias="vim ~/Dotfiles/shell/.aliases"
 alias bat="bat --style full --paging always"
 alias xt="x"
+alias backup="~/Dotfiles/setup_scripts/npm_backup.sh && ~/Dotfiles/setup_scripts/brew_backup.sh && ~/Dotfiles/setup_scripts/code_backup.sh"
 
 # my git aliases
 alias gpfl="git push --force-with-lease"
