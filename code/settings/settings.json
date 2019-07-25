@@ -1,7 +1,7 @@
 {
   "workbench.colorTheme": "Material Theme",
   "workbench.iconTheme": "eq-material-theme-icons",
-  "window.zoomLevel": 1,
+  "window.zoomLevel": 0,
   "editor.matchBrackets": false,
   "files.hotExit": "onExitAndWindowClose",
   "editor.cursorBlinking": "phase",
@@ -178,5 +178,13 @@
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "editor.accessibilitySupport": "off"
+  "editor.accessibilitySupport": "off",
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "search.exclude": {
+    "**/.next": true,
+    "**/build": true,
+    "**/dist": true
+  }
 }
