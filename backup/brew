@@ -3,6 +3,7 @@ ack
 antibody
 asciinema
 bat
+bugsnag-dsym-upload
 circleci
 fd
 freetype
@@ -14,6 +15,8 @@ git
 glib
 gnu-sed
 gradle
+heroku
+heroku-node
 htop
 ilmbase
 imagemagick
@@ -27,25 +30,30 @@ libomp
 libpng
 libtiff
 libtool
+libyaml
 libzip
 little-cms2
 lz4
 lzo
 mas
+maven
 ncurses
 oniguruma
 openexr
 openjpeg
 openssl
+openssl@1.1
 openvpn
 pcre
 pcre2
+pkcs11-helper
 pkg-config
 pwgen
 python
 python3
 readline
 ripgrep
+ruby
 shared-mime-info
 sphinx-doc
 sqlite
@@ -66,6 +74,7 @@ zsh
 # brew-cask:start
 android-file-transfer
 android-sdk
+brave-browser
 browserstacklocal
 cyberduck
 fastlane
@@ -73,13 +82,14 @@ firefox
 fontforge
 google-cloud-sdk
 iterm2
+kap
+maccy
 ngrok
 numi
 sequel-pro
 skype
 spotify
-tunnelblick
 visual-studio-code
+visual-studio-code-insiders
 vlc
-xquartz
 # brew-cask:end

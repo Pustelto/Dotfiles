@@ -25,17 +25,21 @@ alias ealias="vim ~/Dotfiles/shell/.aliases"
 alias bat="bat --style full --paging always"
 alias xt="x"
 alias backup="~/Dotfiles/setup_scripts/npm_backup.sh && ~/Dotfiles/setup_scripts/brew_backup.sh && ~/Dotfiles/setup_scripts/code_backup.sh"
+alias npmu="npx npm-check -u"
+alias npmug="npx npm-check -gu"
+alias npmi="rm -rf node_modules && npm i"
 
 # my git aliases
 alias gpfl="git push --force-with-lease"
 alias gstau="git stash -u"
 alias gstap="git stash apply"
+alias gstak="git stash --keep-index"
 alias gcnn='git commit -v --no-edit --amend --no-verify'
 alias grs1='git reset --soft @~1'
 alias gbls='git branch -v'
 alias glg="git log --color --pretty=format:' %C(yellow)%h%Creset %s %C(bold green)<%an>%Creset %C(blue dim)%cD%Creset'"
 alias glgg="git log --graph --color --pretty=format:' %C(yellow)%h%Creset %s %C(bold green)<%an>%Creset %C(blue dim)%cD%Creset'"
-alias gcwip="git add . && git commit -m WIP --no-verify"
+alias gcwip="git add -A && git commit -m WIP --no-verify"
 
 # github issues alias
 alias myghi="ghi list --mine"

@@ -948,4 +948,65 @@
     "key": "cmd+0",
     "command": "-workbench.action.focusSideBar"
   },
+  {
+    "key": "alt+cmd+n",
+    "command": "editor.action.selectToBracket"
+  },
+  {
+    "key": "shift+cmd+g",
+    "command": "-workbench.action.terminal.findPrevious",
+    "when": "terminalFindWidgetFocused"
+  },
+  {
+    "key": "shift+cmd+g",
+    "command": "-workbench.action.terminal.findPrevious",
+    "when": "terminalFindWidgetFocused"
+  },
+  {
+    "key": "shift+cmd+g",
+    "command": "-editor.action.previousMatchFindAction",
+    "when": "editorFocus"
+  },
+  {
+    "key": "shift+cmd+g",
+    "command": "-workbench.action.terminal.findPreviousTerminalFocus",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "shift+cmd+g",
+    "command": "workbench.view.scm"
+  },
+  {
+    "key": "ctrl+shift+g",
+    "command": "-workbench.view.scm"
+  },
+  {
+    "key": "ctrl+shift+g",
+    "command": "-workbench.view.scm"
+  },
+  {
+    "key": "shift+cmd+g",
+    "command": "-editor.action.previousMatchFindAction",
+    "when": "editorFocus"
+  },
+  {
+    "key": "shift+cmd+g",
+    "command": "-editor.action.previousMatchFindAction",
+    "when": "editorFocus"
+  },
+  {
+    "key": "ctrl+shift+alt+g",
+    "command": "editor.action.previousMatchFindAction",
+    "when": "editorFocus"
+  },
+  {
+    "key": "shift+cmd+g",
+    "command": "-editor.action.previousMatchFindAction",
+    "when": "editorFocus"
+  },
+  {
+    "key": "shift+cmd+g",
+    "command": "-editor.action.previousMatchFindAction",
+    "when": "editorFocus"
+  },
 ]

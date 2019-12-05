@@ -1,6 +1,7 @@
 alefragnani.Bookmarks
 alefragnani.project-manager
 andrewleedham.vscode-css-modules
+apollographql.vscode-apollo
 christian-kohler.npm-intellisense
 christian-kohler.path-intellisense
 CoenraadS.bracket-pair-colorizer
@@ -18,6 +19,7 @@ fabiospampinato.vscode-todo-plus
 flowtype.flow-for-vscode
 formulahendry.auto-close-tag
 gcazaciuc.vscode-flow-ide
+johnpapa.vscode-peacock
 jpoissonnier.vscode-styled-components
 lamartire.git-indicators
 mrmlnc.vscode-scss
@@ -29,6 +31,7 @@ naumovs.color-highlight
 Prisma.vscode-graphql
 pustelto.bracketeer
 rafamel.subtle-brackets
+ronnidc.nunjucks
 siegebell.scope-info
 sleistner.vscode-fileutils
 smkamranqadri.vscode-bolt-language

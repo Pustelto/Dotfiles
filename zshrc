@@ -4,6 +4,7 @@
 # Set language to UTF-8 - it should fix autocomplete indent issue
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
 
 # allow custom path setup per device without commiting possibly sensitive data
 # (path_exports is not versioned)
@@ -37,6 +38,8 @@ zmodload -i zsh/complist
 # Configure history
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=100000
+# ignore commands begining with space and duplicates - ignorespace | ignoredups
+HISTCONTROL=ignoreboth
 SAVEHIST=$HISTSIZE
 
 setopt hist_ignore_all_dups # remove older duplicate entries from history

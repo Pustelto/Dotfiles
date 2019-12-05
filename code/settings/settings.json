@@ -10,7 +10,10 @@
   "editor.minimap.maxColumn": 100,
   "editor.tabSize": 2,
   "editor.wordWrap": "bounded",
-  "editor.rulers": [100, 120],
+  "editor.rulers": [
+    100,
+    120
+  ],
   "editor.wordWrapColumn": 100,
   "editor.lineHeight": 26,
   "workbench.startupEditor": "none",
@@ -22,7 +25,9 @@
   "npm-intellisense.importLinebreak": ";\n",
   "path-intellisense.autoSlashAfterDirectory": true,
   "[markdown]": {
-    "editor.rulers": [100],
+    "editor.rulers": [
+      100
+    ],
     "editor.wordWrapColumn": 100,
     "editor.wordWrap": "bounded",
     "editor.parameterHints.enabled": false,
@@ -39,7 +44,8 @@
   },
   "editor.multiCursorModifier": "ctrlCmd",
   "emmet.includeLanguages": {
-    "javascript": "javascriptreact"
+    "javascript": "javascriptreact",
+    "html": "nunjucks"
   },
   "editor.renderLineHighlight": "all",
   "editor.tabCompletion": true,
@@ -80,8 +86,6 @@
     "source.fixAll.tslint": true
   },
   "editor.dragAndDrop": false,
-  "gitlens.codeLens.enabled": false,
-  "gitlens.currentLine.enabled": false,
   "gitlens.hovers.currentLine.over": "line",
   "gitlens.keymap": "none",
   "javascript.validate.enable": false,
@@ -128,7 +132,9 @@
   ],
   "todo.embedded.provider": "rg",
   "todo.embedded.providers.rg.regex": "(?:#|//|/\\*+|<!--|--|\\* @) *(TODO|FIXME|NOTE)",
-  "todo.embedded.providers.rg.args": ["--ignore-case"],
+  "todo.embedded.providers.rg.args": [
+    "--ignore-case"
+  ],
   "highlight.regexes": {
     "((?:<!-- *)?(?://|/\\*+|<!--|--|\\* @) *TODO(?:\\s*\\([^)]+\\))?:?)((?!\\w)(?: *-->| *\\*/|(?= *(?:[^:]//|/\\*+|<!--|@|--))|(?: +[^\\n@]*?)(?= *(?:[^:]//|/\\*+|<!--|@|--(?!>)))|(?: +[^@\\n]+)?))": [
       {
@@ -155,7 +161,6 @@
   },
   "breadcrumbs.enabled": true,
   "breadcrumbs.symbolSortOrder": "name",
-  "prettier.eslintIntegration": false,
   "gitlens.views.fileHistory.enabled": true,
   "gitlens.views.lineHistory.enabled": true,
   "typescript.disableAutomaticTypeAcquisition": true,
@@ -186,5 +191,36 @@
     "**/.next": true,
     "**/build": true,
     "**/dist": true
-  }
+  },
+  "workbench.tree.indent": 12,
+  "workbench.editor.tabSizing": "shrink",
+  "workbench.settings.useSplitJSON": true,
+  "editor.cursorSurroundingLines": 3,
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "peacock.favoriteColors": [
+    {
+      "name": "Vue Green",
+      "value": "#42b883"
+    }
+  ],
+  "peacock.elementAdjustments": {
+    "activityBar": "none"
+  },
+  "peacock.affectActivityBar": false,
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "gitlens.currentLine.enabled": false,
+  "gitlens.codeLens.enabled": false,
+  "gitlens.defaultDateStyle": "absolute",
+  "gitlens.views.repositories.location": "gitlens",
+  "gitlens.views.fileHistory.location": "gitlens",
+  "gitlens.views.lineHistory.location": "gitlens",
+  "gitlens.views.compare.location": "gitlens",
+  "gitlens.views.search.location": "gitlens",
+  "zenMode.hideStatusBar": false,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true
 }

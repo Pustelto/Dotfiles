@@ -7,3 +7,4 @@ mdumitru/git-aliases
 hlissner/zsh-autopair
 robbyrussell/oh-my-zsh path:plugins/extract
 Pustelto/shell_theme
+agkozak/zsh-z

@@ -10,5 +10,7 @@ fbr() {
 nr() {
   local scripts
   scripts=$(jq '.scripts' package.json -c | gsed -E 's/[{}]//g' | gsed 's/",/"\n/g' | gsed 's/":"/": "/g'| fzf +m --cycle) &&
-  npm run $(echo "$scripts" | awk -F ': "' '{print $1}' | gsed 's/"//g')
+  local script_to_run="$(echo "$scripts" | awk -F ': "' '{print $1}' | gsed 's/"//g')"
+  print -S "npm run $script_to_run"
+  npm run $script_to_run
 }
