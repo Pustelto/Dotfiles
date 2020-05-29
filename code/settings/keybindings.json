@@ -949,10 +949,6 @@
     "command": "-workbench.action.focusSideBar"
   },
   {
-    "key": "alt+cmd+n",
-    "command": "editor.action.selectToBracket"
-  },
-  {
     "key": "shift+cmd+g",
     "command": "-workbench.action.terminal.findPrevious",
     "when": "terminalFindWidgetFocused"
@@ -1009,4 +1005,29 @@
     "command": "-editor.action.previousMatchFindAction",
     "when": "editorFocus"
   },
+  {
+    "key": "cmd+f11",
+    "command": "workbench.action.toggleCenteredLayout",
+    "when": "editorFocus"
+  },
+  {
+    "key": "shift+cmd+n",
+    "command": "-workbench.action.newWindow"
+  },
+  {
+    "key": "shift+cmd+n",
+    "command": "explorer.newFile"
+  },
+  {
+    "key": "shift+cmd+n",
+    "command": "-workbench.action.newWindow"
+  },
+  {
+    "key": "shift+cmd+k",
+    "command": "-peacock.changeColorToRandom"
+  },
+  {
+    "key": "shift+cmd+k",
+    "command": "-peacock.changeColorToRandom"
+  }
 ]

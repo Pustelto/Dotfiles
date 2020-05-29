@@ -9,6 +9,7 @@ For the dotfiles managment I'm using [dotfiles](https://github.com/jbernard/dotf
 On mac you have to install gnu-sed and use it instead of default mac sed.
 
 ## To-Do
+- update iterm with tmux session name and disable tmux status bar https://github.com/daneah/iterm-components
 - brew should support something like brewrc to install files.
 - glg/glgg not working for small list (less wont activate pagination)
 - [ ] update brew and npm scripts to check if brew/npm exist and then run the scripts or quit with error
@@ -27,6 +28,6 @@ On mac you have to install gnu-sed and use it instead of default mac sed.
 
 ### MacOO
 show hidden files: `defaults write com.apple.finder AppleShowAllFiles YES`
-
+disable sound effect on bootup `sudo nvram SystemAudioVolume=" "`
 
 `npm config set save-exact true`

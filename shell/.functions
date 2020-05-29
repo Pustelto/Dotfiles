@@ -14,3 +14,6 @@ nr() {
   print -S "npm run $script_to_run"
   npm run $script_to_run
 }
+
+# Take from oh-my-zsh
+function take() { mkdir -p $@ && cd ${@:$#} }
