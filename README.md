@@ -10,7 +10,6 @@ On mac you have to install gnu-sed and use it instead of default mac sed.
 
 ## To-Do
 - update iterm with tmux session name and disable tmux status bar https://github.com/daneah/iterm-components
-- brew should support something like brewrc to install files.
 - glg/glgg not working for small list (less wont activate pagination)
 - [ ] update brew and npm scripts to check if brew/npm exist and then run the scripts or quit with error
 - [ ] install ZSH - via Brew, need to change shell using `chsh -s /usr/local/bin/zsh`
@@ -26,7 +25,7 @@ On mac you have to install gnu-sed and use it instead of default mac sed.
 - [ ] script to do complete backup/restore
 - [ ] move paths in scripts to export file/separate config instead of hardcoding it
 
-### MacOO
+### macOS
 show hidden files: `defaults write com.apple.finder AppleShowAllFiles YES`
 disable sound effect on bootup `sudo nvram SystemAudioVolume=" "`
 

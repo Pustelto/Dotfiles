@@ -52,7 +52,7 @@
   "path-intellisense.autoSlashAfterDirectory": true,
   "window.openFoldersInNewWindow": "off",
   "window.restoreFullscreen": true,
-  "window.zoomLevel": 0,
+  "window.zoomLevel": -1,
   "workbench.colorTheme": "Material Theme",
   "workbench.iconTheme": "eq-material-theme-icons",
   "workbench.startupEditor": "none",
