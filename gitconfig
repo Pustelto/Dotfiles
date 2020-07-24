@@ -25,8 +25,7 @@
 	conflictstyle = diff3
 	ff = false - always create merge comit even when fast-forwarded
 	# ff = only - allow only fast-forward merges
-
+[pull]
+	ff = only
 [github]
 	user = pustelto
-[ghi]
-	token = !security find-internet-password -a pustelto -s github.com -l 'ghi token' -w
