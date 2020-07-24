@@ -16,7 +16,7 @@ DOTFILES_LINK_NPM=$( npm ls --depth=0 -g | awk '/->/ {print $2;}' )
 
 if [ -s $DOTFILES_LINK_NPM ]
   then
-    if npm ls --depth=0 -g --parseable --long | cut -f2 -d: | sed '/^\s*$/d' > ~/Dotfiles/backup/npm
+    if npm ls --depth=0 -g --parseable --long | cut -f2 -d: |awk -F '@' '{for (i=1; i <= NF - 1; i++) printf $i""; print""}' | sed '/^\s*$/d' > ~/Dotfiles/backup/npm
       then
         echo "Global NPM modules list saved."
       else
@@ -25,13 +25,12 @@ if [ -s $DOTFILES_LINK_NPM ]
   else
     # This command gets all global npm pkgs, select only their name and version,
     # remove linked pkgs and empty lines and write result to npm_backup file
-    if npm ls --depth=0 -g --parseable --long | cut -f2 -d: | awk '$1 !~ /'$DOTFILES_LINK_NPM'/' | sed '/^\s*$/d' > ~/Dotfiles/backup/npm
+    # if npm ls --depth=0 -g --parseable --long | cut -f2 -d: | awk '$1 !~ /'$DOTFILES_LINK_NPM'/' | sed '/^\s*$/d' > ~/Dotfiles/backup/npm
+    awk '{for (i=3; i <= NF; i++) printf $i""FS; print""}'
+    if npm ls --depth=0 -g --parseable --long | cut -f2 -d: | awk '$1 !~ /'$DOTFILES_LINK_NPM'/' | awk -F '@' '{for (i=1; i <= NF - 1; i++) printf $i""; print""}' | sed '/^\s*$/d' > ~/Dotfiles/backup/npm
       then
         echo "Global NPM modules list saved."
       else
         echo "Error when creating list of global NPM modules."
     fi
 fi
-
-
-
