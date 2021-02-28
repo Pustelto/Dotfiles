@@ -1,9 +1,14 @@
 
-# type: feat, fix, refactor, chore, test, docs, revert
+# type is one of:
+# feat:       new feature - marking minor version in semver
+# fix:        bugfix - patch version in semver
+# refactor:   change of code without public api change
+# chore:      update something without impacting user (update deps etc.)
+# test:       write/update tests
+# docs:       documentation changes
+# revert: append before reverted commit message
 #<type>[optional scope]: <description>
 
 #[optional body]
 
-#[optional footer] - PR/issue reference
-
-
+#[optional footer] - PR/issue reference, BREAKING CHANGE marker

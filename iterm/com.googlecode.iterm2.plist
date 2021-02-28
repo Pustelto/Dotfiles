@@ -76,7 +76,7 @@
 	<key>NSWindow Frame NSNavPanelAutosaveName</key>
 	<string>320 333 799 448 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>195 179 990 573 0 0 1440 877 </string>
+	<string>480 47 1440 830 0 0 1440 877 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -1519,6 +1519,13 @@
 		<string>Menlo</string>
 		<string>Monaco</string>
 	</array>
+	<key>NoSyncFrame_SessionsPreferences</key>
+	<dict>
+		<key>screenFrame</key>
+		<string>{{0, 0}, {1440, 900}}</string>
+		<key>topLeft</key>
+		<string>{417, 811}</string>
+	</dict>
 	<key>NoSyncFrame_SharedPreferences</key>
 	<dict>
 		<key>screenFrame</key>
@@ -1529,7 +1536,7 @@
 	<key>NoSyncInstallationId</key>
 	<string>89DD6189-25E6-4020-BD7A-3E4EA9BD17CD</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>11</integer>
+	<integer>21</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -2277,6 +2284,8 @@
 	</dict>
 	<key>PrefsCustomFolder</key>
 	<string>/Users/pustelto/Dotfiles/iterm</string>
+	<key>Print In Black And White</key>
+	<true/>
 	<key>PromptOnQuit</key>
 	<false/>
 	<key>QuitWhenAllWindowsClosed</key>
@@ -2290,9 +2299,11 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2020-07-22T09:49:26Z</date>
+	<date>2020-11-09T17:26:23Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
+	<key>ShowFullScreenTabBar</key>
+	<true/>
 	<key>SoundForEsc</key>
 	<false/>
 	<key>StatusBarPosition</key>
@@ -2303,6 +2314,8 @@
 	<false/>
 	<key>VisualIndicatorForEsc</key>
 	<false/>
+	<key>findMode_iTerm</key>
+	<integer>0</integer>
 	<key>iTerm Version</key>
 	<string>3.3.12</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>

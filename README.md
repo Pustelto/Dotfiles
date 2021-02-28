@@ -8,6 +8,13 @@ For the dotfiles managment I'm using [dotfiles](https://github.com/jbernard/dotf
 
 On mac you have to install gnu-sed and use it instead of default mac sed.
 
+## Backup process
+
+1. Run `backup` alias
+2.
+
+## Restore process
+
 ## To-Do
 - update iterm with tmux session name and disable tmux status bar https://github.com/daneah/iterm-components
 - glg/glgg not working for small list (less wont activate pagination)

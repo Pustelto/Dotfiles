@@ -28,6 +28,7 @@ alias backup="~/Dotfiles/setup_scripts/npm_backup.sh && ~/Dotfiles/setup_scripts
 alias npmu="npx npm-check -u"
 alias npmug="npx npm-check -gu"
 alias npmi="rm -rf node_modules && npm i"
+alias npms="npm start"
 
 # my git aliases
 alias gpfl="git push --force-with-lease"

@@ -1,0 +1,108 @@
+# Close any open System Preferences panes, to prevent them from overriding
+# settings we’re about to change
+osascript -e 'tell application "System Preferences" to quit'
+
+# Ask for the administrator password upfront
+sudo -v
+
+# Keep-alive: update existing `sudo` time stamp until `.osx` has finished
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
+#####################################################################################
+# SETTINGS
+#####################################################################################
+
+# Disable sound during booting
+sudo nvram SystemAudioVolume=" "
+
+# Expand save panel by default
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
+
+# Expand print panel by default
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
+
+# Automatically quit printer app once the print jobs complete
+defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
+
+# Disable the “Are you sure you want to open this application?” dialog
+defaults write com.apple.LaunchServices LSQuarantine -bool NO
+
+
+# Disable local Time Machine snapshots
+sudo tmutil
+
+# TRACKPAD
+
+# Disable “natural” (Lion-style) scrolling
+defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
+
+# Enable full keyboard access for all controls
+# (e.g. enable Tab in modal dialogs)
+defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
+
+# Disable press-and-hold for keys in favor of key repeat
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+
+# Set a blazingly fast keyboard repeat rate
+defaults write NSGlobalDomain KeyRepeat -int 2
+defaults write NSGlobalDomain InitialKeyRepeat -int 15
+
+# Finder: keep hidden files hidden by default
+defaults write com.apple.Finder AppleShowAllFiles -bool false
+
+# Finder: show all filename extensions
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+# Finder: show path bar
+defaults write com.apple.finder ShowPathbar -bool true
+
+# Avoid creating .DS_Store files on network volumes
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+
+# Empty Trash securely by default
+defaults write com.apple.finder EmptyTrashSecurely -bool true
+
+# Show the ~/Library folder
+chflags nohidden ~/Library
+
+# Expand the following File Info panes:
+# “General”, “Open with”, and “Sharing & Permissions”
+defaults write com.apple.finder FXInfoPanesExpanded -dict \
+	General -bool true \
+	OpenWith -bool true \
+	Privileges -bool true
+
+# Set default image format for display screenshots to JPG
+defaults write com.apple.screencapture type JPG
+
+# Set the icon size of Dock items to 36 pixels
+defaults write com.apple.dock tilesize -int 36
+
+# Hide recent apps in the dock
+defaults write com.apple.dock "show-recents" -bool false
+
+# Enlarge icons on hover
+defaults write com.apple.com magnification -bool true
+defaults write com.apple.com largesize -int 90
+
+# Prevent Time Machine from prompting to use new hard drives as backup volume
+defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
+
+# Disable local Time Machine backups
+hash tmutil &> /dev/null && sudo tmutil disable
+
+# Disable automatic rearrangment of spaces on most recent use
+defaults write com.apple.dock "mru-spaces" -bool false
+
+# Set Downloads as a default folder when opening Finders
+defaults write com.apple.finder NewWindowTargetPath -string "file:///Users/pustelto/Downloads/"
+###############################################################################
+# Kill affected applications                                                  #
+###############################################################################
+
+for app in "cfprefsd" "Dock" "Finder" "SystemUIServer" ; do
+	killall "${app}" &> /dev/null
+done
+echo "Done. Note that some of these changes require a logout/restart to take effect."

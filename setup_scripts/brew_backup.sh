@@ -1,8 +1,8 @@
 #!/bin/bash
 
-DOTFILES_BREW_BACKUP=~/Dotfiles/backup/
+DOTFILES_BREW_BACKUP=~/Dotfiles/backup/Brewfile
 
-if brew bundle dump -f
+if brew bundle dump -f --file=$DOTFILES_BREW_BACKUP
   then
     echo "Brew apps backup sucessfully."
   else

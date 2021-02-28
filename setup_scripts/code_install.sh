@@ -3,7 +3,7 @@
 DOTFILES_CODE_SETTINGS=~/Library/Application\ Support/Code/User
 
 # Link VS Code settings
-if ln -sf ~/Dotfiles/code/settings/* "$DOTFILES_CODE_SETTINGS"
+if ln ~/Dotfiles/code/settings/* "$DOTFILES_CODE_SETTINGS"
   then
     echo "VS Code settings linked successfully"
   else
@@ -11,7 +11,7 @@ if ln -sf ~/Dotfiles/code/settings/* "$DOTFILES_CODE_SETTINGS"
 fi
 
 # # Link VS Code snippets
-if ln -sf ~/Dotfiles/code/snippets/* "$DOTFILES_CODE_SETTINGS"/snippets
+if ln ~/Dotfiles/code/snippets/* "$DOTFILES_CODE_SETTINGS"/snippets
   then
     echo "VS Code snippets linked successfully"
   else

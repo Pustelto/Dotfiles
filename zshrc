@@ -109,3 +109,4 @@ export GIT_BRANCH_CLEANER_BLACKLIST=master
 source ~/Dotfiles/shell/git.zsh #shamelessly taken from oh-my-zsh
 source ~/Dotfiles/shell/.aliases
 source ~/Dotfiles/shell/.functions
+source ~/.variables

@@ -1,6 +1,3 @@
-statickit/cli
-appcenter-cli
-code-push-cli
 firebase-tools
 fkill-cli
 gbdel
@@ -12,7 +9,6 @@ n
 netlify-cli
 npkill
 npm
-react-native-cli
 rnpm
 serve
 typescript
