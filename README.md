@@ -18,7 +18,7 @@ On mac you have to install gnu-sed and use it instead of default mac sed.
    - `.zsh_history`, `.fzf.zsh`, `.z`
 3. Backup my files
    - Raycast scripts
-   - repos and dev-todos
+   - repos and dev-todos (eg. `pax -rw -pe ~/work/**/dev-todo.md ~/dev-todo`) to copy all `dev-todo.md` for `~/work` to `~/dev-todo` while keeping the folder structure (path) intact.
    - other files (documents, photos etc.)
 
 ## Restore process
