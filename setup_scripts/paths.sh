@@ -18,3 +18,18 @@ if [ -e ~/.path_exports ]
         echo "Error when copying .path_exports"
     fi
 fi
+
+# Create .variables file if necessary
+if [ -e ~/.variables ]
+  then
+    echo ".variables file already exist"
+
+  else
+    # Then we try to copy the file
+    if touch $HOME/.variables
+      then
+        echo "Example .path_exports file was copied to home dir"
+      else
+        echo "Error when copying .path_exports"
+    fi
+fi

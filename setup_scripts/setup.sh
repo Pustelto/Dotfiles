@@ -20,9 +20,16 @@ npm config set save-exact true
 # Install global npm modules
 ~/Dotfiles/setup_scripts/npm_install.sh
 
+# Bootstrap dot files requested by ZSH
+./paths.sh
+
+# Install pip packages
+./pip.sh
+
 # Restore zsh/dotfiles
 sudo pip3 install dotfiles
 dotfiles ---sync
+
 
 # Download Tmux package manager so we can use Tmux plugins
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
