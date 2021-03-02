@@ -12,7 +12,7 @@ brew bundle install --file=~/Dotfiles/backup/Brewfile
 # Install node and global node packages
 # Install n node manager and latest LTS version of Node
 curl -L https://raw.githubusercontent.com/tj/n/master/bin/n -o n
-bash n lts
+sudo bash n lts
 
 # Set npm to automatically install exact dependecies
 npm config set save-exact true

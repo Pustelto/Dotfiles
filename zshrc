@@ -15,7 +15,7 @@ export PATH=$PATH$CUSTOM_PATH
 # -------------------------------------
 
 # Path to theme
-export THEME_PATH=/Users/pustelto/Library/Caches/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-Pustelto-SLASH-shell_theme
+export THEME_PATH=$HOME/Library/Caches/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-Pustelto-SLASH-shell_theme
 
 # Load autocompletitions
 # First load Brew autocompletions
