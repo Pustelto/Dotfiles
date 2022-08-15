@@ -679,16 +679,6 @@
     "when": "editorTextFocus && !editorReadonly"
   },
   {
-    "key": "ctrl+j",
-    "command": "cursorDown",
-    "when": "editorTextFocus"
-  },
-  {
-    "key": "ctrl+n",
-    "command": "-cursorDown",
-    "when": "editorTextFocus"
-  },
-  {
     "key": "ctrl+shift+j",
     "command": "cursorDownSelect",
     "when": "editorTextFocus"
@@ -1171,5 +1161,55 @@
     "key": "alt+d",
     "command": "-todo.toggleDone",
     "when": "editorTextFocus && editorLangId == 'todo'"
+  },
+  {
+    "key": "alt+cmd+u",
+    "command": "workbench.view.debug"
+  },
+  {
+    "key": "ctrl+r",
+    "command": "-workbench.action.openRecent"
+  },
+  {
+    "key": "ctrl+p",
+    "command": "-workbench.action.quickOpenSelectPrevious",
+    "when": "inQuickOpen"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "-workbench.action.quickOpenSelectNext",
+    "when": "inQuickOpen"
+  },
+  {
+    "key": "ctrl+q",
+    "command": "-workbench.action.quickOpenView"
+  },
+  {
+    "key": "ctrl+shift+alt+cmd+[Minus]",
+    "command": "-workbench.action.openSettings"
+  },
+  {
+    "key": "alt+cmd+f",
+    "command": "-liveshare.follow",
+    "when": "liveshare:hasCollaborators && !liveshare:isFollowing"
+  },
+  {
+    "key": "alt+cmd+f",
+    "command": "-liveshare.unfollow",
+    "when": "liveshare:hasCollaborators && liveshare:isFollowing"
+  },
+  {
+    "key": "alt+cmd+f",
+    "command": "references-view.findReferences",
+    "when": "editorHasReferenceProvider"
+  },
+  {
+    "key": "shift+alt+f12",
+    "command": "-references-view.findReferences",
+    "when": "editorHasReferenceProvider"
+  },
+  {
+    "key": "cmd+u cmd+j",
+    "command": "editor.emmet.action.splitJoinTag"
   }
 ]
