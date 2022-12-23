@@ -1,3 +1,10 @@
+lib
+cloudflare/wrangler
+fsouza/prettierd
+corepack
+emoj
+eslint_d
+fake-schema-cli
 firebase-tools
 fkill-cli
 gbdel
@@ -9,11 +16,13 @@ n
 netlify-cli
 npkill
 npm
+remark-language-server
+remark
 rnpm
 serve
+typescript-language-server
 typescript
 vercel
 vsce
 web-ext
-yarn
 yo
