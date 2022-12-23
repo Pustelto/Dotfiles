@@ -100,12 +100,12 @@ local function lsp_keymaps(bufnr)
 	-- vim.keymap.set("n", "<leader>w", "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>", bufopts)
 	vim.keymap.set("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", bufopts)
 	vim.keymap.set("n", "<leader>gm", "<cmd>TypescriptAddMissingImports<CR>", bufopts)
-	vim.keymap.set("n", "<leader>p", function()
-		require("typescript").actions.addMissingImports({ sync = true })
-		require("typescript").actions.organizeImports({ sync = true })
-		require("typescript").actions.removeUnused({ sync = true })
-		vim.lsp.buf.formatting_sync()
-	end, { silent = true, desc = "Organize imports and format document" })
+	-- vim.keymap.set("n", "<leader>p", function()
+	-- 	require("typescript").actions.addMissingImports({ sync = true })
+	-- 	require("typescript").actions.organizeImports({ sync = true })
+	-- 	require("typescript").actions.removeUnused({ sync = true })
+	-- 	vim.lsp.buf.formatting_sync()
+	-- end, { silent = true, desc = "Organize imports and format document" })
 	-- vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
 end
 
@@ -114,6 +114,12 @@ M.on_attach = function(client, bufnr)
 		client.resolved_capabilities.document_formatting = false
 	end
 	if client.name == "sumneko_lua" then
+		client.resolved_capabilities.document_formatting = false
+	end
+	if client.name == "remark_ls" then
+		client.resolved_capabilities.document_formatting = false
+	end
+	if client.name == "jsonls" then
 		client.resolved_capabilities.document_formatting = false
 	end
 	lsp_keymaps(bufnr)

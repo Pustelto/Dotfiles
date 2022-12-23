@@ -50,11 +50,13 @@ return packer.startup(function(use)
 	-- Utility plugins
 	use("tpope/vim-surround")
 	use("tpope/vim-repeat")
-	use("numToStr/Comment.nvim") -- Easily comment stuff
-	use("junegunn/goyo.vim") -- focus mode
+	-- use("junegunn/goyo.vim") -- focus mode
 	use("windwp/nvim-autopairs")
 	use("RRethy/vim-illuminate") -- LSP backed highlighting of symbols under cursor
 	use("kyazdani42/nvim-web-devicons") -- devicons
+	-- Better comments
+	use("numToStr/Comment.nvim") -- Easily comment stuff
+	use("JoosepAlviste/nvim-ts-context-commentstring")
 	use({
 		"folke/todo-comments.nvim",
 		requires = "nvim-lua/plenary.nvim",
@@ -80,6 +82,8 @@ return packer.startup(function(use)
 	use("ahmedkhalf/project.nvim")
 	use("lewis6991/impatient.nvim")
 	use("lukas-reineke/indent-blankline.nvim")
+	use("mattn/emmet-vim")
+	use("Konfekt/vim-CtrlXA")
 	--  use "akinsho/toggleterm.nvim"
 	--  use "goolord/alpha-nvim"
 	--  use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
@@ -116,10 +120,12 @@ return packer.startup(function(use)
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
 	})
-	use("JoosepAlviste/nvim-ts-context-commentstring")
+	use("nvim-treesitter/nvim-treesitter-textobjects")
 
 	-- Git
 	use("lewis6991/gitsigns.nvim")
+	use("tpope/vim-fugitive")
+	-- use("junegunn/gv.vim")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

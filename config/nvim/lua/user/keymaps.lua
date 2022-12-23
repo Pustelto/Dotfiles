@@ -27,6 +27,16 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 vim.keymap.set("n", "<leader>hl", "<cmd>nohlsearch<CR>", opts)
 vim.keymap.set("n", "<leader>v", "<cmd>NvimTreeToggle<CR>", opts)
 
+-- Paste without overwritting register
+keymap("v", "<leader>p", '"_dP', opts)
+keymap("v", "p", '"_dP', opts)
+-- Delete without overwritting register
+keymap("v", "<leader>d", '"_d', opts)
+
+-- Better buffers navigation:
+-- Close buffer without closing split
+keymap("n", "<C-c>", "<cmd>bp|bd #<CR>", opts)
+
 -- Resize with arrows
 -- keymap("n", "<C-Up>", ":resize -2<CR>", opts)
 -- keymap("n", "<C-Down>", ":resize +2<CR>", opts)
@@ -45,7 +55,6 @@ keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 -- Press jk fast to enter
 keymap("i", "jk", "<ESC>", opts)
 keymap("i", "jj", "<ESC>", opts)
-keymap("i", "kj", "<ESC>", opts)
 
 -- Visual --
 -- Stay in indent mode
@@ -55,7 +64,6 @@ keymap("v", ">", ">gv", opts)
 -- Move text up and down
 keymap("v", "<A-j>", ":m .+1<CR>==", opts)
 keymap("v", "<A-k>", ":m .-2<CR>==", opts)
-keymap("v", "p", '"_dP', opts)
 
 -- Visual Block --
 -- Move text up and down
@@ -64,9 +72,13 @@ keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
-keymap("n", "<leader>bl", "<cmd>lua require 'gitsigns'.blame_line()<cr>", opts)
-keymap("n", "<leader>bo", "<cmd>lua require 'gitsigns'.toggle_current_line_blame()<cr>", opts)
+keymap("n", "<leader>gb", "<cmd>lua require 'gitsigns'.blame_line()<cr>", opts)
+keymap("n", "<leader>gbo", "<cmd>lua require 'gitsigns'.toggle_current_line_blame()<cr>", opts)
+keymap("n", "<leader>gr", "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", opts)
+keymap("n", "<leader>gs", "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", opts)
 
+-- Null-ls
+keymap("n", "<leader>ft", "<cmd>ToggleFormatters<cr>", opts)
 -- Terminal --
 -- Better terminal navigation
 -- keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)

@@ -15,7 +15,6 @@ local servers = {
 	"graphql",
 	"html",
 	"yamlls",
-	"remark_ls",
 	"emmet_ls",
 	"dockerls",
 }
@@ -38,6 +37,11 @@ for _, server in pairs(servers) do
 			server = {
 				on_attach = opts.on_attach,
 				capabilities = opts.capabilities,
+				root_dir = function(fname)
+					return require("lspconfig.util").root_pattern(".git/")(fname)
+						or require("lspconfig.util").root_pattern("tsconfig.json")(fname)
+						or require("lspconfig.util").root_pattern("package.json", "jsconfig.json")(fname)
+				end,
 			},
 		})
 	else

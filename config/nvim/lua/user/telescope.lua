@@ -10,10 +10,11 @@ telescope.setup({
 	defaults = {
 		prompt_prefix = "> ",
 		selection_caret = "> ",
-		-- preview = false,
-		path_display = { "smart" },
-		file_ignore_patterns = { "node_modules", ".git", ".DS_Store", "dist" },
-		theme = "dropdown",
+		preview = false,
+		initial_mode = "insert",
+		path_display = { truncate = 3 },
+		file_ignore_patterns = { "node_modules", ".git", ".DS_Store", "dist", "yarn.lock", "_build" },
+		--[[ theme = "dropdown", ]]
 		layout_strategy = "vertical",
 		layout_config = {
 			vertical = {
@@ -27,7 +28,7 @@ telescope.setup({
 				width = 0.7,
 			},
 		},
-		cache_pickers = {
+		cache_picker = {
 			num_pickers = 5,
 		},
 		preview = {
@@ -119,27 +120,30 @@ telescope.setup({
 	},
 	pickers = {
 		find_files = {
-			hidden = true,
-			no_ignore = true,
-			find_command = { "fd", "--type", "f" },
+			--[[ hidden = true, ]]
+			--[[ no_ignore = true, ]]
+			previewer = false,
+			find_command = { "fd", "--type", "f", "-H", "-I" },
 		},
+		git_files = {},
 	},
-	extensions = {
-		fzf = {
-			fuzzy = true, -- false will only do exact matching
-			override_generic_sorter = true, -- override the generic sorter
-			override_file_sorter = true, -- override the file sorter
-			case_mode = "smart_case", -- or "ignore_case" or "respect_case"
-			-- the default case_mode is "smart_case"
-		},
-	},
+	--[[ extensions = { ]]
+	--[[ 	fzf = { ]]
+	--[[ 		fuzzy = true, -- false will only do exact matching ]]
+	--[[ 		override_generic_sorter = true, -- override the generic sorter ]]
+	--[[ 		override_file_sorter = true, -- override the file sorter ]]
+	--[[ 		case_mode = "ignore_case", -- or "ignore_case" or "respect_case" ]]
+	--[[ 		-- the default case_mode is "smart_case" ]]
+	--[[ 	}, ]]
+	--[[ }, ]]
 })
 
 telescope.load_extension("fzf")
 
 local opts = { noremap = true, silent = true }
 
-vim.keymap.set("n", "<leader>f", ":Telescope find_files<CR>", opts)
+vim.keymap.set("n", "<leader>f", ":Telescope git_files<CR>", opts)
+vim.keymap.set("n", "<leader>z", ":Telescope find_files<CR>", opts)
 vim.keymap.set("n", "<leader>t", ":Telescope buffers<CR>", opts)
 vim.keymap.set("n", "<leader>u", ":Telescope projects<CR>", opts)
 vim.keymap.set("n", "<leader>e", ":Telescope live_grep<CR>", opts)
