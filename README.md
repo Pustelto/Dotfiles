@@ -10,15 +10,15 @@ On mac you have to install gnu-sed and use it instead of default mac sed.
 
 ## Backup process
 
-1. Run `backup` alias
-2. Backup other mac files
-   - wifi networks - `/Library/Preferences/com.apple.wifi.known-networks.plist`
-   - iterm profile - Settings > Profiles > Other action > Save profile as JSON
-   - ssh keys - `~/.ssh`
+1. Run `backup.sh` script in `setup_scripts` folder - backup for global NPM and cargo packages, programs installed via Brew and VS Code extensions.
+2. Backup iTerm settings (profile) - Settings > Profiles > Other action > Save profile as JSON
+3. Commit to git and push.
+4. Backup other config files (move to other disk, **DO NOT COMMIT THOSE**):
+   - Backup ssh keys - `~/.ssh`
    - `.zsh_history`, `.fzf.zsh`, `.z`
-3. Backup my files
+5. Backup my files (move to other disk, **DO NOT COMMIT THOSE**)
+   - wifi networks - `/Library/Preferences/com.apple.wifi.known-networks.plist`
    - Raycast scripts
-   - repos and dev-todos (eg. `pax -rw -pe ~/work/**/dev-todo.md ~/dev-todo`) to copy all `dev-todo.md` for `~/work` to `~/dev-todo` while keeping the folder structure (path) intact.
    - other files (documents, photos etc.)
 
 ## Restore process
@@ -27,8 +27,10 @@ On mac you have to install gnu-sed and use it instead of default mac sed.
 2. Signin with Apple ID in App Store
 3. Clone or download `Dotfiles` repo to `$HOME` dir
 4. Run setup.sh script (may need to change file permissions in order to run it)
+5. Go to Tmux and hit Prefix + i to load the plugins
 
 ## To-Do
+
 - update iterm with tmux session name and disable tmux status bar https://github.com/daneah/iterm-components
 - glg/glgg not working for small list (less wont activate pagination)
 - [ ] better formatted scripts output
@@ -40,7 +42,3 @@ On mac you have to install gnu-sed and use it instead of default mac sed.
 - [ ] move paths in scripts to export file/separate config instead of hardcoding it
 
 ### macOS
-show hidden files: `defaults write com.apple.finder AppleShowAllFiles YES`
-disable sound effect on bootup `sudo nvram SystemAudioVolume=" "`
-
-`npm config set save-exact true`

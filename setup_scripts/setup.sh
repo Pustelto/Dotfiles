@@ -30,18 +30,17 @@ npm config set save-exact true
 sudo pip3 install dotfiles
 dotfiles ---sync
 
-
 # Download Tmux package manager so we can use Tmux plugins
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 # Plugins still have to be loaded manually from Tmux using Prefix + I
+
+# Set mac settings (hidden folders, tabing in dialogs, etc.)
+./macos
 
 # TODO
 # Restore vs code settings/plugins
 # Need to check if snippets folder exist, on fresh install it will not so we need to create it
 ~/Dotfiles/setup_scripts/code_install.sh
-
-# Set mac settings (hidden folders, tabing in dialogs, etc.)
-./macos
 
 # TODO
 # Restore iterm settings

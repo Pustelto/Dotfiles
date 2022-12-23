@@ -35,12 +35,21 @@ sudo tmutil
 
 # TRACKPAD
 
+# Disable back/forth swipe gestures on trackpad
+defaults write NSGlobalDomain AppleEnableSwipeNavigateWithScrolls -bool false
+
+# TODO
+defaults write com.apple.trackpad.forceClick = 0;
+ 
 # Disable “natural” (Lion-style) scrolling
 defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
 
 # Enable full keyboard access for all controls
 # (e.g. enable Tab in modal dialogs)
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
+
+# TODO
+defaults write com.apple.Accessibility FullKeyboardAccessFocusRingEnabled -bool true
 
 # Disable press-and-hold for keys in favor of key repeat
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
