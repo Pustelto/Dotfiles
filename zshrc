@@ -9,12 +9,14 @@ export LANGUAGE=en_US.UTF-8
 # allow custom path setup per device without commiting possibly sensitive data
 # (path_exports is not versioned)
 source ~/.path_exports
-export PATH=$PATH$CUSTOM_PATH
+
+export PATH=$CUSTOM_PATH$PATH
 
 # ENV AND PLUGINS
 # -------------------------------------
 
 # Path to theme
+# export PROMPT_SYMBOL='\u2192'
 export THEME_PATH=$HOME/Library/Caches/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-Pustelto-SLASH-shell_theme
 
 # Load autocompletitions
@@ -105,8 +107,18 @@ export FZF_DEFAULT_OPTS='--height=100% --border'
 # -------------------------------------
 
 export GIT_BRANCH_CLEANER_BLACKLIST=master
+export NODE_OPTIONS=--max-old-space-size=8192
 
 source ~/Dotfiles/shell/git.zsh #shamelessly taken from oh-my-zsh
 source ~/Dotfiles/shell/.aliases
 source ~/Dotfiles/shell/.functions
 source ~/.variables
+
+# RUST
+# -------------------------------------
+export PATH=/Users/tomas.pustelnik/.cargo/bin:$PATH
+
+# ATACCAMA CONFIGURATION
+# -------------------------------------
+source ~/Dotfiles/ataccama
+

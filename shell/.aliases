@@ -35,6 +35,7 @@ alias gpfl="git push --force-with-lease"
 alias gstau="git stash -u"
 alias gstap="git stash apply"
 alias gstak="git stash --keep-index"
+alias gstaa="git stash --keep-index -u"
 alias gcnn='git commit -v --no-edit --amend --no-verify'
 alias grs1='git reset --soft @~1'
 alias gbls='git branch -v'
@@ -44,3 +45,12 @@ alias gcwip="git add -A && git commit -m WIP --no-verify"
 
 # github issues alias
 alias myghi="ghi list --mine"
+
+# Docker aliases
+alias dcpl="docker compose pull"
+alias dcd="docker compose down"
+alias dcu="DOCKER_GATEWAY_HOST=172.17.0.1 docker compose up"
+alias dcpu="docker compose pull && docker compose up"
+
+# alias neovim to vim
+alias vim="nvim"

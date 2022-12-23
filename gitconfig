@@ -3,6 +3,8 @@
 [user]
 	name = Tomas Pustelnik
 	email = 10606260+Pustelto@users.noreply.github.com
+	signingkey = 0C34D74CEBE5BC88
+	gpgsign = true
 [core]
 	excludesfile = ~/.gitignore
   autocrlf = input
@@ -21,8 +23,18 @@
   showUntrackedFiles = all
 [commit]
   template = ~/.git-commit-template
+	gpgsign = true
+#
+# define command which will be used when "nvim" is set as a merge tool
+[mergetool "nvim"]
+  ; cmd = nvim -d -f -c \"Gdiffsplit!\" \"$LOCAL\" \"$MERGED\" \"$REMOTE\"
+  cmd = "nvim -d -c \"wincmd l\" -c \"norm ]c\" \"$LOCAL\" \"$MERGED\" \"$REMOTE\""
+[mergetool]
+  promt = false
+  backup = false
 [merge]
-	conflictstyle = diff3
+	conflictStyle = diff3
+	tool = nvim
 	ff = false - always create merge comit even when fast-forwarded
 	# ff = only - allow only fast-forward merges
 [pull]
