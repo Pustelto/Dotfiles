@@ -18,19 +18,28 @@ On mac you have to install gnu-sed and use it instead of default mac sed.
    - `.zsh_history`, `.fzf.zsh`, `.z`
 5. Backup my files (move to other disk, **DO NOT COMMIT THOSE**)
    - wifi networks - `/Library/Preferences/com.apple.wifi.known-networks.plist`
-   - Raycast scripts
+     - may be synced automatically
+   - Raycast settings
+   - fonts (mainly pathched MonoLisa with Nerd fonts)
    - other files (documents, photos etc.)
 
 ## Restore process
 
 1. Signin with Apple ID in Preferences
 2. Signin with Apple ID in App Store
-3. Clone or download `Dotfiles` repo to `$HOME` dir
+3. Download `Dotfiles` repo and move it to `$HOME` dir.
 4. Run setup.sh script (may need to change file permissions in order to run it)
 5. Go to Tmux and hit Prefix + i to load the plugins
+6. Firefix settinsg are not synced completely - update search engines
+   - set Duckduckgo to default, add alias for Google and Youtube.
 
 ## To-Do
 
+- NEPUSHNUTÉ EXPERIMENTÁLNÍ-BRANCHE - pushnout a pak smazat
+- přesunout taby ve firefoxu na druhý počítač
+- link to github repo and push updated stuff
+
+- npm backup trims down `@` from namespace which will cause errors during install.
 - update iterm with tmux session name and disable tmux status bar https://github.com/daneah/iterm-components
 - glg/glgg not working for small list (less wont activate pagination)
 - [ ] better formatted scripts output
@@ -40,5 +49,3 @@ On mac you have to install gnu-sed and use it instead of default mac sed.
   - cron?
 - [ ] script to do complete backup/restore
 - [ ] move paths in scripts to export file/separate config instead of hardcoding it
-
-### macOS

@@ -9,5 +9,4 @@ ignore = [
   '.git',
   '.gitignore',
   'code',
-  'iterm',
   ]
