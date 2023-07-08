@@ -15,6 +15,7 @@ alias -g ......='../../../../..'
 
 # My personal aliases
 alias nodeclr="rm -rf ./node_modules && yarn"
+alias rmnm="rm -rf ./node_modules"
 alias tmux="tmux -2"
 alias ll="ls -lhFG"
 alias la="ls -lahFG"
@@ -50,7 +51,7 @@ alias myghi="ghi list --mine"
 alias dcpl="docker compose pull"
 alias dcd="docker compose down"
 alias dcu="DOCKER_GATEWAY_HOST=172.17.0.1 docker compose up"
-alias dcpu="docker compose pull && docker compose up"
+alias dcpu="DOCKER_GATEWAY_HOST=172.17.0.1 docker compose pull && docker compose up"
 
 # alias neovim to vim
 alias vim="nvim"
