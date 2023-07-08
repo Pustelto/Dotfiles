@@ -10,7 +10,6 @@ telescope.setup({
 	defaults = {
 		prompt_prefix = "> ",
 		selection_caret = "> ",
-		preview = false,
 		initial_mode = "insert",
 		path_display = { truncate = 3 },
 		file_ignore_patterns = { "node_modules", ".git", ".DS_Store", "dist", "yarn.lock", "_build" },
