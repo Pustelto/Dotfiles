@@ -62,11 +62,11 @@ let s:line_numbers = { 'gui': '#546F7D', 'cterm': 145 }
 let s:line_highlight = { 'gui': '#1a2327', 'cterm': 235 }
 let s:white = { 'gui': '#ffffff', 'cterm': 231 }
 let s:black = { 'gui': '#000000', 'cterm': 232 }
-let s:red = { 'gui': '#ff5370', 'cterm': 203 }
+let s:red = { 'gui': '#f77c91', 'cterm': 203 }
 let s:orange = { 'gui': '#f78c6c', 'cterm': 209 }
 let s:yellow = { 'gui': '#ffcb6b', 'cterm': 11 }
 let s:green = { 'gui': '#c3e88d', 'cterm': 2 } " 186 –– almost perfect match
-let s:cyan = { 'gui': '#89ddff', 'cterm': 117 }
+let s:cyan = { 'gui': '#73d0e2', 'cterm': 117 }
 let s:blue = { 'gui': '#82aaff', 'cterm': 111 }
 let s:paleblue = { 'gui': '#b2ccd6', 'cterm': 152 }
 let s:purple = { 'gui': '#c792ea', 'cterm': 176 }
@@ -195,9 +195,10 @@ call s:SetHighlight('TabLineFill', s:fg, s:selection, '')
 call s:SetHighlight('TabLineSel', s:bg, s:cyan, '')
 call s:SetHighlight('Title', s:green, '', '')
 call s:SetHighlight('VertSplit', s:comments, '', '')
-call s:SetHighlight('Visual', s:fg, s:selection, '')
+call s:SetHighlight('Visual', s:fg, s:guides, '')
 call s:SetHighlight('WarningMsg', s:red, '', '')
 call s:SetHighlight('WildMenu', s:bg, s:cyan, '')
+call s:SetHighlight('WinBar', s:paleblue, '', '')
 
 " Syntax
 call s:SetHighlight('Comment', s:comments, '', 'italic')
@@ -588,3 +589,37 @@ call s:SetHighlight('TSTagAttribute', s:purple, '', '')
 call s:SetHighlight('TSType', s:yellow, '', '')
 call s:SetHighlight('TSVariable', s:fg, '', '')
 call s:SetHighlight('TSVariableBuiltin', s:fg, '', '')
+
+" Treesitter - new syntax
+if has('nvim') && (version >= 800)
+  call s:SetHighlight("@boolean", s:orange, '', '')
+  call s:SetHighlight("@conditional", s:cyan, '', '')
+  call s:SetHighlight("@constant", s:fg, '', '')
+  call s:SetHighlight("@constructor", s:yellow, '', '')
+  call s:SetHighlight("@keyword", s:cyan, '', '')
+  call s:SetHighlight("@keyword.operator", s:cyan, '', '')
+  call s:SetHighlight('@include', s:cyan, '', 'italic')
+  call s:SetHighlight("@label", s:pink, '', '')
+  call s:SetHighlight("@operator", s:purple, '', '')
+  call s:SetHighlight("@parameter", s:fg, '', '')
+  call s:SetHighlight("@property", s:fg, '', '')
+  call s:SetHighlight("@punctuation.bracket", s:cyan, '', '')
+  call s:SetHighlight("@punctuation.delimiter", s:cyan, '', '')
+  call s:SetHighlight("@punctuation.special", s:cyan, '', '')
+  call s:SetHighlight("@symbol", s:orange, '', '')
+  call s:SetHighlight("@tag", s:pink, '', '')
+  call s:SetHighlight("@tag.attribute", s:purple, '', '')
+  call s:SetHighlight("@tag.delimiter", s:cyan, '', '')
+  call s:SetHighlight("@type", s:yellow, '', '')
+  call s:SetHighlight("@variable", s:fg, '', '')
+  call s:SetHighlight("@variable.builtin", s:red, '', '')
+  call s:SetHighlight("@identifier", s:purple, '', '')
+endif
+
+" Diagnostics
+call s:SetHighlight("DiagnosticUnnecessary",s:paleblue, "","")
+
+" Illuminate highlight
+call s:SetHighlight("IlluminatedWordText", "", s:guides, "")
+call s:SetHighlight("IlluminatedWordRead", "", s:guides, "")
+call s:SetHighlight("IlluminatedWordWrite", "", s:guides, "")
