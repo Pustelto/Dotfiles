@@ -93,7 +93,16 @@ export TERM=xterm-256color
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# Basic settings
 export FZF_DEFAULT_OPTS='--height=100% --border'
+# Color scheme
+export FZF_DEFAULT_OPTS='--color=bg+:#293739,bg:#1B1D1E,border:#808080,spinner:#E6DB74,hl:#7E8E91,fg:#F8F8F2,header:#7E8E91,info:#A6E22E,pointer:#A6E22E,marker:#F92672,fg+:#F8F8F2,prompt:#F92672,hl+:#F92672 '$FZF_DEFAULT_OPTS
+export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix --hidden --follow -E node_modules -E .git'
+
+# Command for auto completitions for other commands (eg. vim **)
+_fzf_compgen_path() {
+  fd --type f --hidden --follow --no-ignore --exclude ".git" --exclude "node_modules" . "$1"
+}
 
 # Bat config
 # export BAT_THEME="Monokai Extended"
