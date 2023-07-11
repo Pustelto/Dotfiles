@@ -31,4 +31,5 @@ require "user.ctrlxa"
 -- require "user.alpha"
 -- require "user.whichkey"
 -- require "user.autocommands"
+require "user.neotest"
 EOF

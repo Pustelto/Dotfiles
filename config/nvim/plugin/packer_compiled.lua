@@ -145,6 +145,16 @@ _G.packer_plugins = {
     path = "/Users/Tomas.Pustelnik/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
+  neotest = {
+    loaded = true,
+    path = "/Users/Tomas.Pustelnik/.local/share/nvim/site/pack/packer/start/neotest",
+    url = "https://github.com/nvim-neotest/neotest"
+  },
+  ["neotest-jest"] = {
+    loaded = true,
+    path = "/Users/Tomas.Pustelnik/.local/share/nvim/site/pack/packer/start/neotest-jest",
+    url = "https://github.com/guivazcabral/neotest-jest"
+  },
   ["null-ls.nvim"] = {
     loaded = true,
     path = "/Users/Tomas.Pustelnik/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
@@ -265,6 +275,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/Tomas.Pustelnik/.local/share/nvim/site/pack/packer/start/vim-surround",
     url = "https://github.com/tpope/vim-surround"
+  },
+  ["which-key.nvim"] = {
+    loaded = true,
+    path = "/Users/Tomas.Pustelnik/.local/share/nvim/site/pack/packer/start/which-key.nvim",
+    url = "https://github.com/folke/which-key.nvim"
   }
 }
 
