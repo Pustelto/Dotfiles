@@ -16,7 +16,6 @@ require "user.cmp"
 require "user.lsp"
 
 -- Utility plugins
--- require "user.goyo"
 require "user.autopairs"
 require "user.comment"
 require "user.gitsigns"
