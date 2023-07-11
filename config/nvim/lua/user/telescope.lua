@@ -138,14 +138,3 @@ telescope.setup({
 })
 
 telescope.load_extension("fzf")
-
-local opts = { noremap = true, silent = true }
-
-vim.keymap.set("n", "<leader>f", ":Telescope git_files<CR>", opts)
-vim.keymap.set("n", "<leader>z", ":Telescope find_files<CR>", opts)
-vim.keymap.set("n", "<leader>t", ":Telescope buffers<CR>", opts)
-vim.keymap.set("n", "<leader>u", ":Telescope projects<CR>", opts)
-vim.keymap.set("n", "<leader>e", ":Telescope live_grep<CR>", opts)
-vim.keymap.set("n", "<leader>n", ":Telescope diagnostics<CR>", opts)
-vim.keymap.set("n", "<leader>d", ":Telescope lsp_document_symbols<CR>", opts)
-vim.keymap.set("n", "<leader>gb", ":Telescope git_branches<CR>", opts)

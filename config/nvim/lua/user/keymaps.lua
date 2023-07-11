@@ -36,6 +36,7 @@ keymap("v", "<leader>d", '"_d', opts)
 -- Better buffers navigation:
 -- Close buffer without closing split
 keymap("n", "<C-c>", "<cmd>bp|bd #<CR>", opts)
+keymap("n", "<leader><leader>", "<cmd>b#<CR>", opts)
 
 -- Resize with arrows
 -- keymap("n", "<C-Up>", ":resize -2<CR>", opts)
