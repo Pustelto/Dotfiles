@@ -11,6 +11,11 @@ if not config_status_ok then
 	return
 end
 
+local api_status_ok, api = pcall(require, "nvim-tree.api")
+if not api_status_ok then
+	return
+end
+
 local tree_cb = nvim_tree_config.nvim_tree_callback
 
 nvim_tree.setup({
@@ -75,3 +80,7 @@ nvim_tree.setup({
 		require_confirm = true,
 	},
 })
+
+api.events.subscribe(api.events.Event.FileCreated, function(file)
+	vim.cmd("edit " .. file.fname)
+end)
