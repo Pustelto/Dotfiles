@@ -241,7 +241,7 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
   ["todo-comments.nvim"] = {
-    config = { "\27LJ\2\n”\1\0\0\5\0\14\0\0176\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\5\0005\4\4\0=\4\6\0035\4\a\0=\4\b\0035\4\t\0=\4\n\3=\3\v\0025\3\f\0=\3\r\2B\0\2\1K\0\1\0\14highlight\1\0\2\fkeyword\abg\nafter\afg\vcolors\tinfo\1\2\0\0\f#89ddff\fwarning\1\2\0\0\f#ffcb6b\nerror\1\0\0\1\2\0\0\f#F7454B\1\0\1\nsigns\1\nsetup\18todo-comments\frequire\0" },
+    config = { "\27LJ\2\n”\1\0\0\5\0\14\0\0176\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\5\0005\4\4\0=\4\6\0035\4\a\0=\4\b\0035\4\t\0=\4\n\3=\3\v\0025\3\f\0=\3\r\2B\0\2\1K\0\1\0\14highlight\1\0\2\nafter\afg\fkeyword\abg\vcolors\tinfo\1\2\0\0\f#89ddff\fwarning\1\2\0\0\f#ffcb6b\nerror\1\0\0\1\2\0\0\f#F7454B\1\0\1\nsigns\1\nsetup\18todo-comments\frequire\0" },
     loaded = true,
     path = "/Users/Tomas.Pustelnik/.local/share/nvim/site/pack/packer/start/todo-comments.nvim",
     url = "https://github.com/folke/todo-comments.nvim"
@@ -284,14 +284,14 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: todo-comments.nvim
+time([[Config for todo-comments.nvim]], true)
+try_loadstring("\27LJ\2\n”\1\0\0\5\0\14\0\0176\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\5\0005\4\4\0=\4\6\0035\4\a\0=\4\b\0035\4\t\0=\4\n\3=\3\v\0025\3\f\0=\3\r\2B\0\2\1K\0\1\0\14highlight\1\0\2\nafter\afg\fkeyword\abg\vcolors\tinfo\1\2\0\0\f#89ddff\fwarning\1\2\0\0\f#ffcb6b\nerror\1\0\0\1\2\0\0\f#F7454B\1\0\1\nsigns\1\nsetup\18todo-comments\frequire\0", "config", "todo-comments.nvim")
+time([[Config for todo-comments.nvim]], false)
 -- Config for: LuaSnip
 time([[Config for LuaSnip]], true)
 try_loadstring("\27LJ\2\n-\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\18user.snippets\frequire\0", "config", "LuaSnip")
 time([[Config for LuaSnip]], false)
--- Config for: todo-comments.nvim
-time([[Config for todo-comments.nvim]], true)
-try_loadstring("\27LJ\2\n”\1\0\0\5\0\14\0\0176\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\5\0005\4\4\0=\4\6\0035\4\a\0=\4\b\0035\4\t\0=\4\n\3=\3\v\0025\3\f\0=\3\r\2B\0\2\1K\0\1\0\14highlight\1\0\2\fkeyword\abg\nafter\afg\vcolors\tinfo\1\2\0\0\f#89ddff\fwarning\1\2\0\0\f#ffcb6b\nerror\1\0\0\1\2\0\0\f#F7454B\1\0\1\nsigns\1\nsetup\18todo-comments\frequire\0", "config", "todo-comments.nvim")
-time([[Config for todo-comments.nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

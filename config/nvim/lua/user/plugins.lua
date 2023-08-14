@@ -139,7 +139,6 @@ return packer.startup(function(use)
 			"nvim-lua/plenary.nvim",
 			"nvim-treesitter/nvim-treesitter",
 			-- Test adapters
-			-- "haydenmeade/neotest-jest",
 			"guivazcabral/neotest-jest",
 		},
 	})
