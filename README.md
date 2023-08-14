@@ -18,28 +18,31 @@ On mac you have to install gnu-sed and use it instead of default mac sed.
    - `.zsh_history`, `.fzf.zsh`, `.z`
 5. Backup my files (move to other disk, **DO NOT COMMIT THOSE**)
    - wifi networks - `/Library/Preferences/com.apple.wifi.known-networks.plist`
-     - may be synced automatically
-   - Raycast settings
-   - fonts (mainly pathched MonoLisa with Nerd fonts)
+   - Raycast settings (export option) and scripts (copy folder).
+   - bookmarks (Chrome)
    - other files (documents, photos etc.)
+   - GPG keys (if used)
 
 ## Restore process
 
 1. Signin with Apple ID in Preferences
 2. Signin with Apple ID in App Store
-3. Download `Dotfiles` repo and move it to `$HOME` dir.
+3. Clone or download `Dotfiles` repo to `$HOME` dir
 4. Run setup.sh script (may need to change file permissions in order to run it)
-5. Go to Tmux and hit Prefix + i to load the plugins
-6. Firefix settinsg are not synced completely - update search engines
-   - set Duckduckgo to default, add alias for Google and Youtube.
+5. Go to Tmux and hit Prefix + I to load the plugins
+6. Import Raycast settings.
+7. Import bookmars, add extensions to Chrome (dev/work related, without sync)
+8. Copy files from backup drive.
+9. Set proper version of python
+10. Check fzf is setup correctly
 
 ## To-Do
 
-- NEPUSHNUTÉ EXPERIMENTÁLNÍ-BRANCHE - pushnout a pak smazat
-- přesunout taby ve firefoxu na druhý počítač
-- link to github repo and push updated stuff
+- fix theme (console.log, colors)
 
-- npm backup trims down `@` from namespace which will cause errors during install.
+  - install and use TS playground plugin - :TSHighlight group under cursor
+  - red and cyan slightly more dimmed
+
 - update iterm with tmux session name and disable tmux status bar https://github.com/daneah/iterm-components
 - glg/glgg not working for small list (less wont activate pagination)
 - [ ] better formatted scripts output
@@ -49,3 +52,14 @@ On mac you have to install gnu-sed and use it instead of default mac sed.
   - cron?
 - [ ] script to do complete backup/restore
 - [ ] move paths in scripts to export file/separate config instead of hardcoding it
+
+### macOS
+
+## ata
+
+- vpn profile: https://www.notion.so/ataccama/Connecting-to-a-VPN-on-Windows-and-macOS-3d2298c7b9d447699caa0b48e575e0c0
+- link license
+- clone repos
+- import GPG keys
+- mail signature and login
+- Set proper version of java (if valid check path)

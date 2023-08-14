@@ -3,7 +3,7 @@
 [user]
 	name = Tomas Pustelnik
 	email = 10606260+Pustelto@users.noreply.github.com
-	signingkey = 0C34D74CEBE5BC88
+	signingkey = D59B3ACEF44543BF
 	gpgsign = true
 [core]
 	excludesfile = ~/.gitignore
