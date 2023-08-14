@@ -36,16 +36,16 @@ local setup = {
 		scroll_up = "<c-u>", -- binding to scroll up inside the popup
 	},
 	window = {
-		border = "single", -- none, single, double, shadow
+		border = "none", -- none, single, double, shadow
 		position = "bottom", -- bottom, top
 		margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
 		padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
 		winblend = 0,
 	},
 	layout = {
-		height = { min = 4, max = 25 }, -- min and max height of the columns
-		width = { min = 20, max = 50 }, -- min and max width of the columns
-		spacing = 3, -- spacing between columns
+		height = { min = 5, max = 25 }, -- min and max height of the columns
+		width = { min = 30, max = 50 }, -- min and max width of the columns
+		spacing = 10, -- spacing between columns
 		align = "left", -- align columns left, center or right
 	},
 	ignore_missing = true, -- enable this to hide mappings for which you didn't specify a label
@@ -72,14 +72,6 @@ local opts = {
 }
 
 local mappings = {
-	-- ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
-	-- ["b"] = {
-	-- 	"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-	-- 	"Buffers",
-	-- },
-	-- ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
-	-- ["w"] = { "<cmd>w!<CR>", "Save" },
-	-- ["q"] = { "<cmd>q!<CR>", "Quit" },
 	-- ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
 	-- ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
 	-- ["f"] = {
@@ -96,29 +88,6 @@ local mappings = {
 	-- 	s = { "<cmd>PackerSync<cr>", "Sync" },
 	-- 	S = { "<cmd>PackerStatus<cr>", "Status" },
 	-- 	u = { "<cmd>PackerUpdate<cr>", "Update" },
-	-- },
-	--
-	-- g = {
-	-- 	name = "Git",
-	-- 	g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
-	-- 	j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
-	-- 	k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
-	-- 	l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
-	-- 	p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
-	-- 	r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
-	-- 	R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
-	-- 	s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
-	-- 	u = {
-	-- 		"<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
-	-- 		"Undo Stage Hunk",
-	-- 	},
-	-- 	o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
-	-- 	b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-	-- 	c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
-	-- 	d = {
-	-- 		"<cmd>Gitsigns diffthis HEAD<cr>",
-	-- 		"Diff",
-	-- 	},
 	-- },
 	--
 	-- l = {
@@ -154,7 +123,6 @@ local mappings = {
 	-- },
 	-- s = {
 	-- 	name = "Search",
-	-- 	b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
 	-- 	c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
 	-- 	h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
 	-- 	M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
@@ -164,6 +132,35 @@ local mappings = {
 	-- 	C = { "<cmd>Telescope commands<cr>", "Commands" },
 	-- },
 	--
+	--
+	--
+	--
+	--
+
+	g = {
+		name = "Git",
+		b = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
+		l = { "<cmd>lua require 'gitsigns'.toggle_current_line_blame()<cr>", "Toggle line git blame" },
+		j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Go to next hunk" },
+		k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Go to prev hunk" },
+		p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview hunk" },
+		r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
+		R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
+		a = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
+		A = { "<cmd>lua require 'gitsigns'.stage_buffer()<cr>", "Stage file" },
+		u = {
+			"<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
+			"Undo Stage Hunk",
+		},
+		s = { "<cmd>Telescope git_status<cr>", "Git status..." },
+		["co"] = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
+		["cc"] = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
+		d = {
+			"<cmd>Gitsigns diffthis HEAD<cr>",
+			"Diff",
+		},
+	},
+
 	t = {
 		name = "Tests",
 		r = { "<cmd>lua require('neotest').run.run()<CR>", "Run nearest test" },
@@ -185,7 +182,6 @@ vim.keymap.set("n", "<leader>u", ":Telescope buffers<CR>", legacy_opts)
 vim.keymap.set("n", "<leader>e", ":Telescope live_grep<CR>", legacy_opts)
 vim.keymap.set("n", "<leader>n", ":Telescope diagnostics<CR>", legacy_opts)
 vim.keymap.set("n", "<leader>d", ":Telescope lsp_document_symbols<CR>", legacy_opts)
-vim.keymap.set("n", "<leader>gb", ":Telescope git_branches<CR>", legacy_opts)
 
 which_key.setup(setup)
 which_key.register(mappings, opts)
