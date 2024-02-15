@@ -77,14 +77,18 @@ return packer.startup(function(use)
 		end,
 	})
 
+	use("github/copilot.vim")
+
 	use("kyazdani42/nvim-tree.lua")
 	use("nvim-lualine/lualine.nvim")
 	use("ahmedkhalf/project.nvim")
 	use("lukas-reineke/indent-blankline.nvim")
+	use("echasnovski/mini.indentscope")
 	use("mattn/emmet-vim")
 	use("Konfekt/vim-CtrlXA")
 	--  use "goolord/alpha-nvim"
 	use("folke/which-key.nvim")
+	use("norcalli/nvim-colorizer.lua")
 
 	-- Colorschemes
 	-- use("kaicataldo/material.vim")

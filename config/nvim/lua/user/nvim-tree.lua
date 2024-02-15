@@ -1,13 +1,5 @@
--- following options are the default
--- each of these are documented in `:help nvim-tree.OPTION_NAME`
-
 local status_ok, nvim_tree = pcall(require, "nvim-tree")
 if not status_ok then
-	return
-end
-
-local config_status_ok, nvim_tree_config = pcall(require, "nvim-tree.config")
-if not config_status_ok then
 	return
 end
 
@@ -16,18 +8,39 @@ if not api_status_ok then
 	return
 end
 
-local tree_cb = nvim_tree_config.nvim_tree_callback
+local function my_on_attach(bufnr)
+	local function opts(desc)
+		return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+	end
+
+	-- default mappings
+	api.config.mappings.default_on_attach(bufnr)
+
+	-- custom mappings
+	vim.keymap.set("n", "<C-t>", api.tree.change_root_to_parent, opts("Up"))
+	vim.keymap.set("n", "?", api.tree.toggle_help, opts("Help"))
+	vim.keymap.set("n", "l", api.node.open.edit, opts("Open"))
+	vim.keymap.set("n", "h", api.node.navigate.parent_close, opts("Close"))
+end
 
 nvim_tree.setup({
+	renderer = {
+		root_folder_label = false,
+	},
+	on_attach = my_on_attach,
 	sync_root_with_cwd = true,
 	respect_buf_cwd = true,
 	disable_netrw = true,
 	hijack_netrw = true,
-	open_on_setup = false,
-	ignore_ft_on_setup = {
-		"startify",
-		"dashboard",
-		"alpha",
+	actions = {
+		open_file = {
+			window_picker = {
+				exclude = {
+					filetype = { "notify", "packer", "qf", "diff", "fugitive", "fugitiveblame", "alpha" },
+					buftype = { "nofile", "terminal", "help" },
+				},
+			},
+		},
 	},
 	open_on_tab = false,
 	hijack_cursor = false,
@@ -61,17 +74,16 @@ nvim_tree.setup({
 		timeout = 500,
 	},
 	view = {
-		width = 60,
-		hide_root_folder = false,
+		width = 45,
 		side = "left",
-		mappings = {
-			custom_only = false,
-			list = {
-				{ key = { "l", "<CR>", "o" }, cb = tree_cb("edit") },
-				{ key = "h", cb = tree_cb("close_node") },
-				{ key = "v", cb = tree_cb("vsplit") },
-			},
-		},
+		-- mappings = {
+		-- 	custom_only = false,
+		-- 	list = {
+		-- 		{ key = { "l", "<CR>", "o" }, cb = tree_cb("edit") },
+		-- 		{ key = "h", cb = tree_cb("close_node") },
+		-- 		{ key = "v", cb = tree_cb("vsplit") },
+		-- 	},
+		-- },
 		number = false,
 		relativenumber = false,
 	},

@@ -11,4 +11,6 @@ vim.g.CtrlXA_Toggles = {
 	{ "set", "unset" },
 	{ "||", "&&" },
 	{ "!==", "===" },
+	{ "undefined", "null" },
+	{ "const", "let" },
 }

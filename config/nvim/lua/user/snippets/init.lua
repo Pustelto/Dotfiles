@@ -47,6 +47,28 @@ ls.add_snippets(nil, {
 			text(")"),
 			insert(0),
 		}),
+		snip({
+			trig = "italic",
+			namr = "markdown_italic",
+			dscr = "Make selected text italic",
+		}, {
+			text("*"),
+			func(function(_, snip)
+				return snip.env.TM_SELECTED_TEXT[1] or {}
+			end, {}),
+			text("*"),
+		}),
+		snip({
+			trig = "bold",
+			namr = "markdown_bold",
+			dscr = "Make selected text bold",
+		}, {
+			text("**"),
+			func(function(_, snip)
+				return snip.env.TM_SELECTED_TEXT[1] or {}
+			end, {}),
+			text("**"),
+		}),
 	},
 	javascript = {
 		snip({
@@ -84,6 +106,18 @@ ls.add_snippets(nil, {
 			text({ "", "}," }),
 			insert(2, "delay"),
 			text(");"),
+			insert(0),
+		}),
+		snip({ trig = "jit", name = "Jest it block" }, {
+			text("it((${1}) => {"),
+			insert(2, "\t${2:// Test code}"),
+			text("});"),
+			insert(0),
+		}),
+		snip({ trig = "jdesc", name = "Jest describe block" }, {
+			text("describe((${1}) => {"),
+			insert(2, "\t${2:// Test code}"),
+			text("});"),
 			insert(0),
 		}),
 	},
@@ -128,6 +162,9 @@ ls.add_snippets(nil, {
 			text(" {"),
 			insert(2),
 			text("}"),
+		}),
+		snip({ trig = "@tsi", namr = "ts-ignore" }, {
+			text("//@ts-ignore"),
 		}),
 	},
 })

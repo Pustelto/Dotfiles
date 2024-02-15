@@ -15,6 +15,9 @@ require "user.cmp"
 -- Language server
 require "user.lsp"
 
+-- Github Copilot
+require "user.copilot"
+
 -- Utility plugins
 require "user.autopairs"
 require "user.comment"
@@ -27,6 +30,7 @@ require "user.impatient"
 require "user.indentline"
 require "user.emmet"
 require "user.ctrlxa"
+require "user.colorizer"
 -- require "user.alpha"
 require "user.whichkey"
 -- require "user.autocommands"

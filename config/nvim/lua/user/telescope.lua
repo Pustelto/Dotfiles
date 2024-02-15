@@ -12,7 +12,7 @@ telescope.setup({
 		selection_caret = "> ",
 		initial_mode = "insert",
 		path_display = { truncate = 3 },
-		file_ignore_patterns = { "node_modules", ".git", ".DS_Store", "dist", "yarn.lock", "_build" },
+		file_ignore_patterns = { "node_modules", ".git", ".DS_Store", "dist", "yarn.lock", "_build", "coverage" },
 		--[[ theme = "dropdown", ]]
 		layout_strategy = "vertical",
 		layout_config = {
@@ -28,7 +28,7 @@ telescope.setup({
 			},
 		},
 		cache_picker = {
-			num_pickers = 5,
+			num_pickers = 10,
 		},
 		preview = {
 			filesize_limit = 2,

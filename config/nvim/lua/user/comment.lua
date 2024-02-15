@@ -3,6 +3,11 @@ if not status_ok then
 	return
 end
 
+local commentstring_ok, commentstring = pcall(require, "ts_context_commentstring")
+if not commentstring_ok then
+	return
+end
+
 comment.setup({
 	toggler = {
 		---Line-comment toggle keymap
@@ -32,4 +37,8 @@ comment.setup({
 	--[[     location = location, ]]
 	--[[   } ]]
 	--[[ end, ]]
+})
+
+commentstring.setup({
+	enable_autocmd = false,
 })

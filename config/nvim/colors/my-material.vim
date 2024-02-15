@@ -1,5 +1,5 @@
 " Vim Color File
-" Name: material.vim
+" Name: my-material.vim
 " Maintainer: https://github.com/kaicataldo/material.vim
 " License: The MIT License (MIT)
 
@@ -156,7 +156,7 @@ let g:material_colorscheme_map.violet = s:violet
 " === Highlights ===
 
 " Vim Editor
-call s:SetHighlight('ColorColumn', '', s:invisibles, '')
+call s:SetHighlight('ColorColumn', '', s:guides, '')
 call s:SetHighlight('Cursor', s:bg, s:caret, '')
 call s:SetHighlight('CursorColumn', '', s:line_highlight, '')
 call s:SetHighlight('CursorLine', '', s:line_highlight, '')
@@ -440,6 +440,9 @@ call s:SetHighlight('texMath', s:orange, '', '')
 call s:SetHighlight('texMathOper', s:yellow, '', '')
 
 " Markdown
+call s:SetHighlight('strong_emphasis', s:pink, '', 'bold')
+call s:SetHighlight('emphasis', s:pink, '', 'italic')
+
 if g:material_theme_style !~ '-community$'
   call s:SetHighlight('markdownBold', s:pink, '', 'bold')
   call s:SetHighlight('markdownBoldDelimiter', s:cyan, '', '')
@@ -614,6 +617,35 @@ if has('nvim') && (version >= 800)
   call s:SetHighlight("@variable", s:fg, '', '')
   call s:SetHighlight("@variable.builtin", s:red, '', '')
   call s:SetHighlight("@identifier", s:purple, '', '')
+
+  "Markup group
+  call s:SetHighlight("@markup.heading", s:green, '', '')
+  call s:SetHighlight("@markup.list", s:cyan, '', '')
+  call s:SetHighlight("@markup.raw", s:paleblue, '', '')
+  call s:SetHighlight("@markup.link", s:cyan, '', '')
+  call s:SetHighlight("@markup.link.label", s:green, '', '')
+  call s:SetHighlight("@markup.link.url", s:blue, '', '')
+  call s:SetHighlight("@markup.strong", s:blue, '', '')
+  " Markdown
+  call s:SetHighlight("@markup.heading.1.marker.markdown", s:red, '', '')
+  call s:SetHighlight("@markup.heading.2.marker.markdown", s:red, '', '')
+  call s:SetHighlight("@markup.heading.3.marker.markdown", s:red, '', '')
+  call s:SetHighlight("@markup.heading.4.marker.markdown", s:red, '', '')
+  call s:SetHighlight("@markup.heading.5.marker.markdown", s:red, '', '')
+  call s:SetHighlight("@markup.heading.6.marker.markdown", s:red, '', '')
+  call s:SetHighlight("@markup.heading.1.markdown", s:green, '', '')
+  call s:SetHighlight("@markup.heading.2.markdown", s:green, '', '')
+  call s:SetHighlight("@markup.heading.3.markdown", s:green, '', '')
+  call s:SetHighlight("@markup.heading.4.markdown", s:green, '', '')
+  call s:SetHighlight("@markup.heading.5.markdown", s:green, '', '')
+  call s:SetHighlight("@markup.heading.6.markdown", s:green, '', '')
+  call s:SetHighlight("@markup.list.markdown", s:cyan, '', '')
+  call s:SetHighlight("@markup.raw", s:paleblue, '', '')
+  call s:SetHighlight("@markup.link.markdown_inline", s:cyan, '', '')
+  call s:SetHighlight("@markup.link.label.markdown_inline", s:yellow, '', '')
+  call s:SetHighlight("@markup.link.url.markdown_inline", s:paleblue, '', '')
+  call s:SetHighlight("@markup.strong.markdown_inline", s:pink, '', '')
+  call s:SetHighlight("@markup.italic.markdown_inline", s:pink, '', 'italic')
 endif
 
 " Diagnostics
@@ -623,3 +655,16 @@ call s:SetHighlight("DiagnosticUnnecessary",s:paleblue, "","")
 call s:SetHighlight("IlluminatedWordText", "", s:guides, "")
 call s:SetHighlight("IlluminatedWordRead", "", s:guides, "")
 call s:SetHighlight("IlluminatedWordWrite", "", s:guides, "")
+
+" mini.indentscope
+call s:SetHighlight("MiniIndentscopeSymbol", s:paleblue, "", "")
+
+" DevIcons
+" let s:react = { 'gui': '#20c2e3', 'cterm': 45 }
+call s:SetHighlight("DevIconTs", s:cyan, "", "")
+call s:SetHighlight("DevIconSpecTs", s:cyan, "", "")
+call s:SetHighlight("DevIconTestTs", s:cyan, "", "")
+call s:SetHighlight("DevIconTsx", s:cyan, "", "")
+call s:SetHighlight("DevIconJavaScriptcyan", s:cyan, "", "")
+call s:SetHighlight("DevIconTypeScriptcyan", s:cyan, "", "")
+call s:SetHighlight("DevIconJsx", s:cyan, "", "")

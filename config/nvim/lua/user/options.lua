@@ -11,7 +11,7 @@ local options = {
 	hlsearch = true, -- highlight all matches on previous search pattern
 	incsearch = true,
 	ignorecase = true, -- ignore case in search patterns
-	nuw = 7,
+	numberwidth = 7,
 	shiftwidth = 2, -- the number of spaces inserted for each indentation
 	tabstop = 2, -- insert 2 spaces for a tab
 	signcolumn = "yes", -- always show the sign column, otherwise it would shift the text each time
@@ -19,10 +19,14 @@ local options = {
 	smartcase = true,
 	smarttab = true,
 	ruler = true,
-	re = 0,
+	re = 0, -- regexp engine, 0 - standard VIM, 1 - PCRE (Perl)
 	undofile = true,
-	textwidth = 100,
+	textwidth = 120,
+	-- columns = 100,
 	colorcolumn = "+1",
+	-- wrap = true,
+	-- colorcolumn = "",
+	linebreak = true,
 	cursorline = true, -- highlight the current line
 	-- splitbelow = false, -- force all horizontal splits to go below current window
 	-- splitright = false, -- force all vertical splits to go to the right of current window
@@ -31,13 +35,26 @@ local options = {
 	updatetime = 500, -- faster completion (4000ms default)
 	swapfile = false,
 	winbar = "         %f %m", --show file name and path at the top of buffer together with modify mark, spaces at the front are here to align it with the gutter
+	mouse = "a", -- enable mouse support
+	foldmethod = "syntax", -- config for automatic folds
+	foldlevelstart = 99, -- start with all folds open
+	foldcolumn = "auto", -- show fold column
 }
 
 for k, v in pairs(options) do
 	vim.opt[k] = v
 end
 
-vim.opt.formatoptions = "tcroqnlj"
+vim.opt.formatoptions = {
+	t = true,
+	c = true,
+	r = true,
+	o = true,
+	q = true,
+	n = true,
+	l = true,
+	j = true,
+}
 
 vim.cmd("filetype plugin on")
 vim.cmd("syntax enable")
@@ -49,5 +66,7 @@ vim.cmd([[
 	set colorcolumn=+1
 	autocmd FileType gitcommit set colorcolumn+=51
 ]])
--- vim.cmd "set whichwrap+=<,>,[,],h,l"
--- vim.cmd [[set iskeyword+=-]]
+
+-- Disable netrw (becuase of NvimTree)
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
