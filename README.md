@@ -57,7 +57,6 @@ On mac you have to install gnu-sed and use it instead of default mac sed.
 
 ## ata
 
-- vpn profile: https://www.notion.so/ataccama/Connecting-to-a-VPN-on-Windows-and-macOS-3d2298c7b9d447699caa0b48e575e0c0
 - link license
 - clone repos
 - import GPG keys
