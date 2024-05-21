@@ -104,6 +104,9 @@ _fzf_compgen_path() {
   fd --type f --hidden --follow --no-ignore --exclude ".git" --exclude "node_modules" . "$1"
 }
 
+# ripgrep config file
+RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
+
 # Bat config
 # export BAT_THEME="Monokai Extended"
 # export BAT_PAGER=less
