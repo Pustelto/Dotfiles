@@ -91,6 +91,7 @@ return packer.startup(function(use)
 	use("norcalli/nvim-colorizer.lua")
 
 	-- Colorschemes
+	-- use("marko-cerovac/material.nvim")
 	-- use("kaicataldo/material.vim")
 	-- use("hzchirs/vim-material")
 
@@ -114,7 +115,9 @@ return packer.startup(function(use)
 	-- LSP
 	use("neovim/nvim-lspconfig") -- enable LSP
 	use("williamboman/nvim-lsp-installer") -- simple to use language server installer
+	-- FIXME: plugin no longer maintained
 	use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
+	-- FIXME: plugin no longer maintained - https://github.com/pmizio/typescript-tools.nvim seems like possible alternative
 	use("jose-elias-alvarez/typescript.nvim")
 	use({ "j-hui/fidget.nvim", tag = "legacy" }) -- UI for status of LSP server
 
@@ -132,9 +135,25 @@ return packer.startup(function(use)
 	})
 	use("nvim-treesitter/nvim-treesitter-textobjects")
 
+	-- Generate JSDocs and friends
+	use({
+		"kkoomen/vim-doge",
+		run = ":call doge#install()",
+	})
+
 	-- Git
 	use("lewis6991/gitsigns.nvim")
 	use("tpope/vim-fugitive")
+
+	-- Debugging
+	use("mfussenegger/nvim-dap")
+	use("theHamsta/nvim-dap-virtual-text")
+	use({
+		"rcarriga/nvim-dap-ui",
+		requires = {
+			"mfussenegger/nvim-dap",
+		},
+	})
 
 	-- Testings
 	use({

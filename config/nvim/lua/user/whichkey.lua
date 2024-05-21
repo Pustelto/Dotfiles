@@ -172,6 +172,25 @@ local mappings = {
 		["[e"] = { "<cmd>lua require('neotest').jump.prev({ status = 'failed' })<CR>", "Jump to prev failed" },
 		["]e"] = { "<cmd>lua require('neotest').jump.next({ status = 'failed' })<CR>", "Jump to next failed" },
 	},
+
+	d = {
+		name = "Debugging",
+		c = { "<Cmd>lua require'dap'.continue()<CR>", "Continue" },
+		o = { "<Cmd>lua require'dap'.step_over()<CR>", "Step over" },
+		i = { "<Cmd>lua require'dap'.step_into()<CR>", "Step into" },
+		t = { "<Cmd>lua require'dap'.step_out()<CR>", "Step out" },
+		b = { "<Cmd>lua require'dap'.toggle_breakpoint()<CR>", "Toggle breakpoint" },
+		q = {
+			"<Cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>",
+			"Set breakpoint with condition",
+		},
+		l = {
+			"<Cmd>lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>",
+			"Set log message breakpoint",
+		},
+		p = { "<Cmd>lua require'dap'.repl.open()<CR>", "REPL open" },
+		r = { "<Cmd>lua require'dap'.run_last()<CR>", "Run last" },
+	},
 }
 
 local legacy_opts = { noremap = true, silent = true }
@@ -181,7 +200,7 @@ vim.keymap.set("n", "<leader>u", ":Telescope buffers<CR>", legacy_opts)
 -- vim.keymap.set("n", "<leader>u", ":Telescope projects<CR>", legacy_opts)
 vim.keymap.set("n", "<leader>e", ":Telescope live_grep<CR>", legacy_opts)
 vim.keymap.set("n", "<leader>n", ":Telescope diagnostics<CR>", legacy_opts)
-vim.keymap.set("n", "<leader>d", ":Telescope lsp_document_symbols<CR>", legacy_opts)
+-- vim.keymap.set("n", "<leader>d", ":Telescope lsp_document_symbols<CR>", legacy_opts)
 
 which_key.setup(setup)
 which_key.register(mappings, opts)

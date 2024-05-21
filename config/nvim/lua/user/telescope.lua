@@ -12,7 +12,7 @@ telescope.setup({
 		selection_caret = "> ",
 		initial_mode = "insert",
 		path_display = { truncate = 3 },
-		file_ignore_patterns = { "node_modules", ".git", ".DS_Store", "dist", "yarn.lock", "_build", "coverage" },
+		-- file_ignore_patterns = { "node_modules", ".git", ".DS_Store", "dist", "yarn.lock", "_build", "coverage" },
 		--[[ theme = "dropdown", ]]
 		layout_strategy = "vertical",
 		layout_config = {
@@ -20,7 +20,7 @@ telescope.setup({
 				height = 0.9,
 				preview_cutoff = 20,
 				prompt_position = "bottom",
-				width = 0.6,
+				width = 0.8,
 			},
 			center = {
 				height = 0.7,
@@ -86,6 +86,7 @@ telescope.setup({
 
 			n = {
 				["<esc>"] = actions.close,
+				["<C-c>"] = actions.close,
 				["<CR>"] = actions.select_default,
 				["<C-x>"] = actions.select_horizontal,
 				["<C-v>"] = actions.select_vertical,
@@ -119,10 +120,8 @@ telescope.setup({
 	},
 	pickers = {
 		find_files = {
-			--[[ hidden = true, ]]
-			--[[ no_ignore = true, ]]
-			previewer = false,
-			find_command = { "fd", "--type", "f", "-H", "-I" },
+			previewer = true,
+			find_command = { "fd", "--type", "f", "-H" },
 		},
 		git_files = {},
 	},

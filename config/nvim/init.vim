@@ -34,5 +34,7 @@ require "user.colorizer"
 -- require "user.alpha"
 require "user.whichkey"
 -- require "user.autocommands"
+require "user.dap"
 require "user.neotest"
+require "user.doge"
 EOF

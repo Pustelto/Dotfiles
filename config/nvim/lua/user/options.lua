@@ -1,3 +1,5 @@
+local numWidth = 6
+
 local options = {
 	termguicolors = true, -- set term gui colors (most terminals support this)
 	number = true, -- set numbered lines
@@ -6,14 +8,15 @@ local options = {
 	fileencoding = "utf-8", -- the encoding written to a file
 	inccommand = "split",
 	backup = false, -- creates a backup file
+	swapfile = false,
 	clipboard = "unnamedplus", -- allows neovim to access the system clipboard
 	showmatch = true,
 	hlsearch = true, -- highlight all matches on previous search pattern
 	incsearch = true,
 	ignorecase = true, -- ignore case in search patterns
-	numberwidth = 7,
 	shiftwidth = 2, -- the number of spaces inserted for each indentation
 	tabstop = 2, -- insert 2 spaces for a tab
+	numberwidth = numWidth,
 	signcolumn = "yes", -- always show the sign column, otherwise it would shift the text each time
 	smartindent = true,
 	smartcase = true,
@@ -21,24 +24,23 @@ local options = {
 	ruler = true,
 	re = 0, -- regexp engine, 0 - standard VIM, 1 - PCRE (Perl)
 	undofile = true,
-	textwidth = 120,
+	-- textwidth = 120,
 	-- columns = 100,
-	colorcolumn = "+1",
+	colorcolumn = "",
 	-- wrap = true,
-	-- colorcolumn = "",
 	linebreak = true,
 	cursorline = true, -- highlight the current line
 	-- splitbelow = false, -- force all horizontal splits to go below current window
 	-- splitright = false, -- force all vertical splits to go to the right of current window
 	expandtab = true, -- convert tabs to spaces
 	scrolloff = 8, -- is one of my fav
-	updatetime = 500, -- faster completion (4000ms default)
-	swapfile = false,
-	winbar = "         %f %m", --show file name and path at the top of buffer together with modify mark, spaces at the front are here to align it with the gutter
+	updatetime = 600, -- faster completion (4000ms default)
+	winbar = "        %f %m", --show file name and path at the top of buffer together with modify mark, spaces at the front are here to align it with the gutter
 	mouse = "a", -- enable mouse support
 	foldmethod = "syntax", -- config for automatic folds
 	foldlevelstart = 99, -- start with all folds open
 	foldcolumn = "auto", -- show fold column
+	showmode = false, -- don't show mode
 }
 
 for k, v in pairs(options) do

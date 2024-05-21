@@ -8,7 +8,7 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 vim.g.null_ls_formatters_enabled = true
 
 null_ls.setup({
-	debug = true,
+	debug = false,
 	diagnostics_format = "#{m} [#{c}]",
 	sources = {
 		null_ls.builtins.formatting.prettier.with({ prefer_local = "node_modules/.bin" }),
