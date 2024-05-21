@@ -14,7 +14,6 @@ alias -g .....='../../../..'
 alias -g ......='../../../../..'
 
 # My personal aliases
-alias nodeclr="rm -rf ./node_modules && yarn"
 alias rmnm="rm -rf ./node_modules"
 alias tmux="tmux -2"
 alias ll="ls -lhFG"
@@ -28,8 +27,6 @@ alias xt="x"
 alias backup="~/Dotfiles/setup_scripts/npm_backup.sh && ~/Dotfiles/setup_scripts/brew_backup.sh && ~/Dotfiles/setup_scripts/code_backup.sh && ~/Dotfiles/setup_scripts/cargo_backup.sh"
 alias npmu="npx npm-check -u"
 alias npmug="npx npm-check -gu"
-alias npmi="rm -rf node_modules && npm i"
-alias npms="npm start"
 
 # my git aliases
 alias gpfl="git push --force-with-lease"
@@ -43,6 +40,7 @@ alias gbls='git branch -v'
 alias glg="git log --color --pretty=format:' %C(yellow)%h%Creset %s %C(bold green)<%an>%Creset %C(blue dim)%cD%Creset'"
 alias glgg="git log --graph --color --pretty=format:' %C(yellow)%h%Creset %s %C(bold green)<%an>%Creset %C(blue dim)%cD%Creset'"
 alias gcwip="git add -A && git commit -m WIP --no-verify"
+
 
 # github issues alias
 alias myghi="ghi list --mine"
