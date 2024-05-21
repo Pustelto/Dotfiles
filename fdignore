@@ -1,0 +1,6 @@
+coverage/
+dist/
+.git/
+
+# Ata specific
+!config.js
