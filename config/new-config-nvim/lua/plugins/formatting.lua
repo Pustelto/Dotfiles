@@ -4,7 +4,7 @@ return {
 		event = { "BufWritePre" },
 		config = function()
 			local conform = require("conform")
-			local prettier_fmts = { { "prettierd", "prettier" } }
+			local prettier_fmts = { "prettierd", "prettier", stop_after_first = true, quiet = true }
 
 			conform.setup({
 				formatters_by_ft = {
@@ -30,7 +30,8 @@ return {
 					end
 					return { timeout_ms = 500, lsp_fallback = true }
 				end,
-				notify_on_error = true,
+				notify_on_error = false,
+				notify_no_formatters = true,
 			})
 
 			-- TODO: change keybinding

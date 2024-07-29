@@ -5,13 +5,10 @@ return {
 			"williamboman/mason.nvim",
 			-- TODO: Try nvim-notify instead
 			{ "j-hui/fidget.nvim", opts = {} },
-
-			-- `neodev` configures Lua LSP for your Neovim config, runtime and plugins
-			-- used for completion, annotations and signatures of Neovim apis
-			{ "folke/neodev.nvim", opts = {} },
 			"hrsh7th/nvim-cmp",
 			"hrsh7th/cmp-nvim-lsp",
 			"jose-elias-alvarez/typescript.nvim",
+			"b0o/schemastore.nvim",
 		},
 		opts = {
 			-- Enable this to enable the builtin LSP inlay hints on Neovim >= 0.10.0
@@ -280,6 +277,22 @@ return {
 								completion = {
 									callSnippet = "Replace",
 								},
+							},
+						},
+					})
+				end,
+				["jsonls"] = function()
+					lspconfig["jsonls"].setup({
+						capabilities = capabilities,
+						settings = {
+							json = {
+								schemas = require("schemastore").json.schemas({
+									-- select = {
+									-- 	"Renovate",
+									-- 	"GitHub Workflow Template Properties",
+									-- },
+								}),
+								validate = { enable = true },
 							},
 						},
 					})

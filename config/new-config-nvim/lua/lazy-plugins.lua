@@ -8,7 +8,6 @@
 --  To update plugins you can run
 --    :Lazy update
 --
--- NOTE: Here is where you install your plugins.
 -- TODO: I can use require("lazy").setup("plugins") to install all plugins in the plugins directory
 -- migrate all config to files
 require("lazy").setup({
@@ -24,6 +23,7 @@ require("lazy").setup({
 	require("plugins/ctrlxa"),
 	require("plugins/which-key"),
 	require("plugins/oil"),
+	require("plugins/treesitter"),
 
 	-- UI related plugins
 	require("plugins/indentline"), -- show indent lines and highlight curent indent level
@@ -45,8 +45,9 @@ require("lazy").setup({
 	require("plugins/lsp"),
 	require("plugins/linting"),
 	require("plugins/formatting"),
-
-	require("plugins/treesitter"),
+	require("plugins/debugging"),
+	-- better TS errors
+	{ "dmmulroy/ts-error-translator.nvim", opts = {} },
 
 	require("plugins/copilot"),
 

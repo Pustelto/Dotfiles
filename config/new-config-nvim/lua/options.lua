@@ -2,7 +2,7 @@
 -- See `:help vim.opt`
 -- For more options, you can see `:help option-list`
 
-local numWidth = 6
+local numWidth = 5
 
 local options = {
 	-- set term gui colors (most terminals support this)
@@ -77,8 +77,9 @@ local options = {
 
 	-- splitbelow = false, -- force all horizontal splits to go below current window
 	-- splitright = false, -- force all vertical splits to go to the right of current window
-
-	foldmethod = "syntax", -- config for automatic folds
+	-- foldmethod = "expr",
+	-- foldexpr = "nvim_treesitter#foldexpr()",
+	-- foldmethod = "syntax", -- config for automatic folds
 	foldlevelstart = 99, -- start with all folds open
 	foldcolumn = "auto", -- show fold column
 

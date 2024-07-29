@@ -17,6 +17,9 @@ return {
 					return vim.fn.executable("make") == 1
 				end,
 			},
+			{
+				"nvim-telescope/telescope-live-grep-args.nvim",
+			},
 			-- TODO: what this do?
 			-- { 'nvim-telescope/telescope-ui-select.nvim' },
 
@@ -24,6 +27,7 @@ return {
 			{ "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
 		},
 		config = function()
+			local lga_actions = require("telescope-live-grep-args.actions")
 			require("telescope").setup({
 				defaults = {
 					prompt_prefix = "󰅂 ",
@@ -48,6 +52,19 @@ return {
 						find_command = { "fd", "--type", "f", "-H" },
 					},
 				},
+				extensions = {
+					live_grep_args = {
+						auto_quoting = true, -- enable/disable auto-quoting
+						mappings = { -- extend mappings
+							i = {
+								["<C-k>"] = lga_actions.quote_prompt(),
+								-- ["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
+								-- freeze the current list and start a fuzzy search in the frozen list
+								-- ["<C-space>"] = actions.to_fuzzy_refine,
+							},
+						},
+					},
+				},
 				-- extensions = {
 				-- 	["ui-select"] = {
 				-- 		require("telescope.themes").get_dropdown(),
@@ -57,6 +74,7 @@ return {
 
 			-- Enable Telescope extensions if they are installed
 			pcall(require("telescope").load_extension, "fzf")
+			pcall(require("telescope").load_extension, "live_grep_args")
 			-- pcall(require("telescope").load_extension, "ui-select")
 
 			-- See `:help telescope.builtin`
@@ -66,15 +84,21 @@ return {
 				builtin.buffers({ sort_mru = true, sort_lastused = false })
 			end, { desc = "Find existing b[U]ffers" })
 			vim.keymap.set("n", "<leader>f", builtin.find_files, { desc = "[S]earch [F]iles" })
-			vim.keymap.set("n", "<leader>e", builtin.live_grep, { desc = "[S]earch by [G]rep" })
+			vim.keymap.set(
+				"n",
+				"<leader>e",
+				require("telescope").extensions.live_grep_args.live_grep_args,
+				{ desc = "[S]earch by [G]rep" }
+			)
 
 			-- Slightly advanced example of overriding default behavior and theme
 			vim.keymap.set("n", "<leader>/", function()
 				-- You can pass additional configuration to Telescope to change the theme, layout, etc.
-				builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
-					winblend = 10,
-					previewer = false,
-				}))
+				-- builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
+				-- 	winblend = 10,
+				-- 	previewer = false,
+				-- }))
+				builtin.current_buffer_fuzzy_find()
 			end, { desc = "[/] Fuzzily search in current buffer" })
 
 			-- Shortcut for searching your Neovim configuration files

@@ -1,7 +1,7 @@
 return {
 	{
 		"folke/which-key.nvim",
-		event = "VimEnter", -- Sets the loading event to 'VimEnter'
+		event = "VeryLazy", -- Sets the loading event to 'VimEnter'
 		config = function() -- This is the function that runs, AFTER loading
 			require("which-key").setup({
 				plugins = {
@@ -21,16 +21,12 @@ return {
 					separator = "➜", -- symbol used between a key and it's label
 					group = "+", -- symbol prepended to a group
 				},
-				popup_mappings = {
-					scroll_down = "<c-d>", -- binding to scroll down inside the popup
-					scroll_up = "<c-u>", -- binding to scroll up inside the popup
-				},
-				window = {
+				win = {
 					border = "none", -- none, single, double, shadow
-					position = "bottom", -- bottom, top
-					margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
-					padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
-					winblend = 0,
+					padding = { 2, 2 }, -- extra window padding [top, right, bottom, left]
+					wo = {
+						winblend = 0,
+					},
 				},
 				layout = {
 					height = { min = 5, max = 25 }, -- min and max height of the columns
@@ -38,14 +34,18 @@ return {
 					spacing = 10, -- spacing between columns
 					align = "left", -- align columns left, center or right
 				},
-				ignore_missing = true, -- enable this to hide mappings for which you didn't specify a label
-				hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " }, -- hide mapping boilerplate
-				show_help = true, -- show help message on the command line when the popup is visible
-				triggers = "auto", -- automatically setup triggers, use `triggers = {"<leader>"}` to specify list manually
-				triggers_blacklist = {
-					i = { "j", "k" },
-					v = { "j", "k" },
+				filter = function(mapping)
+					-- example to exclude mappings without a description
+					-- return mapping.desc and mapping.desc ~= ""
+					return true
+				end,
+				triggers = {
+					{ "<auto>", mode = "no" },
+					{ "<leader>", mode = { "n", "v" } },
 				},
+				delay = 400,
+				show_help = true, -- show help message on the command line when the popup is visible
+				notify = true,
 			})
 
 			-- Document existing key chains
@@ -62,70 +62,80 @@ return {
 
 			local builtin = require("telescope.builtin")
 
-			require("which-key").register({
-				["<leader>g"] = {
-					name = "[G]it",
-					b = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
-					l = { "<cmd>lua require 'gitsigns'.toggle_current_line_blame()<cr>", "Toggle line git blame" },
-					j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Go to next hunk" },
-					k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Go to prev hunk" },
-					p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview hunk" },
-					r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
-					R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
-					a = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
-					A = { "<cmd>lua require 'gitsigns'.stage_buffer()<cr>", "Stage file" },
-					u = {
-						"<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
-						"Undo Stage Hunk",
+			require("which-key").add({
+				{
+					{
+						"<leader>?",
+						function()
+							require("which-key").show({ global = false })
+						end,
+						desc = "Buffer Local Keymaps (which-key)",
 					},
-					s = { "<cmd>vert G<cr>", "Git status..." },
-					d = {
-						"<cmd>Gitsigns diffthis HEAD<cr>",
-						"Diff",
+					--
+					-- GIT GROUP
+					{ "<leader>g", group = "[G]it" },
+					{ "<leader>gA", "<cmd>lua require 'gitsigns'.stage_buffer()<cr>", desc = "Stage file" },
+					{ "<leader>gR", "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", desc = "Reset Buffer" },
+					{ "<leader>ga", "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", desc = "Stage Hunk" },
+					{ "<leader>gb", "<cmd>lua require 'gitsigns'.blame_line()<cr>", desc = "Blame" },
+					{ "<leader>gd", "<cmd>Gitsigns diffthis HEAD<cr>", desc = "Diff" },
+					{ "<leader>gj", "<cmd>lua require 'gitsigns'.next_hunk()<cr>", desc = "Go to next hunk" },
+					{ "<leader>gk", "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", desc = "Go to prev hunk" },
+					{
+						"<leader>gl",
+						"<cmd>lua require 'gitsigns'.toggle_current_line_blame()<cr>",
+						desc = "Toggle line git blame",
 					},
-				},
-				["<leader>t"] = {
-					name = "[T]ests",
-					r = { "<cmd>lua require('neotest').run.run()<CR>", "Run nearest test" },
-					d = { "<cmd>lua require('neotest').run.run({strategy = 'dap'})<CR>", "Debug test" },
-					f = { "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<CR>", "Run all tests in file" },
-					s = { "<cmd>lua require('neotest').summary.toggle()<CR>", "Toggle test summary" },
-					o = { "<cmd>lua require('neotest').output.open({enter = true})<CR>", "Open test output" },
-					w = { "<cmd>lua require('neotest').watch.toggle(vim.fn.expand('%'))<CR>", "Watch file" },
-					["[e"] = {
-						"<cmd>lua require('neotest').jump.prev({ status = 'failed' })<CR>",
-						"Jump to prev failed",
-					},
-					["]e"] = {
-						"<cmd>lua require('neotest').jump.next({ status = 'failed' })<CR>",
-						"Jump to next failed",
-					},
-				},
-				["<leader>w"] = {
-					name = "Toggle",
-					f = { "<cmd>FormatToggle<CR>", "Toggle file formatting" },
-				},
-				["<leader>s"] = {
-					name = "[S]earch",
-					h = { builtin.help_tags, "[S]earch [H]elp" },
-					o = {
+					{ "<leader>gp", "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", desc = "Preview hunk" },
+					{ "<leader>gr", "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", desc = "Reset Hunk" },
+					{ "<leader>gs", "<cmd>vert G<cr>", desc = "Git status..." },
+					{ "<leader>gu", "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>", desc = "Undo Stage Hunk" },
+					--
+					-- SEACH GROUP
+					{ "<leader>s", group = "[S]earch" },
+					{ "<leader>sc", builtin.colorscheme, desc = "[S]earch [C]olorscheme" },
+					{ "<leader>sd", builtin.diagnostics, desc = "[S]earch [D]iagnostics" },
+					{ "<leader>sh", builtin.help_tags, desc = "[S]earch [H]elp" },
+					{ "<leader>sm", builtin.commands, desc = "[S]earch Co[M]mands" },
+					{
+						"<leader>so",
 						function()
 							builtin.oldfiles({ cwd_only = true })
 						end,
-						"[S]earch [O]ldfiles",
+						desc = "[S]earch [O]ldfiles",
 					},
-					c = { builtin.colorscheme, "[S]earch [C]olorscheme" },
-					d = { builtin.diagnostics, "[S]earch [D]iagnostics" },
-					m = { builtin.commands, "[S]earch Co[M]mands" },
+					--
+					-- TEST GROUP
+					-- { "<leader>t", group = "[T]ests" },
+					-- { "<leader>t[e", "<cmd>lua require('neotest').jump.prev({ status = 'failed' })<CR>", desc = "Jump to prev failed", },
+					-- { "<leader>t]e", "<cmd>lua require('neotest').jump.next({ status = 'failed' })<CR>", desc = "Jump to next failed", },
+					-- { "<leader>td", "<cmd>lua require('neotest').run.run({strategy = 'dap'})<CR>", desc = "Debug test", },
+					-- { "<leader>tf", "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<CR>", desc = "Run all tests in file", },
+					-- { "<leader>to", "<cmd>lua require('neotest').output.open({enter = true})<CR>", desc = "Open test output", },
+					-- { "<leader>tr", "<cmd>lua require('neotest').run.run()<CR>", desc = "Run nearest test" },
+					-- { "<leader>ts", "<cmd>lua require('neotest').summary.toggle()<CR>", desc = "Toggle test summary" },
+					-- { "<leader>tw", "<cmd>lua require('neotest').watch.toggle(vim.fn.expand('%'))<CR>", desc = "Watch file", },
+
+					--
+					-- TOGGLE SETTINGS GROUP
+					{ "<leader>w", group = "Toggle" },
+					{ "<leader>wf", "<cmd>FormatToggle<CR>", desc = "Toggle file formatting" },
+					{ "<leader>wt", "<cmd>TSContextToggle<CR>", desc = "Toggle tree-sitter scope con[T]ext" },
 				},
-				-- TODO: setup DAP first
-				-- d = {
-				-- 	name = "Debugging",
-				-- 	c = { "<Cmd>lua require'dap'.continue()<CR>", "Continue" },
-				-- 	o = { "<Cmd>lua require'dap'.step_over()<CR>", "Step over" },
-				-- 	i = { "<Cmd>lua require'dap'.step_into()<CR>", "Step into" },
-				-- 	t = { "<Cmd>lua require'dap'.step_out()<CR>", "Step out" },
-				-- 	b = { "<Cmd>lua require'dap'.toggle_breakpoint()<CR>", "Toggle breakpoint" },
+				--
+				-- BUFFER SETTINGS GROUP
+				-- { "<leader>b", group = "Toggle" },
+				-- { "<leader>bd", "<cmd>FormatToggle<CR>", desc = "Show document diagnostincs" },
+				-- { "<leader>wt", "<cmd>TSContextToggle<CR>", desc = "Show document symbols" },
+				--
+				-- DEBUGGING GROUP
+				{ "<leader>d", group = "[D]ebugging" },
+				{ "<leader>db", "<Cmd>lua require'dap'.toggle_breakpoint()<CR>", desc = "Toggle breakpoint" },
+				{ "<leader>dc", "<Cmd>lua require'dap'.continue()<CR>", desc = "Continue" },
+				{ "<leader>do", "<Cmd>lua require'dap'.step_over()<CR>", desc = "Step over" },
+				{ "<leader>di", "<Cmd>lua require'dap'.step_into()<CR>", desc = "Step into" },
+				{ "<leader>dt", "<Cmd>lua require'dap'.step_out()<CR>", desc = "Step out" },
+				--
 				-- 	q = {
 				-- 		"<Cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>",
 				-- 		"Set breakpoint with condition",
@@ -136,7 +146,6 @@ return {
 				-- 	},
 				-- 	p = { "<Cmd>lua require'dap'.repl.open()<CR>", "REPL open" },
 				-- 	r = { "<Cmd>lua require'dap'.run_last()<CR>", "Run last" },
-				-- },
 			}, opts)
 		end,
 	},
