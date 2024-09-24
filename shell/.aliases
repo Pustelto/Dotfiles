@@ -54,6 +54,5 @@ alias dcpu="DOCKER_GATEWAY_HOST=172.17.0.1 docker compose pull && docker compose
 
 # alias neovim to vim
 alias vim="nvim"
-alias nnv="NVIM_APPNAME='new-config-nvim' nvim"
 
 alias lg="lazygit"

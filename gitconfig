@@ -3,7 +3,7 @@
 [user]
 	name = Tomas Pustelnik
 	email = 10606260+Pustelto@users.noreply.github.com
-	signingkey = D59B3ACEF44543BF
+	signingkey = /Users/Tomas.Pustelnik/.ssh/ata_gitlab.pub
 	gpgsign = true
 [core]
 	excludesfile = ~/.gitignore
@@ -41,3 +41,5 @@
 	ff = only
 [github]
 	user = pustelto
+[gpg]
+	format = ssh
