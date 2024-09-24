@@ -7,19 +7,23 @@ return {
 		"folke/tokyonight.nvim",
 		priority = 1000, -- Make sure to load this before all the other start plugins.
 		init = function()
-			-- Load the colorscheme here.
-			-- Like many other themes, this one has different styles, and you could load
-			-- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
+			-- # Tokyonight
 			vim.cmd.colorscheme("tokyonight-storm")
-			-- vim.cmd.colorscheme("zellner")
-
-			-- You can configure highlights by doing something like:
 			vim.cmd.hi("Comment gui=none")
 			vim.api.nvim_set_hl(
 				0,
 				"DiagnosticDeprecated",
 				{ strikethrough = true, fg = "#a0a0a0", cterm = { strikethrough = true } }
 			)
+			--
+			-- # Material
+			-- vim.cmd.colorscheme("material")
+			--
+			-- # Zellner - light for projector
+			-- vim.cmd.colorscheme("zellner")
+
+			-- Custom color scheme
+			-- vim.cmd.colorscheme("moonrakers")
 		end,
 	},
 }

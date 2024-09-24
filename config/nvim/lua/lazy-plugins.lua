@@ -13,17 +13,41 @@
 require("lazy").setup({
 	-- library used by other plugins
 	{ "nvim-lua/plenary.nvim", lazy = true },
+	-- better types when editing config files in lua
+	{
+		"folke/lazydev.nvim",
+		ft = "lua", -- only load on lua files
+		opts = {
+			library = {
+				{ path = "luvit-meta/library", words = { "vim%.uv" } },
+				plugins = { "nvim-dap-ui", "nvim-treesitter", "plenary.nvim", "telescope.nvim" },
+			},
+		},
+	},
 
 	-- Colorschemes
+	-- { "marko-cerovac/material.nvim", lazy = true },
+	-- {
+	-- 	dir = "~/Documents/WebDev/moonrakers-theme",
+	-- 	name = "moonrakers",
+	-- 	-- lazy = true,
+	-- 	priority = 1000,
+	-- 	opts = {},
+	-- 	config = function()
+	-- 		vim.cmd.colorscheme("moonrakers")
+	-- 	end,
+	-- },
 	require("plugins/colorscheme"),
 
 	-- Utility plugins
 	"tpope/vim-surround", -- auto surround for brackets and quotes
+	"tpope/vim-repeat",
 	{ "windwp/nvim-autopairs", opts = {} }, -- automatically add closing brackets and quotes
 	require("plugins/ctrlxa"),
 	require("plugins/which-key"),
 	require("plugins/oil"),
 	require("plugins/treesitter"),
+	require("plugins/colorizer"),
 
 	-- UI related plugins
 	require("plugins/indentline"), -- show indent lines and highlight curent indent level
@@ -38,6 +62,7 @@ require("lazy").setup({
 
 	-- Git related plugins
 	require("plugins/gitsigns"),
+	require("plugins/lazygit"),
 	require("plugins/fugitive"),
 
 	-- LSP related plugins for IDE like capabilities
@@ -49,7 +74,9 @@ require("lazy").setup({
 	-- better TS errors
 	{ "dmmulroy/ts-error-translator.nvim", opts = {} },
 
+	-- Other plugins
 	require("plugins/copilot"),
+	require("plugins/nx"),
 
 	-- notify
 	-- Dashboard

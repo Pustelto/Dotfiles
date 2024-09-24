@@ -84,6 +84,18 @@ return {
 						type = "pwa-chrome",
 						name = "Launch Chrome to debug React on port 3000",
 						request = "launch",
+						url = "http://localhost:8023",
+						sourceMaps = true,
+						protocol = "inspector",
+						port = 9222,
+						webRoot = "${workspaceFolder}/src",
+						-- skip files from vite's hmr
+						skipFiles = { "**/node_modules/**/*", "**/@vite/*", "**/src/client/*", "**/src/*" },
+					},
+					{
+						type = "pwa-chrome",
+						name = "Launch Chrome to debug React on port 3000",
+						request = "launch",
 						url = "http://localhost:3000",
 						sourceMaps = true,
 						protocol = "inspector",
@@ -163,7 +175,7 @@ return {
 			end
 
 			require("dapui").setup()
-			require("nvim-dap-virtual-text").setup()
+			require("nvim-dap-virtual-text").setup({})
 
 			local dap, dapui = require("dap"), require("dapui")
 			dap.listeners.after.event_initialized["dapui_config"] = function()

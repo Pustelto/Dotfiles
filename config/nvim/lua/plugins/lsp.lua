@@ -50,6 +50,15 @@ return {
 				{ name = "DiagnosticSignInfo", text = "", priority = 40 },
 			}
 
+			local virtual_text = {
+				spacing = 2,
+				source = "if_many",
+				-- this will set set the prefix to a function that returns the diagnostics icon based on the severity
+				-- this only works on a recent 0.10.0 build. Will be set to "●" when not supported
+				-- prefix = "icons",
+				severity = vim.diagnostic.severity.ERROR,
+			}
+
 			for _, sign in ipairs(signs) do
 				vim.fn.sign_define(
 					sign.name,
@@ -61,14 +70,7 @@ return {
 				underline = true,
 				update_in_insert = false,
 				severity_sort = true,
-				virtual_text = {
-					spacing = 2,
-					source = "if_many",
-					-- this will set set the prefix to a function that returns the diagnostics icon based on the severity
-					-- this only works on a recent 0.10.0 build. Will be set to "●" when not supported
-					-- prefix = "icons",
-					severity = vim.diagnostic.severity.ERROR,
-				},
+				virtual_text = virtual_text,
 				float = {
 					focusable = true,
 					style = "minimal",
@@ -106,16 +108,12 @@ return {
 					--  the definition of its *type*, not where it was *defined*.
 					map("<leader>D", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
 
-					-- Fuzzy find all the symbols in your current document.
-					--  Symbols are things like variables, functions, types, etc.
-					map("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
-
 					-- Fuzzy find all the symbols in your current workspace.
 					--  Similar to document symbols, except searches over your entire project.
 					map(
-						"<leader>ws",
+						"<leader>ps",
 						require("telescope.builtin").lsp_dynamic_workspace_symbols,
-						"[W]orkspace [S]ymbols"
+						"Works[P]ace [S]ymbols"
 					)
 
 					-- Rename the variable under your cursor.
@@ -133,10 +131,6 @@ return {
 					-- WARN: This is not Goto Definition, this is Goto Declaration.
 					--  For example, in C this would take you to the header.
 					map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
-
-					-- taken from Josean-dev:
-					-- https://github.com/josean-dev/dev-environment-files/blob/main/.config/nvim/lua/josean/plugins/lsp/lspconfig.lua
-					map("<leader>dd", "<cmd>Telescope diagnostics bufnr=0<CR>", "Show buffer diagnostics") -- show  diagnostics for file
 
 					map("<leader>ld", vim.diagnostic.open_float, "Show line diagnostics") -- show diagnostics for line
 
@@ -187,10 +181,19 @@ return {
 					--
 					-- This may be unwanted, since they displace some of your code
 					if client and client.server_capabilities.inlayHintProvider and vim.lsp.inlay_hint then
-						map("<leader>th", function()
+						map("<leader>wl", function()
 							vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 						end, "[T]oggle Inlay [H]ints")
 					end
+
+					map("<leader>wx", function()
+						local current_state = vim.diagnostic.config().virtual_text
+						if current_state then
+							vim.diagnostic.config({ virtual_text = not current_state })
+						else
+							vim.diagnostic.config({ virtual_text = virtual_text })
+						end
+					end, "Toggle Virtual Te[X]t")
 				end,
 			})
 
@@ -209,7 +212,7 @@ return {
 						capabilities = capabilities,
 					})
 				end,
-				["tsserver"] = function()
+				["ts_ls"] = function()
 					-- configure typescript language server
 					require("typescript").setup({
 						disable_commands = false, -- prevent the plugin from creating Vim commands

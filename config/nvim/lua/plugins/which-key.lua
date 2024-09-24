@@ -74,6 +74,7 @@ return {
 					--
 					-- GIT GROUP
 					{ "<leader>g", group = "[G]it" },
+					{ "<leader>gs", "<cmd>LazyGit<cr>", desc = "LazyGit" },
 					{ "<leader>gA", "<cmd>lua require 'gitsigns'.stage_buffer()<cr>", desc = "Stage file" },
 					{ "<leader>gR", "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", desc = "Reset Buffer" },
 					{ "<leader>ga", "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", desc = "Stage Hunk" },
@@ -88,7 +89,6 @@ return {
 					},
 					{ "<leader>gp", "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", desc = "Preview hunk" },
 					{ "<leader>gr", "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", desc = "Reset Hunk" },
-					{ "<leader>gs", "<cmd>vert G<cr>", desc = "Git status..." },
 					{ "<leader>gu", "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>", desc = "Undo Stage Hunk" },
 					--
 					-- SEACH GROUP
@@ -119,33 +119,53 @@ return {
 					--
 					-- TOGGLE SETTINGS GROUP
 					{ "<leader>w", group = "Toggle" },
-					{ "<leader>wf", "<cmd>FormatToggle<CR>", desc = "Toggle file formatting" },
-					{ "<leader>wt", "<cmd>TSContextToggle<CR>", desc = "Toggle tree-sitter scope con[T]ext" },
+					{ "<leader>wf", "<cmd>FormatToggle<CR>", desc = "Toggle File Formatting on Save" },
+					{ "<leader>wt", "<cmd>TSContextToggle<CR>", desc = "Toggle Treesitter scope con[T]ext" },
+					-- { "<leader>wl", "", desc = "Toggle inlay hints", },                  -- Defined in lsp.lua
+					-- { "<leader>wx", "", desc = "Toggle diagnostic virtual text", },      -- Defined in lsp.lua
+					{
+						"<leader>wd",
+						function()
+							vim.diagnostic.enable(not vim.diagnostic.is_enabled())
+						end,
+						desc = "Toggle [D]iagnostics",
+					},
+					{
+						"<leader>wg",
+						function()
+							require("gitsigns").toggle_signs()
+						end,
+						desc = "Toggle [G]it Signs",
+					},
+					{ "<leader>wc", "<cmd>ColorizerToggle<CR>", desc = "Toggle color preview" },
+					-- { "<leader>wd", "<cmd>TSContextToggle<CR>", desc = "Toggle presentation mode" },
 				},
 				--
 				-- BUFFER SETTINGS GROUP
-				-- { "<leader>b", group = "Toggle" },
-				-- { "<leader>bd", "<cmd>FormatToggle<CR>", desc = "Show document diagnostincs" },
-				-- { "<leader>wt", "<cmd>TSContextToggle<CR>", desc = "Show document symbols" },
+				{ "<leader>b", group = "Buffer/Document" },
+				{ "<leader>bs", require("telescope.builtin").lsp_document_symbols, desc = "[D]ocument [S]ymbols" }, -- Fuzzy find all the symbols in your current document. Symbols are things like variables, functions, types, etc.
+				{ "<leader>bd", "<cmd>Telescope diagnostics bufnr=0<CR>", desc = "[B]uffer [D]iagnostics" },
+				{
+					"<leader>bf",
+					function()
+						require("conform").format({
+							lsp_fallback = true,
+							async = false,
+							timeout_ms = 500,
+						})
+					end,
+					desc = "[B]uffer [F]ormat (or range in V)",
+				},
+				-- { "<leader>bl", "<cmd>Telescope diagnostics bufnr=0<CR>", desc = "[B]uffer [L]int" },
 				--
 				-- DEBUGGING GROUP
 				{ "<leader>d", group = "[D]ebugging" },
 				{ "<leader>db", "<Cmd>lua require'dap'.toggle_breakpoint()<CR>", desc = "Toggle breakpoint" },
 				{ "<leader>dc", "<Cmd>lua require'dap'.continue()<CR>", desc = "Continue" },
-				{ "<leader>do", "<Cmd>lua require'dap'.step_over()<CR>", desc = "Step over" },
-				{ "<leader>di", "<Cmd>lua require'dap'.step_into()<CR>", desc = "Step into" },
-				{ "<leader>dt", "<Cmd>lua require'dap'.step_out()<CR>", desc = "Step out" },
-				--
-				-- 	q = {
-				-- 		"<Cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>",
-				-- 		"Set breakpoint with condition",
-				-- 	},
-				-- 	l = {
-				-- 		"<Cmd>lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>",
-				-- 		"Set log message breakpoint",
-				-- 	},
-				-- 	p = { "<Cmd>lua require'dap'.repl.open()<CR>", "REPL open" },
-				-- 	r = { "<Cmd>lua require'dap'.run_last()<CR>", "Run last" },
+				{ "C-8", "<Cmd>lua require'dap'.step_over()<CR>", group = "[D]ebugging", desc = "Step over" },
+				{ "C-9", "<Cmd>lua require'dap'.step_into()<CR>", group = "[D]ebugging", desc = "Step into" },
+				{ "C-7", "<Cmd>lua require'dap'.step_out()<CR>", group = "[D]ebugging", desc = "Step out" },
+				{ "<leader>dt", "<Cmd>lua require'dap'.terminate()<CR>", desc = "Terminate" },
 			}, opts)
 		end,
 	},

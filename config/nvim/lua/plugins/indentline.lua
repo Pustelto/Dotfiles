@@ -38,7 +38,7 @@ return {
 					return 0
 				end,
 			},
-			symbol = "▏",
+			symbol = "│",
 			options = { try_as_border = true },
 		},
 		init = function()
