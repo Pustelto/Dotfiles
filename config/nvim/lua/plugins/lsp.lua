@@ -7,7 +7,6 @@ return {
 			{ "j-hui/fidget.nvim", opts = {} },
 			"hrsh7th/nvim-cmp",
 			"hrsh7th/cmp-nvim-lsp",
-			"jose-elias-alvarez/typescript.nvim",
 			"b0o/schemastore.nvim",
 		},
 		opts = {
@@ -138,12 +137,38 @@ return {
 
 					map("]d", vim.diagnostic.goto_next, "Go to next diagnostic") -- jump to next diagnostic in buffer
 
-					map("<leader>ri", "<cmd>TypescriptRenameFile<CR>", "[R]ename f[I]le")
-					map("<leader>p", "<cmd>TypescriptAddMissingImports<CR>", "Add missing imports")
+					-- map("<leader>ri", "<cmd>TypescriptRenameFile<CR>", "[R]ename f[I]le")
+					map("<leader>p", function()
+						vim.lsp.buf.code_action({
+							apply = true,
+							context = {
+								only = { "source.addMissingImports.ts" },
+								diagnostics = {},
+							},
+						})
+					end, "Add missing imports")
 					map("<leader>o", function()
-						require("typescript").actions.removeUnused({ sync = true })
-						require("typescript").actions.organizeImports({ sync = true })
-						-- vim.lsp.buf.formatting_sync()
+						vim.lsp.buf.code_action({
+							apply = true,
+							context = {
+								only = { "source.organizeImports.ts" },
+								diagnostics = {},
+							},
+						})
+						vim.lsp.buf.code_action({
+							apply = true,
+							context = {
+								only = { "source.sortImports.ts" },
+								diagnostics = {},
+							},
+						})
+						vim.lsp.buf.code_action({
+							apply = true,
+							context = {
+								only = { "source.removeUnusedImports.ts" },
+								diagnostics = {},
+							},
+						})
 					end, "Organize imports")
 
 					-- The following two autocommands are used to highlight references of the
@@ -213,30 +238,22 @@ return {
 					})
 				end,
 				["ts_ls"] = function()
-					-- configure typescript language server
-					require("typescript").setup({
-						disable_commands = false, -- prevent the plugin from creating Vim commands
-						go_to_source_definition = {
-							fallback = true, -- fall back to standard LSP definition on failure
-						},
-						server = { -- pass options to lspconfig's setup method
-							init_options = {
-								preferences = {
-									importModuleSpecifierPreference = "project-relative",
-								},
+					lspconfig["ts_ls"].setup({
+						init_options = {
+							preferences = {
+								importModuleSpecifierPreference = "project-relative",
+								organizeImportsCollation = "ordinal",
 							},
-							root_dir = require("lspconfig.util").root_pattern(
-								".git",
-								"tsconfig.json",
-								"jsconfig.json",
-								"package.json"
-							),
-							capabilities = capabilities,
-							-- on_attach = ...,
 						},
+						root_dir = require("lspconfig.util").root_pattern(
+							".git",
+							"tsconfig.base.json",
+							"tsconfig.json",
+							"jsconfig.json",
+							"package.json"
+						),
+						capabilities = capabilities,
 					})
-					return true
-					-- lspconfig["tsserver"].setup(tsserver_config)
 				end,
 				["graphql"] = function()
 					-- configure graphql language server
