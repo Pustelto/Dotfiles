@@ -19,6 +19,7 @@
   followTags = true
 [rebase]
   autoSquash = true
+	updateRefs = true
 [status]
   showUntrackedFiles = all
 [commit]
