@@ -15,7 +15,8 @@ alias -g ......='../../../../..'
 
 # My personal aliases
 alias rmnm="rm -rf ./node_modules"
-alias tmux="tmux -2"
+# alias tmux="$TERM=screen-256color tmux"
+# alias tmux="tmux"
 alias ll="ls -lhFG"
 alias la="ls -lahFG"
 alias cdw="cd $WORK"
@@ -53,3 +54,5 @@ alias dcpu="DOCKER_GATEWAY_HOST=172.17.0.1 docker compose pull && docker compose
 
 # alias neovim to vim
 alias vim="nvim"
+
+alias lg="lazygit"

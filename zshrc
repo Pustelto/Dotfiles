@@ -6,12 +6,6 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 
-# allow custom path setup per device without commiting possibly sensitive data
-# (path_exports is not versioned)
-source ~/.path_exports
-
-export PATH=$CUSTOM_PATH$PATH
-
 # ENV AND PLUGINS
 # -------------------------------------
 
@@ -134,3 +128,16 @@ export PATH=/Users/tomas.pustelnik/.cargo/bin:$PATH
 # -------------------------------------
 source ~/Dotfiles/ataccama
 
+export PATH=$HOME/.docker/bin:$PATH
+
+# Created by `pipx` on 2024-09-10 14:13:01
+export PATH="$PATH:/Users/Tomas.Pustelnik/.local/bin"
+
+# allow custom path setup per device without commiting possibly sensitive data
+# (path_exports is not versioned)
+source ~/.path_exports
+
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
+
+export PATH=$CUSTOM_PATH$PATH

@@ -57,6 +57,8 @@ defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 # Set a blazingly fast keyboard repeat rate
 defaults write NSGlobalDomain KeyRepeat -int 2
 defaults write NSGlobalDomain InitialKeyRepeat -int 15
+# Disable auto-correct that will add `.` after two spaces
+defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false
 
 # Finder: keep hidden files hidden by default
 defaults write com.apple.Finder AppleShowAllFiles -bool false
