@@ -1,5 +1,4 @@
 wrangler
-@fsouza/prettierd
 corepack
 eslint_d
 fake-schema-cli
