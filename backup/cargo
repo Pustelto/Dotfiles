@@ -1,1 +1,14 @@
-stylua
+cargo
+cargo-clippy
+cargo-fmt
+cargo-miri
+clippy-driver
+rg
+rls
+rust-gdb
+rust-gdbgui
+rust-lldb
+rustc
+rustdoc
+rustfmt
+rustup

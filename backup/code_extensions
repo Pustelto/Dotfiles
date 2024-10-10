@@ -1,4 +1,4 @@
-alefragnani.Bookmarks
+alefragnani.bookmarks
 alefragnani.project-manager
 andrewleedham.vscode-css-modules
 apollographql.vscode-apollo
@@ -8,17 +8,15 @@ dawhite.mustache
 dbaeumer.vscode-eslint
 deerawan.vscode-faker
 eamodio.gitlens
-EditorConfig.EditorConfig
-eg2.vscode-npm-script
-Equinusocio.vsc-community-material-theme
-Equinusocio.vsc-material-theme
-equinusocio.vsc-material-theme-icons
+editorconfig.editorconfig
 eriklynd.json-tools
 esbenp.prettier-vscode
 fabiospampinato.vscode-highlight
 fabiospampinato.vscode-todo-plus
-GraphQL.vscode-graphql
-GraphQL.vscode-graphql-syntax
+github.copilot
+github.copilot-chat
+graphql.vscode-graphql
+graphql.vscode-graphql-syntax
 hoovercj.vscode-dimmer
 jkjustjoshing.vscode-text-pastry
 johnpapa.vscode-peacock
@@ -27,6 +25,7 @@ mike-co.import-sorter
 mrmlnc.vscode-json5
 mrmlnc.vscode-scss
 ms-azuretools.vscode-docker
+ms-python.debugpy
 ms-python.isort
 ms-python.python
 ms-python.vscode-pylance
@@ -35,12 +34,11 @@ ms-toolsai.jupyter-keymap
 ms-toolsai.jupyter-renderers
 ms-toolsai.vscode-jupyter-cell-tags
 ms-toolsai.vscode-jupyter-slideshow
-ms-vscode.node-debug2
-ms-vscode.vscode-typescript-tslint-plugin
 ms-vsliveshare.vsliveshare
 naumovs.color-highlight
 nrwl.angular-console
 okitavera.vscode-nunjucks-formatter
+orta.vscode-jest
 pustelto.bracketeer
 rafamel.subtle-brackets
 redhat.vscode-commons
@@ -51,7 +49,7 @@ sleistner.vscode-fileutils
 smkamranqadri.vscode-bolt-language
 styled-components.vscode-styled-components
 stylelint.vscode-stylelint
-TabNine.tabnine-vscode
+tabnine.tabnine-vscode
 tamj0rd2.ts-quickfixes-extension
 toba.vsfire
 unifiedjs.vscode-mdx
@@ -60,4 +58,4 @@ v4run.transpose
 vscodevim.vim
 wmaurer.change-case
 yzhang.markdown-all-in-one
-Zignd.html-css-class-completion
+zignd.html-css-class-completion
