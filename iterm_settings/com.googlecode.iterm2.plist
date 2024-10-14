@@ -1175,11 +1175,11 @@
 			<key>Name</key>
 			<string>pustelto</string>
 			<key>Non Ascii Font</key>
-			<string>MonoLisaLightNerdFontComplete-Regular 7</string>
+			<string>MonoLisaNerdFontComplete-Light 10</string>
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>MonoLisaLightNerdFontComplete-Regular 15</string>
+			<string>MonoLisaNerdFontComplete-Light 15</string>
 			<key>Option Key Sends</key>
 			<integer>2</integer>
 			<key>Prompt Before Closing 2</key>
