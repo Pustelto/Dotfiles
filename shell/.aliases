@@ -42,10 +42,6 @@ alias glg="git log --color --pretty=format:' %C(yellow)%h%Creset %s %C(bold gree
 alias glgg="git log --graph --color --pretty=format:' %C(yellow)%h%Creset %s %C(bold green)<%an>%Creset %C(blue dim)%cD%Creset'"
 alias gcwip="git add -A && git commit -m WIP --no-verify"
 
-
-# github issues alias
-alias myghi="ghi list --mine"
-
 # Docker aliases
 alias dcpl="docker compose pull"
 alias dcd="docker compose down"
