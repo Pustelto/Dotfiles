@@ -9,9 +9,12 @@ export LANGUAGE=en_US.UTF-8
 # ENV AND PLUGINS
 # -------------------------------------
 
+# Init antidote
+source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
+
 # Path to theme
-# export PROMPT_SYMBOL='\u2192'
-export THEME_PATH=$HOME/Library/Caches/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-Pustelto-SLASH-shell_theme
+# Has to be set before antidote otherwise the THEME_PATH will be incorrect
+export THEME_PATH=$(antidote home)/https-COLON--SLASH--SLASH-github.com-SLASH-Pustelto-SLASH-shell_theme
 
 # Load autocompletitions
 # First load Brew autocompletions
@@ -19,6 +22,7 @@ if type brew &>/dev/null; then
   FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
 fi
 
+# Need to init completitions commands as they may be used by some plugins
 autoload -Uz compaudit compinit
 
 typeset -i updated_at=$(date +'%j' -r ~/.zcompdump 2>/dev/null || stat -f '%Sm' -t '%j' ~/.zcompdump 2>/dev/null)
@@ -30,6 +34,9 @@ fi
 
 # Load comp list module
 zmodload -i zsh/complist
+
+# Load antidote plugins
+antidote load
 
 # Configure history
 HISTFILE=$HOME/.zsh_history
@@ -68,16 +75,12 @@ export LSCOLORS="Gxfxcxdxbxegedabagacad"
 
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
-# Load plugins
-antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh
-source ~/.zsh_plugins.sh
-
 # Binding for zsh-users/zsh-history-substring-search plugin
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
 # Settings for zsh-notify plugin
-zstyle ':notify:*' notifier /usr/local/bin/terminal-notifier
+zstyle ':notify:*' notifier $(brew --prefix)/bin/terminal-notifier
 zstyle ':notify:*' error-title "Failed with #fail"
 zstyle ':notify:*' success-title "Ended with #success"
 # zstyle ':notify:*' error-icon "https://media3.giphy.com/media/10ECejNtM1GyRy/200_s.gif"
@@ -118,7 +121,10 @@ export NODE_OPTIONS=--max-old-space-size=8192
 source ~/Dotfiles/shell/git.zsh #shamelessly taken from oh-my-zsh
 source ~/Dotfiles/shell/.aliases
 source ~/Dotfiles/shell/.functions
-source ~/.variables
+
+if [ -f ~/.variables ]; then
+  source ~/.variables
+fi
 
 # RUST
 # -------------------------------------
@@ -126,18 +132,20 @@ export PATH=/Users/tomas.pustelnik/.cargo/bin:$PATH
 
 # ATACCAMA CONFIGURATION
 # -------------------------------------
-source ~/Dotfiles/ataccama
-
-export PATH=$HOME/.docker/bin:$PATH
-
-# Created by `pipx` on 2024-09-10 14:13:01
-export PATH="$PATH:/Users/Tomas.Pustelnik/.local/bin"
+# source ~/Dotfiles/ataccama
+#
+# export PATH=$HOME/.docker/bin:$PATH
+#
+# # Created by `pipx` on 2024-09-10 14:13:01
+# export PATH="$PATH:/Users/Tomas.Pustelnik/.local/bin"
+#
+# export PATH="$HOME/.jenv/bin:$PATH"
+# eval "$(jenv init -)"
 
 # allow custom path setup per device without commiting possibly sensitive data
 # (path_exports is not versioned)
-source ~/.path_exports
-
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
+if [ -f ~/.path_exports ]; then
+  source ~/.path_exports
+fi
 
 export PATH=$CUSTOM_PATH$PATH

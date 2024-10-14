@@ -9,8 +9,14 @@
 # Install brew
 echo "Installing Brew"
 
-if /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+if NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   then
+    if ! brew -v;
+      then
+        echo >> $HOME/.zprofile
+        echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> $HOME/.zprofile
+        eval "$(/opt/homebrew/bin/brew shellenv)"
+      fi
     echo "Brew installed successful"
   else 
     echo "Error installing Brew"
@@ -48,6 +54,9 @@ npm config set save-exact true
 # Install global npm modules
 sudo ~/Dotfiles/setup_scripts/npm_install.sh
 
+# Enable pnpm
+sudo corepack enable
+
 # Bootstrap dot files requested by ZSH
 ./paths.sh
 
@@ -74,7 +83,7 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 # TODO
 # Restore vs code settings/plugins
 # Need to check if snippets folder exist, on fresh install it will not so we need to create it
-~/Dotfiles/setup_scripts/code_install.sh
+# ~/Dotfiles/setup_scripts/code_install.sh
 
 # TODO
 # Restore iterm settings
