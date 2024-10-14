@@ -12,10 +12,11 @@ On mac you have to install gnu-sed and use it instead of default mac sed.
 
 1. Run `backup.sh` script in `setup_scripts` folder - backup for global NPM and cargo packages, programs installed via Brew and VS Code extensions.
 2. Backup iTerm settings:
-    - Profile - Settings > Profiles > Other action > Save profile as JSON
-    - Settings - Settings > General > Preferences > Save now 
+   - Profile - Settings > Profiles > Other action > Save profile as JSON
+   - Settings - Settings > General > Preferences > Save now
 3. Commit to git and push.
 4. Backup other config files (move to other disk, **DO NOT COMMIT THOSE**):
+   - `.variables;`
    - Backup ssh keys - `~/.ssh`
    - `.zsh_history`, `.fzf.zsh`, `.z`
 5. Backup my files (move to other disk, **DO NOT COMMIT THOSE**)
@@ -33,13 +34,21 @@ On mac you have to install gnu-sed and use it instead of default mac sed.
 4. Run setup.sh script (may need to change file permissions in order to run it)
 5. Go to Tmux and hit Prefix + I to load the plugins
 6. Import iTerm settings.
-    - Settings - Settings > General > Preferences > Check load preferences from custom folder or URL
-    - Profile - Settings > Profiles > Other action > Add profile (hit `+` button)
+   - Settings - Settings > General > Preferences > Check load preferences from custom folder or URL
+   - Profile - Settings > Profiles > Other action > Add profile (hit `+` button)
 7. Import Raycast settings.
 8. Import bookmars, add extensions to Chrome (dev/work related, without sync)
 9. Copy files from backup drive.
 10. Set proper version of python
 11. Check fzf is setup correctly
+12. Install MonoLisa font with Nerd fonts
+13. open vim and install plugins
+
+### Troubleshooting notes:
+
+- If you have issue with installation of zsh plugins, try to first delete zcompdump: `rm .zcompdump`.
+- If you get error that `compdef` is not defined, you probably load antidote plugins too soon, before initializing completitions.
+- If Mason can't install deps in Neovim, then check logs, maybe there was an issue with npm/node after automatic setup.
 
 ## To-Do
 
