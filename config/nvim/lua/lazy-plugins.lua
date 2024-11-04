@@ -43,6 +43,11 @@ require("lazy").setup({
 	"tpope/vim-surround", -- auto surround for brackets and quotes
 	"tpope/vim-repeat",
 	{ "windwp/nvim-autopairs", opts = {} }, -- automatically add closing brackets and quotes
+	{
+		"windwp/nvim-ts-autotag",
+		event = { "BufReadPre", "BufNewFile" },
+		config = true,
+	},
 	require("plugins/ctrlxa"),
 	require("plugins/which-key"),
 	require("plugins/oil"),
@@ -71,6 +76,7 @@ require("lazy").setup({
 	require("plugins/linting"),
 	require("plugins/formatting"),
 	require("plugins/debugging"),
+
 	-- better TS errors
 	{ "dmmulroy/ts-error-translator.nvim", opts = {} },
 
