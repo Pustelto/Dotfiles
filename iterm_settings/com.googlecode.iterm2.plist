@@ -533,13 +533,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.3803921639919281</real>
+				<real>0.38039215686274508</real>
 				<key>Color Space</key>
 				<string>P3</string>
 				<key>Green Component</key>
-				<real>0.33725491166114807</real>
+				<real>0.33725490196078434</real>
 				<key>Red Component</key>
-				<real>0.92156863212585449</real>
+				<real>0.92156862745098034</real>
 			</dict>
 			<key>Ansi 10 Color</key>
 			<dict>
@@ -715,13 +715,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.3803921639919281</real>
+				<real>0.38039215686274508</real>
 				<key>Color Space</key>
 				<string>P3</string>
 				<key>Green Component</key>
-				<real>0.33725491166114807</real>
+				<real>0.33725490196078434</real>
 				<key>Red Component</key>
-				<real>0.92156863212585449</real>
+				<real>0.92156862745098034</real>
 			</dict>
 			<key>BM Growl</key>
 			<true/>
@@ -1175,11 +1175,11 @@
 			<key>Name</key>
 			<string>pustelto</string>
 			<key>Non Ascii Font</key>
-			<string>MonoLisaNerdFontComplete-Light 10</string>
+			<string>MonoLisaNerdFontComplete-Light 14</string>
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>MonoLisaNerdFontComplete-Light 15</string>
+			<string>MonoLisaNerdFontComplete-Light 14</string>
 			<key>Option Key Sends</key>
 			<integer>2</integer>
 			<key>Prompt Before Closing 2</key>
