@@ -3,18 +3,18 @@
 [user]
 	name = Tomas Pustelnik
 	email = 10606260+Pustelto@users.noreply.github.com
-	signingkey = /Users/Tomas.Pustelnik/.ssh/ata_gitlab.pub
-	gpgsign = true
 [core]
 	excludesfile = ~/.gitignore
   autocrlf = input
 	ignorecase = false
-	pager = less -R
+  pager = delta
 [fetch]
   prune = true
 	pruneTags = true
 [help]
   autocorrect = 1
+[pull]
+	ff = only
 [push]
   followTags = true
 [rebase]
@@ -24,7 +24,6 @@
   showUntrackedFiles = all
 [commit]
   template = ~/.git-commit-template
-	gpgsign = true
 #
 # define command which will be used when "nvim" is set as a merge tool
 [mergetool "nvim"]
@@ -38,9 +37,13 @@
 	tool = nvim
 	ff = false - always create merge comit even when fast-forwarded
 	# ff = only - allow only fast-forward merges
-[pull]
-	ff = only
+
 [github]
 	user = pustelto
-[gpg]
-	format = ssh
+
+[interactive]
+  diffFilter = delta --color-only
+
+[delta]
+  true-color = always
+  navigate = true    # use n and N to move between diff sections
