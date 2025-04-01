@@ -77,11 +77,6 @@ local options = {
 
 	-- splitbelow = false, -- force all horizontal splits to go below current window
 	-- splitright = false, -- force all vertical splits to go to the right of current window
-	-- foldmethod = "expr",
-	-- foldexpr = "nvim_treesitter#foldexpr()",
-	-- foldmethod = "syntax", -- config for automatic folds
-	foldlevelstart = 99, -- start with all folds open
-	foldcolumn = "auto", -- show fold column
 
 	formatoptions = {
 		t = true,
@@ -100,6 +95,27 @@ vim.opt.matchpairs:append("<:>")
 for k, v in pairs(options) do
 	vim.opt[k] = v
 end
+
+-- Folding
+vim.o.foldcolumn = "1"
+vim.o.foldlevelstart = 99
+vim.o.foldmethod = "expr"
+vim.o.foldtext = ""
+-- don't like the look of fold column, ideally add it as a sign or find a way how to show just closed folds (or indicator for possible folds)
+-- vim.opt.fillchars:append({ fold = " ", foldopen = "", foldclose = "" })
+vim.opt.fillchars:append({ fold = " " })
+-- Default to treesitter folding
+vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+-- Prefer LSP folding if client supports it
+vim.api.nvim_create_autocmd("LspAttach", {
+	callback = function(args)
+		local client = vim.lsp.get_client_by_id(args.data.client_id)
+		if client and client:supports_method("textDocument/foldingRange") then
+			local win = vim.api.nvim_get_current_win()
+			vim.wo[win][0].foldexpr = "v:lua.vim.lsp.foldexpr()"
+		end
+	end,
+})
 
 -- TODO: DO I NEED THIS?
 -- vim.cmd("filetype plugin on")
