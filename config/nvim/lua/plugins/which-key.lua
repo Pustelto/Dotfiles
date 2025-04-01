@@ -156,6 +156,11 @@ return {
 					end,
 					desc = "[B]uffer [F]ormat (or range in V)",
 				},
+				{
+					"<leader>bq",
+					"<cmd>%bd|e#<CR>",
+					desc = "[B]uffer [Q]uit all other buffers",
+				},
 				-- { "<leader>bl", "<cmd>Telescope diagnostics bufnr=0<CR>", desc = "[B]uffer [L]int" },
 				--
 				-- DEBUGGING GROUP
