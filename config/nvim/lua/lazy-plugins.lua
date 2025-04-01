@@ -82,7 +82,7 @@ require("lazy").setup({
 
 	-- Other plugins
 	require("plugins/copilot"),
-	require("plugins/nx"),
+	require("plugins/copilotchat"),
 
 	-- notify
 	-- Dashboard

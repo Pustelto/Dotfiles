@@ -4,7 +4,7 @@ return {
 		dependencies = {
 			"williamboman/mason.nvim",
 			-- TODO: Try nvim-notify instead
-			{ "j-hui/fidget.nvim", opts = {} },
+			-- { "j-hui/fidget.nvim", opts = {} },
 			"hrsh7th/nvim-cmp",
 			"hrsh7th/cmp-nvim-lsp",
 			"b0o/schemastore.nvim",
@@ -151,6 +151,13 @@ return {
 						vim.lsp.buf.code_action({
 							apply = true,
 							context = {
+								only = { "source.removeUnusedImports.ts" },
+								diagnostics = {},
+							},
+						})
+						vim.lsp.buf.code_action({
+							apply = true,
+							context = {
 								only = { "source.organizeImports.ts" },
 								diagnostics = {},
 							},
@@ -162,14 +169,16 @@ return {
 								diagnostics = {},
 							},
 						})
+					end, "Organize imports")
+					map("<leader>lu", function()
 						vim.lsp.buf.code_action({
 							apply = true,
 							context = {
-								only = { "source.removeUnusedImports.ts" },
+								only = { "source.sortImports.ts" },
 								diagnostics = {},
 							},
 						})
-					end, "Organize imports")
+					end, "Remove unused imports")
 
 					-- The following two autocommands are used to highlight references of the
 					-- word under your cursor when your cursor rests there for a little while.
