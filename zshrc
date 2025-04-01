@@ -32,6 +32,9 @@ else
   compinit -C -i
 fi
 
+#kubectl autocompletion
+# source <(kubectl completion zsh)
+
 # Load comp list module
 zmodload -i zsh/complist
 
@@ -80,9 +83,9 @@ bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
 # Settings for zsh-notify plugin
-zstyle ':notify:*' notifier $(brew --prefix)/bin/terminal-notifier
-zstyle ':notify:*' error-title "Failed with #fail"
-zstyle ':notify:*' success-title "Ended with #success"
+# zstyle ':notify:*' notifier $(brew --prefix)/bin/terminal-notifier
+# zstyle ':notify:*' error-title "Failed with #fail"
+# zstyle ':notify:*' success-title "Ended with #success"
 # zstyle ':notify:*' error-icon "https://media3.giphy.com/media/10ECejNtM1GyRy/200_s.gif"
 # zstyle ':notify:*' success-icon "https://s-media-cache-ak0.pinimg.com/564x/b5/5a/18/2.jpg"
 
