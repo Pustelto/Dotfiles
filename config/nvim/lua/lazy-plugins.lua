@@ -53,9 +53,10 @@ require("lazy").setup({
 	require("plugins/oil"),
 	require("plugins/treesitter"),
 	require("plugins/colorizer"),
+	require("plugins/snacks"),
 
 	-- UI related plugins
-	require("plugins/indentline"), -- show indent lines and highlight curent indent level
+	-- require("plugins/indentline"), -- show indent lines and highlight curent indent level
 	require("plugins/telescope"),
 	require("plugins/cmp"),
 	require("plugins/lualine"),

@@ -80,16 +80,16 @@ return {
 			-- See `:help telescope.builtin`
 			local builtin = require("telescope.builtin")
 
-			vim.keymap.set("n", "<leader>u", function()
-				builtin.buffers({ sort_mru = true, sort_lastused = false })
-			end, { desc = "Find existing b[U]ffers" })
-			vim.keymap.set("n", "<leader>f", builtin.find_files, { desc = "[S]earch [F]iles" })
-			vim.keymap.set(
-				"n",
-				"<leader>e",
-				require("telescope").extensions.live_grep_args.live_grep_args,
-				{ desc = "[S]earch by [G]rep" }
-			)
+			-- vim.keymap.set("n", "<leader>u", function()
+			-- 	builtin.buffers({ sort_mru = true, sort_lastused = false })
+			-- end, { desc = "Find existing b[U]ffers" })
+			-- vim.keymap.set("n", "<leader>f", builtin.find_files, { desc = "[S]earch [F]iles" })
+			-- vim.keymap.set(
+			-- 	"n",
+			-- 	"<leader>e",
+			-- 	require("telescope").extensions.live_grep_args.live_grep_args,
+			-- 	{ desc = "[S]earch by [G]rep" }
+			-- )
 
 			-- Slightly advanced example of overriding default behavior and theme
 			vim.keymap.set("n", "<leader>/", function()

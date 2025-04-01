@@ -94,7 +94,7 @@ return {
 					-- SEACH GROUP
 					{ "<leader>s", group = "[S]earch" },
 					{ "<leader>sc", builtin.colorscheme, desc = "[S]earch [C]olorscheme" },
-					{ "<leader>sd", builtin.diagnostics, desc = "[S]earch [D]iagnostics" },
+					-- { "<leader>sd", builtin.diagnostics, desc = "[S]earch [D]iagnostics" },
 					{ "<leader>sh", builtin.help_tags, desc = "[S]earch [H]elp" },
 					{ "<leader>sm", builtin.commands, desc = "[S]earch Co[M]mands" },
 					{
