@@ -70,6 +70,33 @@ require("lazy").setup({
 	require("plugins/gitsigns"),
 	require("plugins/lazygit"),
 	require("plugins/fugitive"),
+	{
+		"sindrets/diffview.nvim",
+		event = "VeryLazy",
+		opt = {},
+		keys = {
+			{
+				"<leader>gh",
+				"<cmd>DiffviewFileHistory %<CR>",
+				desc = "File history",
+			},
+			{
+				"<leader>gd",
+				"<cmd>DiffviewOpen<CR>",
+				desc = "Diff files",
+			},
+			{
+				"<leader>gD",
+				"<cmd>DiffviewOpen origin/HEAD...HEAD --imply-local<CR>",
+				desc = "Diff branch",
+			},
+			{
+				"<leader>gq",
+				"<cmd>DiffviewClose<CR>",
+				desc = "Close diffview",
+			},
+		},
+	},
 
 	-- LSP related plugins for IDE like capabilities
 	require("plugins/mason"),
