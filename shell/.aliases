@@ -39,6 +39,7 @@ alias gcnn='git commit -v --no-edit --amend --no-verify'
 alias grs1='git reset --soft @~1'
 alias gbls='git branch -v'
 alias glg="git log --color --pretty=format:' %C(yellow)%h%Creset %s %C(bold green)<%an>%Creset %C(blue dim)%cD%Creset'"
+alias glgh="glg | head -n 15"
 alias glgg="git log --graph --color --pretty=format:' %C(yellow)%h%Creset %s %C(bold green)<%an>%Creset %C(blue dim)%cD%Creset'"
 alias gcwip="git add -A && git commit -m WIP --no-verify"
 
@@ -50,5 +51,5 @@ alias dcpu="DOCKER_GATEWAY_HOST=172.17.0.1 docker compose pull && docker compose
 
 # alias neovim to vim
 alias vim="nvim"
-
 alias lg="lazygit"
+alias kc="kubectl"

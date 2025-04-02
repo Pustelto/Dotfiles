@@ -4,7 +4,7 @@
 # Most of my thanks goes to Paul Irish
 
 # Install xcode tools
-./xcode.sh
+~/Dotfiles/setup_scripts/xcode.sh
 
 # Install brew
 echo "Installing Brew"
@@ -22,15 +22,6 @@ if NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com
     echo "Error installing Brew"
 fi
 
-# Check the brew is in the path after installation before installing apps from Brewfile.
-if ! type "brew" > /dev/null; then
-  echo "Brew is not in path. Follow install instructions to add it. Then the setup script can
-  continue."
-
-  until ! type "brew" > /dev/null; do 
-    sleep 5; 
-  done 
-fi
 
 echo "Brew in path. Continue with installation from Brewfile"
 echo ""
@@ -58,10 +49,10 @@ sudo ~/Dotfiles/setup_scripts/npm_install.sh
 sudo corepack enable
 
 # Bootstrap dot files requested by ZSH
-./paths.sh
+~/Dotfiles/setup_scripts/paths.sh
 
 # Install pip packages
-./pip.sh
+~/Dotfiles/setup_scripts/pip.sh
 
 # Restore zsh/dotfiles
 sudo pip3 install dotfiles
@@ -78,7 +69,7 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 # Plugins still have to be loaded manually from Tmux using Prefix + I
 
 # Set mac settings (hidden folders, tabing in dialogs, etc.)
-./macos
+~/Dotfiles/setup_scripts/macos
 
 # TODO
 # Restore vs code settings/plugins
