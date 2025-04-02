@@ -88,6 +88,15 @@ local options = {
 		l = true,
 		j = true,
 	},
+	diffopt = {
+		"internal",
+		"filler",
+		"closeoff",
+		"indent-heuristic",
+		"algorithm:patience",
+		"linematch:160",
+		"context:10",
+	}
 }
 
 vim.opt.matchpairs:append("<:>")
