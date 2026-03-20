@@ -2,11 +2,8 @@ tap "alexhallam/tidy-viewer"
 tap "aquaproj/aqua"
 tap "azure/kubelogin"
 tap "derailed/k9s"
-tap "getantibody/tap"
 tap "homebrew/bundle"
 tap "homebrew/services"
-tap "mas-cli/tap"
-tap "supabase/tap"
 brew "ack"
 brew "antidote"
 brew "xz"
@@ -95,12 +92,9 @@ cask "linear-linear"
 cask "notion"
 cask "raycast"
 cask "safari-technology-preview"
-cask "skype"
 cask "slack"
 cask "vlc"
 cask "zed"
-mas "GarageBand", id: 682658836
-mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
