@@ -31,6 +31,7 @@ alias npmug="npx npm-check -gu"
 
 # my git aliases
 alias gpfl="git push --force-with-lease"
+alias gpfs="git log --decorate=short --pretty='format:%D' origin/main.. | sed 's/, /\\n/g; s/HEAD -> //'  | grep -Ev '/|^$' | xargs git push --force-with-lease origin"
 alias gstau="git stash -u"
 alias gstap="git stash apply"
 alias gstak="git stash --keep-index"
@@ -38,7 +39,7 @@ alias gstaa="git stash --keep-index -u"
 alias gcnn='git commit -v --no-edit --amend --no-verify'
 alias grs1='git reset --soft @~1'
 alias gbls='git branch -v'
-alias glg="git log --color --pretty=format:' %C(yellow)%h%Creset %s %C(bold green)<%an>%Creset %C(blue dim)%cD%Creset'"
+alias glg="git log --color --pretty=format:' %C(yellow)%h%Creset %s %C(bold green)<%an>%Creset %G? %C(blue dim)%cD%Creset'"
 alias glgh="glg | head -n 15"
 alias glgg="git log --graph --color --pretty=format:' %C(yellow)%h%Creset %s %C(bold green)<%an>%Creset %C(blue dim)%cD%Creset'"
 alias gcwip="git add -A && git commit -m WIP --no-verify"
@@ -46,10 +47,15 @@ alias gcwip="git add -A && git commit -m WIP --no-verify"
 # Docker aliases
 alias dcpl="docker compose pull"
 alias dcd="docker compose down"
+alias dcud="docker compose up -d"
 alias dcu="DOCKER_GATEWAY_HOST=172.17.0.1 docker compose up"
 alias dcpu="DOCKER_GATEWAY_HOST=172.17.0.1 docker compose pull && docker compose up"
 
 # alias neovim to vim
 alias vim="nvim"
 alias lg="lazygit"
-alias kc="kubectl"
+alias kubectl="kubecolor"
+alias kc="kubecolor"
+
+# claude
+alias cld="claude"
