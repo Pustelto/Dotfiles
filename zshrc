@@ -33,7 +33,9 @@ else
 fi
 
 #kubectl autocompletion
-# source <(kubectl completion zsh)
+source <(/opt/homebrew/bin/kubectl completion zsh)
+# borow kubectl completion from kubecolor
+compdef kubecolor=kubectl
 
 # Load comp list module
 zmodload -i zsh/complist
@@ -60,7 +62,7 @@ setopt pushd_ignore_dups
 setopt pushdminus
 
 # Other improvements
-setopt correct_all # autocorrect commands
+unsetopt correct_all # autocorrect commands
 setopt auto_list # automatically list choices on ambiguous completion
 setopt auto_menu # automatically use menu completion
 setopt always_to_end # move cursor to end if word had one match
@@ -118,8 +120,10 @@ RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
 # USER CONFIGURATION
 # -------------------------------------
 
+export EDITOR=nvim
 export GIT_BRANCH_CLEANER_BLACKLIST=master
 export NODE_OPTIONS=--max-old-space-size=8192
+export NODE_COMPILE_CACHE=~/.cache/nodejs-compile-cache
 
 source ~/Dotfiles/shell/git.zsh #shamelessly taken from oh-my-zsh
 source ~/Dotfiles/shell/.aliases
@@ -135,12 +139,15 @@ export PATH=/Users/tomas.pustelnik/.cargo/bin:$PATH
 
 # ATACCAMA CONFIGURATION
 # -------------------------------------
-# source ~/Dotfiles/ataccama
+if [ -f ~/.ataccama ]; then
+  source ~/.ataccama
+fi
 #
 # export PATH=$HOME/.docker/bin:$PATH
 #
-# # Created by `pipx` on 2024-09-10 14:13:01
-# export PATH="$PATH:/Users/Tomas.Pustelnik/.local/bin"
+# Created by `pipx` on 2024-09-10 14:13:01
+export PATH="$PATH:/Users/Tomas.Pustelnik/.local/bin"
+export PIPX_DEFAULT_PYTHON=/opt/homebrew/opt/python@3.12/libexec/bin/python
 #
 # export PATH="$HOME/.jenv/bin:$PATH"
 # eval "$(jenv init -)"
@@ -152,3 +159,17 @@ if [ -f ~/.path_exports ]; then
 fi
 
 export PATH=$CUSTOM_PATH$PATH
+
+# bun completions
+[ -s "/Users/tomas.pustelnik/.bun/_bun" ] && source "/Users/tomas.pustelnik/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+alias claude-mem='/Users/tomas.pustelnik/.bun/bin/bun "/Users/tomas.pustelnik/.claude/plugins/marketplaces/thedotmack/plugin/scripts/worker-service.cjs"'
+
+# rtk specific envs
+export RTK_TELEMETRY_DISABLED=1
+export RTK_TEE=0
+unset RTK_TRACKING_DISABLED
