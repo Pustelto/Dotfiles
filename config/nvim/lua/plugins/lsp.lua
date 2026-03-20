@@ -151,13 +151,6 @@ return {
 						vim.lsp.buf.code_action({
 							apply = true,
 							context = {
-								only = { "source.removeUnusedImports.ts" },
-								diagnostics = {},
-							},
-						})
-						vim.lsp.buf.code_action({
-							apply = true,
-							context = {
 								only = { "source.organizeImports.ts" },
 								diagnostics = {},
 							},
@@ -174,7 +167,7 @@ return {
 						vim.lsp.buf.code_action({
 							apply = true,
 							context = {
-								only = { "source.sortImports.ts" },
+								only = { "source.removeUnusedImports.ts" },
 								diagnostics = {},
 							},
 						})

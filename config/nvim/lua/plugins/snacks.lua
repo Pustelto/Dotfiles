@@ -26,9 +26,13 @@ return {
 				focus = "input",
 				layout = {
 					cycle = true,
+					layout = {
+						width = 0.9,
+						min_width = 140,
+					},
 					--- Use the default layout or vertical if the window is too narrow
 					preset = function()
-						return vim.o.columns >= 120 and "default" or "vertical"
+						return vim.o.columns >= 190 and "default" or "vertical"
 					end,
 				},
 				---@class snacks.picker.matcher.Config
@@ -57,14 +61,14 @@ return {
 					},
 					file = {
 						filename_first = false, -- display filename before the file path
-						truncate = 40, -- truncate the file path to (roughly) this length
+						truncate = 80, -- truncate the file path to (roughly) this length
 						filename_only = false, -- only show the filename
 						icon_width = 2, -- width of the icon (in characters)
 						git_status_hl = true, -- use the git status highlight group for the filename
 					},
 					selected = {
 						show_always = false, -- only show the selected column when there are multiple selections
-						unselected = true, -- use the unselected icon for unselected items
+						unselected = false, -- use the unselected icon for unselected items
 					},
 					severity = {
 						icons = true, -- show severity icons
