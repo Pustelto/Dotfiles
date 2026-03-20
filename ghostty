@@ -1,0 +1,34 @@
+theme = Mirage
+
+font-size = 14
+font-family = ""
+font-family = "MonoLisa Nerd Font SemiBold"
+font-family-bold = "MonoLisa Nerd Font Bold"
+font-family-bold-italic = "MonoLisa Nerd Font Bold"
+font-style = regular
+font-style-italic = italic
+font-style-bold = regular
+font-style-bold-italic = italic
+
+mouse-hide-while-typing = true
+window-decoration = true
+macos-option-as-alt = left
+alpha-blending = linear-corrected
+
+cursor-style = block
+
+clipboard-read = allow
+clipboard-write = allow
+
+window-height = 36
+window-width = 124
+window-padding-x = 4
+window-padding-y = 4
+window-inherit-working-directory = false
+
+desktop-notifications = true
+
+keybind = super+alt+arrow_left=previous_tab
+keybind = super+alt+arrow_right=next_tab
+keybind = alt+arrow_left=unbind
+keybind = alt+arrow_right=unbind
