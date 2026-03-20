@@ -48,6 +48,12 @@ require("lazy").setup({
 		event = { "BufReadPre", "BufNewFile" },
 		config = true,
 	},
+	{
+		dir = "/Users/tomas.pustelnik/Developer/nvim-agent-review",
+		config = function()
+			require("review-notes").setup()
+		end,
+	},
 	require("plugins/ctrlxa"),
 	require("plugins/which-key"),
 	require("plugins/oil"),
@@ -81,14 +87,19 @@ require("lazy").setup({
 				desc = "File history",
 			},
 			{
-				"<leader>gd",
+				"<leader>gD",
 				"<cmd>DiffviewOpen<CR>",
 				desc = "Diff files",
 			},
 			{
-				"<leader>gD",
+				"<leader>gd",
 				"<cmd>DiffviewOpen origin/HEAD...HEAD --imply-local<CR>",
-				desc = "Diff branch",
+				desc = "Diff branch against main",
+			},
+			{
+				"<leader>gi",
+				"<cmd>DiffviewOpen @{-1}...HEAD --imply-local<CR>",
+				desc = "Diff branch against prev stack branch",
 			},
 			{
 				"<leader>gq",

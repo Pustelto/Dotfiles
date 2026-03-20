@@ -96,7 +96,7 @@ local options = {
 		"algorithm:patience",
 		"linematch:160",
 		"context:10",
-	}
+	},
 }
 
 vim.opt.matchpairs:append("<:>")
@@ -106,7 +106,7 @@ for k, v in pairs(options) do
 end
 
 -- Folding
-vim.o.foldcolumn = "1"
+vim.o.foldcolumn = "0"
 vim.o.foldlevelstart = 99
 vim.o.foldmethod = "expr"
 vim.o.foldtext = ""
