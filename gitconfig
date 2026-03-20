@@ -25,6 +25,13 @@
 [commit]
   template = ~/.git-commit-template
 #
+[diff]
+  context = 6
+  algorithm = histogram
+  indentHeuristic = true
+	tool = nvimdiff
+[difftool "nvimdiff"]
+	cmd = "nvim -c \"DiffviewOpen\""
 # define command which will be used when "nvim" is set as a merge tool
 [mergetool "nvim"]
   ; cmd = nvim -d -f -c \"Gdiffsplit!\" \"$LOCAL\" \"$MERGED\" \"$REMOTE\"
@@ -37,7 +44,8 @@
 	tool = nvim
 	ff = false - always create merge comit even when fast-forwarded
 	# ff = only - allow only fast-forward merges
-
+[pull]
+	ff = only
 [github]
 	user = pustelto
 
@@ -47,3 +55,5 @@
 [delta]
   true-color = always
   navigate = true    # use n and N to move between diff sections
+[rerere]
+	enabled = true
