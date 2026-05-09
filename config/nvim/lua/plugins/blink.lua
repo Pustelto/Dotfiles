@@ -1,32 +1,30 @@
 ---@module 'blink.cmp'
 ---@type blink.cmp.Config
 require("blink.cmp").setup({
-			-- Preserve current keymap UX from nvim-cmp:
-			--   <C-k>/<C-j>     prev/next item
-			--   <C-Space>       trigger / show docs
-			--   <CR>            confirm (no auto-select unless visible)
-			--   <Tab>/<S-Tab>   cycle items, then jump snippet placeholders
+			-- Keymaps:
+			--   j / k           navigate menu when visible, otherwise type the character
+			--   <Tab>           accept menu item; if in a snippet, jump to next placeholder
+			--   <S-Tab>         jump back in a snippet
+			--   <CR>            plain newline (menu doesn't intercept it)
+			--   <Esc>           close menu first, then exit insert on second press
+			--   <C-Space>       open menu / cycle docs
+			--   <C-e>           cancel (alternate)
+			--   <C-k>/<C-j>     alternate prev/next (kept for muscle memory)
 			--   <C-u>/<C-d>     scroll docs
-			--   <C-e>           cancel
 			keymap = {
 				preset = "none",
 				["<C-Space>"] = { "show", "show_documentation", "hide_documentation" },
 				["<C-e>"] = { "hide", "fallback" },
-				["<CR>"] = { "accept", "fallback" },
+				["<Esc>"] = { "hide", "fallback" },
+				["<CR>"] = { "fallback" },
 
-				["<C-k>"] = { "select_prev", "fallback" },
+				["j"] = { "select_next", "fallback" },
+				["k"] = { "select_prev", "fallback" },
 				["<C-j>"] = { "select_next", "fallback" },
+				["<C-k>"] = { "select_prev", "fallback" },
 
-				["<Tab>"] = {
-					"select_next",
-					"snippet_forward",
-					"fallback",
-				},
-				["<S-Tab>"] = {
-					"select_prev",
-					"snippet_backward",
-					"fallback",
-				},
+				["<Tab>"] = { "accept", "snippet_forward", "fallback" },
+				["<S-Tab>"] = { "snippet_backward", "fallback" },
 
 				["<C-u>"] = { "scroll_documentation_up", "fallback" },
 				["<C-d>"] = { "scroll_documentation_down", "fallback" },
