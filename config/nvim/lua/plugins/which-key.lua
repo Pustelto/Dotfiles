@@ -176,16 +176,6 @@ return {
 					"<cmd>%bd|e#<CR>",
 					desc = "[B]uffer [Q]uit all other buffers",
 				},
-				-- { "<leader>bl", "<cmd>Telescope diagnostics bufnr=0<CR>", desc = "[B]uffer [L]int" },
-				--
-				-- DEBUGGING GROUP
-				{ "<leader>d", group = "[D]ebugging" },
-				{ "<leader>db", "<Cmd>lua require'dap'.toggle_breakpoint()<CR>", desc = "Toggle breakpoint" },
-				{ "<leader>dc", "<Cmd>lua require'dap'.continue()<CR>", desc = "Continue" },
-				{ "C-8", "<Cmd>lua require'dap'.step_over()<CR>", group = "[D]ebugging", desc = "Step over" },
-				{ "C-9", "<Cmd>lua require'dap'.step_into()<CR>", group = "[D]ebugging", desc = "Step into" },
-				{ "C-7", "<Cmd>lua require'dap'.step_out()<CR>", group = "[D]ebugging", desc = "Step out" },
-				{ "<leader>dt", "<Cmd>lua require'dap'.terminate()<CR>", desc = "Terminate" },
 			}, opts)
 		end,
 	},

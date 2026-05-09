@@ -20,7 +20,7 @@ require("lazy").setup({
 		opts = {
 			library = {
 				{ path = "luvit-meta/library", words = { "vim%.uv" } },
-				plugins = { "nvim-dap-ui", "nvim-treesitter", "plenary.nvim" },
+				plugins = { "nvim-treesitter", "plenary.nvim" },
 			},
 		},
 	},
@@ -45,12 +45,6 @@ require("lazy").setup({
 		event = { "BufReadPre", "BufNewFile" },
 		config = true,
 	},
-	{
-		dir = "/Users/tomas.pustelnik/Developer/nvim-agent-review",
-		config = function()
-			require("review-notes").setup()
-		end,
-	},
 	require("plugins/ctrlxa"),
 	require("plugins/which-key"),
 	require("plugins/oil"),
@@ -71,7 +65,6 @@ require("lazy").setup({
 	-- Git related plugins
 	require("plugins/gitsigns"),
 	require("plugins/lazygit"),
-	require("plugins/fugitive"),
 	{
 		"sindrets/diffview.nvim",
 		event = "VeryLazy",
@@ -110,14 +103,12 @@ require("lazy").setup({
 	require("plugins/lsp"),
 	require("plugins/linting"),
 	require("plugins/formatting"),
-	require("plugins/debugging"),
 
 	-- better TS errors
 	{ "dmmulroy/ts-error-translator.nvim", opts = {} },
 
 	-- Other plugins
 	require("plugins/copilot"),
-	require("plugins/copilotchat"),
 
 	-- notify
 	-- Dashboard
