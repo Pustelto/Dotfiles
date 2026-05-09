@@ -20,6 +20,8 @@ local options = {
 
 	-- Don't show the mode, since it's already in the status line
 	showmode = false,
+	-- Completion menu behaviour (consumed by blink.cmp / native completion).
+	completeopt = { "menu", "menuone", "noselect", "popup" },
 	-- Enable break indent
 	breakindent = true,
 	linebreak = true,

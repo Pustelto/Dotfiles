@@ -1,0 +1,17 @@
+{
+  "Markdown link": {
+    "prefix": "link",
+    "body": "[$1](${TM_SELECTED_TEXT})$0",
+    "description": "Create markdown link [text](url)"
+  },
+  "Markdown italic": {
+    "prefix": "italic",
+    "body": "*${TM_SELECTED_TEXT}*",
+    "description": "Make selected text italic"
+  },
+  "Markdown bold": {
+    "prefix": "bold",
+    "body": "**${TM_SELECTED_TEXT}**",
+    "description": "Make selected text bold"
+  }
+}

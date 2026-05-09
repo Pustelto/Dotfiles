@@ -1,0 +1,16 @@
+{
+  "Interface": {
+    "prefix": "intf",
+    "body": [
+      "interface ${1:Name} {",
+      "\t${2}",
+      "}"
+    ],
+    "description": "TypeScript interface declaration"
+  },
+  "ts-ignore": {
+    "prefix": "@tsi",
+    "body": "// @ts-ignore",
+    "description": "// @ts-ignore comment"
+  }
+}

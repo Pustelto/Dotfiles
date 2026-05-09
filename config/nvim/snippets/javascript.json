@@ -1,0 +1,55 @@
+{
+  "Export function": {
+    "prefix": "efn",
+    "body": [
+      "export function ${1:name}(${2}) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "export function name(args) { ... }"
+  },
+  "console.log": {
+    "prefix": "log",
+    "body": "console.log($1)",
+    "description": "console.log(...)"
+  },
+  "JSDoc comment": {
+    "prefix": "/**",
+    "body": [
+      "/**",
+      " * $1",
+      " */"
+    ],
+    "description": "Multi-line JSDoc block"
+  },
+  "setTimeout": {
+    "prefix": "setTimeout",
+    "body": [
+      "setTimeout(() => {",
+      "\t${1:// Callback code}",
+      "}, ${2:delay});",
+      "$0"
+    ],
+    "description": "setTimeout(callback, delay)"
+  },
+  "Jest it block": {
+    "prefix": "jit",
+    "body": [
+      "it('${1:description}', () => {",
+      "\t${2:// Test code}",
+      "});",
+      "$0"
+    ],
+    "description": "Jest it() block"
+  },
+  "Jest describe block": {
+    "prefix": "jdesc",
+    "body": [
+      "describe('${1:description}', () => {",
+      "\t${2:// Test code}",
+      "});",
+      "$0"
+    ],
+    "description": "Jest describe() block"
+  }
+}

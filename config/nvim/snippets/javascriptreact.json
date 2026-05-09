@@ -1,0 +1,27 @@
+{
+  "useState hook": {
+    "prefix": "uss",
+    "body": "const [${1:state}, set${1/(.*)/${1:/capitalize}/}] = useState(${2:defaultValue})",
+    "description": "useState hook with auto-named setter"
+  },
+  "useEffect hook": {
+    "prefix": "usf",
+    "body": [
+      "useEffect(() => {",
+      "\t${1:// Add your code here}",
+      "}, [${2}])",
+      "$0"
+    ],
+    "description": "useEffect hook"
+  },
+  "useCallback hook": {
+    "prefix": "usc",
+    "body": [
+      "useCallback(() => {",
+      "\t${1:// Add your code here}",
+      "}, [${2}])",
+      "$0"
+    ],
+    "description": "useCallback hook"
+  }
+}
