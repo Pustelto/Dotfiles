@@ -37,6 +37,12 @@ source <(/opt/homebrew/bin/kubectl completion zsh)
 # borow kubectl completion from kubecolor
 compdef kubecolor=kubectl
 
+# FIXME: this completion init type slows down shell startup as supabase is doing some BG check for version.
+# Figure out some way how to effectively cache it and avoid calling the script every damn time.
+# Ideally I would love to have some more robust completition solution
+# source <(supabase completion zsh)
+# source $HOME/test-comp
+
 # Load comp list module
 zmodload -i zsh/complist
 
@@ -136,6 +142,7 @@ fi
 # RUST
 # -------------------------------------
 export PATH=/Users/tomas.pustelnik/.cargo/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
 
 # ATACCAMA CONFIGURATION
 # -------------------------------------

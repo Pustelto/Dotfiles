@@ -31,6 +31,19 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
+-- markdown specific settings
+-- vim.api.nvim_create_autocmd("FileType", {
+-- 	pattern = "markdown",
+-- 	callback = function()
+-- 		vim.opt_local.wrap = true
+-- 		vim.opt_local.linebreak = true
+-- 		vim.opt_local.textwidth = 120
+-- 		vim.opt_local.breakindent = true
+-- 		vim.keymap.set("n", "j", "gj", { buffer = true })
+-- 		vim.keymap.set("n", "k", "gk", { buffer = true })
+-- 	end,
+-- })
+
 ---@type table<number, {token:lsp.ProgressToken, msg:string, done:boolean}[]>
 local progress = vim.defaulttable()
 vim.api.nvim_create_autocmd("LspProgress", {

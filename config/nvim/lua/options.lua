@@ -91,10 +91,11 @@ local options = {
 	diffopt = {
 		"internal",
 		"filler",
+		"iwhiteall",
 		"closeoff",
 		"indent-heuristic",
-		"algorithm:patience",
-		"linematch:160",
+		"algorithm:histogram",
+		"linematch:180",
 		"context:10",
 	},
 }
