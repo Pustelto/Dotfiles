@@ -29,7 +29,7 @@ vim.pack.add({
 	{ src = gh("nvim-tree/nvim-web-devicons") },
 	{ src = gh("nvim-tree/nvim-tree.lua") },
 	{ src = gh("stevearc/oil.nvim") },
-	{ src = gh("norcalli/nvim-colorizer.lua") },
+	{ src = gh("catgoose/nvim-colorizer.lua") },
 	{ src = gh("folke/snacks.nvim") },
 	{ src = gh("nvim-lualine/lualine.nvim") },
 	{ src = gh("AndreM222/copilot-lualine") },
