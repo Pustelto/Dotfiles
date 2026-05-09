@@ -1,15 +1,8 @@
 -- LSP behaviour shared across all servers.
--- Per-server config lives in ../../lsp/<name>.lua and is wired up via
+-- Per-server config lives in ../../../lsp/<name>.lua and is wired up via
 -- vim.lsp.enable() in init.lua.
 
-return {
-	{
-		"neovim/nvim-lspconfig",
-		dependencies = {
-			"b0o/schemastore.nvim",
-		},
-		config = function()
-			local sev = vim.diagnostic.severity
+local sev = vim.diagnostic.severity
 			local virtual_text = {
 				spacing = 2,
 				source = "if_many",
@@ -156,6 +149,3 @@ return {
 					end, "Toggle Virtual Te[X]t")
 				end,
 			})
-		end,
-	},
-}

@@ -1,9 +1,4 @@
-return {
-	{
-		"folke/which-key.nvim",
-		event = "VeryLazy", -- Sets the loading event to 'VimEnter'
-		config = function() -- This is the function that runs, AFTER loading
-			require("which-key").setup({
+require("which-key").setup({
 				plugins = {
 					marks = true, -- shows a list of your marks on ' and `
 					registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
@@ -177,6 +172,3 @@ return {
 					desc = "[B]uffer [Q]uit all other buffers",
 				},
 			}, opts)
-		end,
-	},
-}

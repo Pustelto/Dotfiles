@@ -1,12 +1,6 @@
-return {
-	{
-		"saghen/blink.cmp",
-		version = "1.*",
-		event = "InsertEnter",
-		dependencies = { "rafamadriz/friendly-snippets" },
-		---@module 'blink.cmp'
-		---@type blink.cmp.Config
-		opts = {
+---@module 'blink.cmp'
+---@type blink.cmp.Config
+require("blink.cmp").setup({
 			-- Preserve current keymap UX from nvim-cmp:
 			--   <C-k>/<C-j>     prev/next item
 			--   <C-Space>       trigger / show docs
@@ -75,6 +69,4 @@ return {
 			},
 
 			fuzzy = { implementation = "prefer_rust_with_warning" },
-		},
-	},
-}
+})

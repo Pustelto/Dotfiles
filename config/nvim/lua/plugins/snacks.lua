@@ -1,12 +1,7 @@
-return {
-	{
-		"folke/snacks.nvim",
-		priority = 1000,
-		lazy = false,
-		---@type snacks.Config
-		opts = {
-			bigfile = { enabled = true },
-			quickfile = { enabled = true },
+---@type snacks.Config
+require("snacks").setup({
+	bigfile = { enabled = true },
+	quickfile = { enabled = true },
 
 			indent = { enabled = true, animate = { enabled = false } },
 			scope = { enabled = true },
@@ -337,77 +332,24 @@ return {
 				debug = {
 					scores = false, -- show scores in the list
 					leaks = false, -- show when pickers don't get garbage collected
-					explorer = false, -- show explorer debug info
-					files = false, -- show file debug info
-					grep = false, -- show file debug info
-					proc = false, -- show proc debug info
-					extmarks = false, -- show extmarks errors
-				},
+				explorer = false,
+				files = false,
+				grep = false,
+				proc = false,
+				extmarks = false,
 			},
 		},
-		keys = {
-			-- Top Pickers & Explorer
-			-- { "<leader><space>", function() Snacks.picker.smart() end, desc = "Smart Find Files" },
-			{
-				"<leader>u",
-				function()
-					Snacks.picker.buffers()
-				end,
-				desc = "Buffers",
-			},
-			{
-				"<leader>e",
-				function()
-					Snacks.picker.grep()
-				end,
-				desc = "Grep",
-			},
-			-- find
-			{
-				"<leader>f",
-				function()
-					Snacks.picker.files()
-				end,
-				desc = "Find Files",
-			},
-			-- { "<leader>fg", function() Snacks.picker.git_files() end, desc = "Find Git Files" },
-			{
-				"<leader>so",
-				function()
-					Snacks.picker.recent()
-				end,
-				desc = "Recent",
-			},
-			{
-				"<leader>sw",
-				function()
-					Snacks.picker.grep_word()
-				end,
-				desc = "Visual selection or word",
-				mode = { "n", "x" },
-			},
-			{
-				"<leader>bd",
-				function()
-					Snacks.picker.diagnostics()
-				end,
-				desc = "[S]earch [D]iagnostics",
-			},
-			{
-				"<leader>/",
-				function()
-					Snacks.picker.lines()
-				end,
-				desc = "[/] Fuzzily search in current buffer",
-			},
-			{
-				"<leader>sn",
-				function()
-					Snacks.picker.files({ cwd = vim.fn.stdpath("config") })
-				end,
-				desc = "[S]earch [N]eovim files",
-			},
-			-- git
-		},
-	},
-}
+})
+
+-- Keymaps (previously in lazy spec keys = {...}).
+local map = vim.keymap.set
+map("n", "<leader>u", function() Snacks.picker.buffers() end, { desc = "Buffers" })
+map("n", "<leader>e", function() Snacks.picker.grep() end, { desc = "Grep" })
+map("n", "<leader>f", function() Snacks.picker.files() end, { desc = "Find Files" })
+map("n", "<leader>so", function() Snacks.picker.recent() end, { desc = "Recent" })
+map({ "n", "x" }, "<leader>sw", function() Snacks.picker.grep_word() end, { desc = "Grep word" })
+map("n", "<leader>bd", function() Snacks.picker.diagnostics() end, { desc = "[S]earch [D]iagnostics" })
+map("n", "<leader>/", function() Snacks.picker.lines() end, { desc = "[/] Fuzzily search in current buffer" })
+map("n", "<leader>sn", function()
+	Snacks.picker.files({ cwd = vim.fn.stdpath("config") })
+end, { desc = "[S]earch [N]eovim files" })

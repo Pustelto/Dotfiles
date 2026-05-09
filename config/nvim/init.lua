@@ -22,11 +22,8 @@ require("autocommands")
 
 require("custom-commands")
 
--- [[ Install `lazy.nvim` plugin manager ]]
-require("lazy-bootstrap")
-
--- [[ Configure and install plugins ]]
-require("lazy-plugins")
+-- [[ Native plugin manager: vim.pack + per-plugin setup ]]
+require("pack")
 
 -- [[ Enable LSP servers — configs come from lsp/<name>.lua and nvim-lspconfig defaults ]]
 vim.lsp.enable({

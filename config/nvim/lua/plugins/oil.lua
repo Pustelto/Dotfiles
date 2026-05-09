@@ -1,7 +1,1 @@
-return {
-	{
-		"stevearc/oil.nvim",
-		opts = {},
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-	},
-}
+require("oil").setup({})
