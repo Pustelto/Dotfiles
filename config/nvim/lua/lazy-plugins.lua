@@ -20,7 +20,7 @@ require("lazy").setup({
 		opts = {
 			library = {
 				{ path = "luvit-meta/library", words = { "vim%.uv" } },
-				plugins = { "nvim-dap-ui", "nvim-treesitter", "plenary.nvim", "telescope.nvim" },
+				plugins = { "nvim-dap-ui", "nvim-treesitter", "plenary.nvim" },
 			},
 		},
 	},
@@ -60,7 +60,6 @@ require("lazy").setup({
 
 	-- UI related plugins
 	-- require("plugins/indentline"), -- show indent lines and highlight curent indent level
-	require("plugins/telescope"),
 	require("plugins/blink"),
 	require("plugins/lualine"),
 	require("plugins/nvim-tree"),

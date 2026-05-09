@@ -51,16 +51,22 @@ return {
 						vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
 					end
 
-					-- Pickers via Telescope (will be re-routed to Snacks in step 7).
-					map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
-					map("gu", require("telescope.builtin").lsp_references, "[G]oto [U]sage")
-					map("gI", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
-					map("<leader>D", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
-					map(
-						"<leader>ps",
-						require("telescope.builtin").lsp_dynamic_workspace_symbols,
-						"Works[P]ace [S]ymbols"
-					)
+					-- Pickers via Snacks.picker.
+					map("gd", function()
+						Snacks.picker.lsp_definitions()
+					end, "[G]oto [D]efinition")
+					map("gu", function()
+						Snacks.picker.lsp_references()
+					end, "[G]oto [U]sage")
+					map("gI", function()
+						Snacks.picker.lsp_implementations()
+					end, "[G]oto [I]mplementation")
+					map("<leader>D", function()
+						Snacks.picker.lsp_type_definitions()
+					end, "Type [D]efinition")
+					map("<leader>ps", function()
+						Snacks.picker.lsp_workspace_symbols()
+					end, "Works[P]ace [S]ymbols")
 
 					map("<leader>re", vim.lsp.buf.rename, "[R]e[n]ame")
 					map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")

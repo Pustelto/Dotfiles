@@ -60,8 +60,6 @@ return {
 			-- })
 			local opts = { mode = "n" }
 
-			local builtin = require("telescope.builtin")
-
 			require("which-key").add({
 				{
 					{
@@ -93,17 +91,28 @@ return {
 					--
 					-- SEACH GROUP
 					{ "<leader>s", group = "[S]earch" },
-					{ "<leader>sc", builtin.colorscheme, desc = "[S]earch [C]olorscheme" },
-					-- { "<leader>sd", builtin.diagnostics, desc = "[S]earch [D]iagnostics" },
-					{ "<leader>sh", builtin.help_tags, desc = "[S]earch [H]elp" },
-					{ "<leader>sm", builtin.commands, desc = "[S]earch Co[M]mands" },
 					{
-						"<leader>so",
+						"<leader>sc",
 						function()
-							builtin.oldfiles({ cwd_only = true })
+							Snacks.picker.colorschemes()
 						end,
-						desc = "[S]earch [O]ldfiles",
+						desc = "[S]earch [C]olorscheme",
 					},
+					{
+						"<leader>sh",
+						function()
+							Snacks.picker.help()
+						end,
+						desc = "[S]earch [H]elp",
+					},
+					{
+						"<leader>sm",
+						function()
+							Snacks.picker.commands()
+						end,
+						desc = "[S]earch Co[M]mands",
+					},
+					-- <leader>so → Snacks.picker.recent() defined in snacks.lua
 					--
 					-- TEST GROUP
 					-- { "<leader>t", group = "[T]ests" },
@@ -143,8 +152,14 @@ return {
 				--
 				-- BUFFER SETTINGS GROUP
 				{ "<leader>b", group = "Buffer/Document" },
-				{ "<leader>bs", require("telescope.builtin").lsp_document_symbols, desc = "[D]ocument [S]ymbols" }, -- Fuzzy find all the symbols in your current document. Symbols are things like variables, functions, types, etc.
-				{ "<leader>bd", "<cmd>Telescope diagnostics bufnr=0<CR>", desc = "[B]uffer [D]iagnostics" },
+				{
+					"<leader>bs",
+					function()
+						Snacks.picker.lsp_symbols()
+					end,
+					desc = "[D]ocument [S]ymbols",
+				},
+				-- <leader>bd → Snacks.picker.diagnostics() defined in snacks.lua
 				{
 					"<leader>bf",
 					function()

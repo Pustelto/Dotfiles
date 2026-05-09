@@ -393,6 +393,20 @@ return {
 				end,
 				desc = "[S]earch [D]iagnostics",
 			},
+			{
+				"<leader>/",
+				function()
+					Snacks.picker.lines()
+				end,
+				desc = "[/] Fuzzily search in current buffer",
+			},
+			{
+				"<leader>sn",
+				function()
+					Snacks.picker.files({ cwd = vim.fn.stdpath("config") })
+				end,
+				desc = "[S]earch [N]eovim files",
+			},
 			-- git
 		},
 	},
