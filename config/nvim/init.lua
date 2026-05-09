@@ -22,6 +22,11 @@ require("autocommands")
 
 require("custom-commands")
 
+-- [[ Opt in to the new message/cmdline UI (Neovim 0.12) ]]
+pcall(function()
+	require("vim._core.ui2").enable({})
+end)
+
 -- [[ Native plugin manager: vim.pack + per-plugin setup ]]
 require("pack")
 
