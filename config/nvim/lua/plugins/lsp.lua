@@ -42,39 +42,37 @@ return {
 			local mason_lspconfig = require("mason-lspconfig")
 			local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
-			local signs = {
-				{ name = "DiagnosticSignError", text = "", priority = 100 },
-				{ name = "DiagnosticSignWarn", text = "", priority = 80 },
-				{ name = "DiagnosticSignHint", text = "", priority = 60 },
-				{ name = "DiagnosticSignInfo", text = "", priority = 40 },
-			}
-
+			local sev = vim.diagnostic.severity
 			local virtual_text = {
 				spacing = 2,
 				source = "if_many",
-				-- this will set set the prefix to a function that returns the diagnostics icon based on the severity
-				-- this only works on a recent 0.10.0 build. Will be set to "●" when not supported
-				-- prefix = "icons",
-				severity = vim.diagnostic.severity.ERROR,
+				severity = sev.ERROR,
 			}
-
-			for _, sign in ipairs(signs) do
-				vim.fn.sign_define(
-					sign.name,
-					{ texthl = sign.name, text = sign.text, numhl = "", priority = sign.priority }
-				)
-			end
 
 			vim.diagnostic.config({
 				underline = true,
 				update_in_insert = false,
 				severity_sort = true,
 				virtual_text = virtual_text,
+				signs = {
+					text = {
+						[sev.ERROR] = "\u{f057}",
+						[sev.WARN] = "\u{f071}",
+						[sev.HINT] = "\u{f0eb}",
+						[sev.INFO] = "\u{f05a}",
+					},
+					numhl = {
+						[sev.ERROR] = "DiagnosticSignError",
+						[sev.WARN] = "DiagnosticSignWarn",
+						[sev.HINT] = "DiagnosticSignHint",
+						[sev.INFO] = "DiagnosticSignInfo",
+					},
+				},
 				float = {
 					focusable = true,
 					style = "minimal",
 					border = "none",
-					source = "always",
+					source = true,
 					header = "",
 				},
 			})
@@ -133,9 +131,13 @@ return {
 
 					map("<leader>ld", vim.diagnostic.open_float, "Show line diagnostics") -- show diagnostics for line
 
-					map("[d", vim.diagnostic.goto_prev, "Go to previous diagnostic") -- jump to previous diagnostic in buffer
+					map("[d", function()
+						vim.diagnostic.jump({ count = -1, float = true })
+					end, "Go to previous diagnostic")
 
-					map("]d", vim.diagnostic.goto_next, "Go to next diagnostic") -- jump to next diagnostic in buffer
+					map("]d", function()
+						vim.diagnostic.jump({ count = 1, float = true })
+					end, "Go to next diagnostic")
 
 					-- map("<leader>ri", "<cmd>TypescriptRenameFile<CR>", "[R]ename f[I]le")
 					map("<leader>p", function()
@@ -180,7 +182,7 @@ return {
 					-- When you move your cursor, the highlights will be cleared (the second autocommand).
 					local client = vim.lsp.get_client_by_id(event.data.client_id)
 
-					if client and client.server_capabilities.documentHighlightProvider then
+					if client and client:supports_method("textDocument/documentHighlight") then
 						local highlight_augroup = vim.api.nvim_create_augroup("lsp-highlight", { clear = false })
 						vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
 							buffer = event.buf,
@@ -207,7 +209,7 @@ return {
 					-- code, if the language server you are using supports them
 					--
 					-- This may be unwanted, since they displace some of your code
-					if client and client.server_capabilities.inlayHintProvider and vim.lsp.inlay_hint then
+					if client and client:supports_method("textDocument/inlayHint") and vim.lsp.inlay_hint then
 						map("<leader>wl", function()
 							vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 						end, "[T]oggle Inlay [H]ints")

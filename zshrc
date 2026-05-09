@@ -167,16 +167,11 @@ fi
 
 export PATH=$CUSTOM_PATH$PATH
 
-# bun completions
-[ -s "/Users/tomas.pustelnik/.bun/_bun" ] && source "/Users/tomas.pustelnik/.bun/_bun"
+# to enable psql
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/tomaspustelnik/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/tomaspustelnik/google-cloud-sdk/path.zsh.inc'; fi
 
-alias claude-mem='/Users/tomas.pustelnik/.bun/bin/bun "/Users/tomas.pustelnik/.claude/plugins/marketplaces/thedotmack/plugin/scripts/worker-service.cjs"'
-
-# rtk specific envs
-export RTK_TELEMETRY_DISABLED=1
-export RTK_TEE=0
-unset RTK_TRACKING_DISABLED
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/tomaspustelnik/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/tomaspustelnik/google-cloud-sdk/completion.zsh.inc'; fi

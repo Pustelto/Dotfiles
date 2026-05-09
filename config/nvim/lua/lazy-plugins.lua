@@ -26,19 +26,16 @@ require("lazy").setup({
 	},
 
 	-- Colorschemes
-	-- { "marko-cerovac/material.nvim", lazy = true },
+	require("plugins/colorscheme"),
 	-- {
-	-- 	dir = "~/Documents/WebDev/moonrakers-theme",
-	-- 	name = "moonrakers",
-	-- 	-- lazy = true,
-	-- 	priority = 1000,
-	-- 	opts = {},
+	-- 	dir = "~/.config/nvim/lua/moonrakers", -- Load theme from global folder
+	-- 	name = "moonrakers-theme", -- Plugin name
+	-- 	lazy = false, -- Load immediately
+	-- 	priority = 1000, -- Ensure it loads before other plugins
 	-- 	config = function()
-	-- 		vim.cmd.colorscheme("moonrakers")
+	-- 		require("moonrakers").load()
 	-- 	end,
 	-- },
-	require("plugins/colorscheme"),
-
 	-- Utility plugins
 	"tpope/vim-surround", -- auto surround for brackets and quotes
 	"tpope/vim-repeat",

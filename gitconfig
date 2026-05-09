@@ -3,6 +3,9 @@
 [user]
 	name = Tomas Pustelnik
 	email = 10606260+Pustelto@users.noreply.github.com
+
+[init]
+	defaultBranch = main
 [core]
 	excludesfile = ~/.gitignore
   autocrlf = input
@@ -24,6 +27,8 @@
   showUntrackedFiles = all
 [commit]
   template = ~/.git-commit-template
+[rerere]
+	enabled = true
 #
 [diff]
   context = 6
@@ -44,12 +49,5 @@
 	tool = nvim
 	ff = false - always create merge comit even when fast-forwarded
 	# ff = only - allow only fast-forward merges
-[pull]
-	ff = only
 [github]
 	user = pustelto
-[delta]
-  true-color = always
-  navigate = true    # use n and N to move between diff sections
-[rerere]
-	enabled = true

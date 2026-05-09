@@ -8,13 +8,33 @@ return {
 		priority = 1000, -- Make sure to load this before all the other start plugins.
 		init = function()
 			-- # Tokyonight
+			require("tokyonight").setup({
+				style = "storm",
+				on_highlights = function(highlights, colors)
+					highlights.LineNr = { fg = colors.comment }
+					highlights.LineNrAbove = { fg = colors.comment }
+					highlights.LineNrBelow = { fg = colors.comment }
+					highlights.CursorLineNr = { fg = colors.green1, bold = false }
+				end,
+			})
 			vim.cmd.colorscheme("tokyonight-storm")
-			vim.cmd.hi("Comment gui=none")
+			-- vim.cmd.hi("Comment gui=none")
 			vim.api.nvim_set_hl(
 				0,
 				"DiagnosticDeprecated",
 				{ strikethrough = true, fg = "#a0a0a0", cterm = { strikethrough = true } }
 			)
+			-- vim.api.nvim_set_hl(
+			--   0,
+			--   "LineNr",
+			--   { fg = "#4b5263" }
+			-- )
+			-- vim.api.nvim_set_hl(
+			--   0,
+			--   "CursorLineNr",
+			--   { fg = "#c0caf5", bold = true }
+			-- )
+
 			--
 			-- # Material
 			-- vim.cmd.colorscheme("material")
