@@ -2,14 +2,13 @@
 ---@type blink.cmp.Config
 require("blink.cmp").setup({
 			-- Keymaps:
-			--   j / k           navigate menu when visible, otherwise type the character
+			--   <C-j>/<C-k>     navigate menu (next/prev)
 			--   <Tab>           accept menu item; if in a snippet, jump to next placeholder
 			--   <S-Tab>         jump back in a snippet
 			--   <CR>            plain newline (menu doesn't intercept it)
 			--   <Esc>           close menu first, then exit insert on second press
 			--   <C-Space>       open menu / cycle docs
 			--   <C-e>           cancel (alternate)
-			--   <C-k>/<C-j>     alternate prev/next (kept for muscle memory)
 			--   <C-u>/<C-d>     scroll docs
 			keymap = {
 				preset = "none",
@@ -18,8 +17,6 @@ require("blink.cmp").setup({
 				["<Esc>"] = { "hide", "fallback" },
 				["<CR>"] = { "fallback" },
 
-				["j"] = { "select_next", "fallback" },
-				["k"] = { "select_prev", "fallback" },
 				["<C-j>"] = { "select_next", "fallback" },
 				["<C-k>"] = { "select_prev", "fallback" },
 
