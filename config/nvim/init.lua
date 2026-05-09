@@ -27,3 +27,22 @@ require("lazy-bootstrap")
 
 -- [[ Configure and install plugins ]]
 require("lazy-plugins")
+
+-- [[ Enable LSP servers — configs come from lsp/<name>.lua and nvim-lspconfig defaults ]]
+vim.lsp.enable({
+	"ts_ls",
+	"html",
+	"cssls",
+	"tailwindcss",
+	"lua_ls",
+	"graphql",
+	"emmet_ls",
+	"prismals",
+	"pyright",
+	"rust_analyzer",
+	"dockerls",
+	"yamlls",
+	"bashls",
+	"vimls",
+	"jsonls",
+})

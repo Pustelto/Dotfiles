@@ -1,47 +1,14 @@
+-- LSP behaviour shared across all servers.
+-- Per-server config lives in ../../lsp/<name>.lua and is wired up via
+-- vim.lsp.enable() in init.lua.
+
 return {
-	{ -- LSP Configuration & Plugins
+	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
-			"williamboman/mason.nvim",
-			-- TODO: Try nvim-notify instead
-			-- { "j-hui/fidget.nvim", opts = {} },
-			"hrsh7th/nvim-cmp",
-			"hrsh7th/cmp-nvim-lsp",
 			"b0o/schemastore.nvim",
 		},
-		opts = {
-			-- Enable this to enable the builtin LSP inlay hints on Neovim >= 0.10.0
-			-- Be aware that you also will need to properly configure your LSP server to
-			-- provide the inlay hints.
-			inlay_hints = {
-				enabled = true,
-			},
-			-- Enable this to enable the builtin LSP code lenses on Neovim >= 0.10.0
-			-- Be aware that you also will need to properly configure your LSP server to
-			-- provide the code lenses.
-			codelens = {
-				enabled = false,
-			},
-			-- Enable lsp cursor word highlighting
-			document_highlight = {
-				enabled = true,
-			},
-
-			-- add any global capabilities here
-			capabilities = {},
-			-- options for vim.lsp.buf.format
-			-- `bufnr` and `filter` is handled by the LazyVim formatter,
-			-- but can be also overridden when specified
-			format = {
-				formatting_options = nil,
-				timeout_ms = nil,
-			},
-		},
 		config = function()
-			local lspconfig = require("lspconfig")
-			local mason_lspconfig = require("mason-lspconfig")
-			local cmp_nvim_lsp = require("cmp_nvim_lsp")
-
 			local sev = vim.diagnostic.severity
 			local virtual_text = {
 				spacing = 2,
@@ -77,10 +44,6 @@ return {
 				},
 			})
 
-			--  This function gets run when an LSP attaches to a particular buffer.
-			--    That is to say, every time a new file is opened that is associated with
-			--    an lsp (for example, opening `main.rs` is associated with `rust_analyzer`) this
-			--    function will be executed to configure the current buffer
 			vim.api.nvim_create_autocmd("LspAttach", {
 				group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
 				callback = function(event)
@@ -88,58 +51,31 @@ return {
 						vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
 					end
 
-					-- Jump to the definition of the word under your cursor.
-					--  This is where a variable was first declared, or where a function is defined, etc.
-					--  To jump back, press <C-t>.
+					-- Pickers via Telescope (will be re-routed to Snacks in step 7).
 					map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
-
-					-- Find references for the word under your cursor.
 					map("gu", require("telescope.builtin").lsp_references, "[G]oto [U]sage")
-
-					-- Jump to the implementation of the word under your cursor.
-					--  Useful when your language has ways of declaring types without an actual implementation.
 					map("gI", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
-
-					-- Jump to the type of the word under your cursor.
-					--  Useful when you're not sure what type a variable is and you want to see
-					--  the definition of its *type*, not where it was *defined*.
 					map("<leader>D", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
-
-					-- Fuzzy find all the symbols in your current workspace.
-					--  Similar to document symbols, except searches over your entire project.
 					map(
 						"<leader>ps",
 						require("telescope.builtin").lsp_dynamic_workspace_symbols,
 						"Works[P]ace [S]ymbols"
 					)
 
-					-- Rename the variable under your cursor.
-					--  Most Language Servers support renaming across files, etc.
 					map("<leader>re", vim.lsp.buf.rename, "[R]e[n]ame")
-
-					-- Execute a code action, usually your cursor needs to be on top of an error
-					-- or a suggestion from your LSP for this to activate.
 					map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
-
-					-- Opens a popup that displays documentation about the word under your cursor
-					--  See `:help K` for why this keymap.
 					map("K", vim.lsp.buf.hover, "Hover Documentation")
-
-					-- WARN: This is not Goto Definition, this is Goto Declaration.
-					--  For example, in C this would take you to the header.
 					map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
 
-					map("<leader>ld", vim.diagnostic.open_float, "Show line diagnostics") -- show diagnostics for line
-
+					map("<leader>ld", vim.diagnostic.open_float, "Show line diagnostics")
 					map("[d", function()
 						vim.diagnostic.jump({ count = -1, float = true })
 					end, "Go to previous diagnostic")
-
 					map("]d", function()
 						vim.diagnostic.jump({ count = 1, float = true })
 					end, "Go to next diagnostic")
 
-					-- map("<leader>ri", "<cmd>TypescriptRenameFile<CR>", "[R]ename f[I]le")
+					-- TypeScript-specific code actions.
 					map("<leader>p", function()
 						vim.lsp.buf.code_action({
 							apply = true,
@@ -175,13 +111,8 @@ return {
 						})
 					end, "Remove unused imports")
 
-					-- The following two autocommands are used to highlight references of the
-					-- word under your cursor when your cursor rests there for a little while.
-					--    See `:help CursorHold` for information about when this is executed
-					--
-					-- When you move your cursor, the highlights will be cleared (the second autocommand).
+					-- Document highlight: highlight references of the symbol under cursor on hold.
 					local client = vim.lsp.get_client_by_id(event.data.client_id)
-
 					if client and client:supports_method("textDocument/documentHighlight") then
 						local highlight_augroup = vim.api.nvim_create_augroup("lsp-highlight", { clear = false })
 						vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
@@ -189,13 +120,11 @@ return {
 							group = highlight_augroup,
 							callback = vim.lsp.buf.document_highlight,
 						})
-
 						vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
 							buffer = event.buf,
 							group = highlight_augroup,
 							callback = vim.lsp.buf.clear_references,
 						})
-
 						vim.api.nvim_create_autocmd("LspDetach", {
 							group = vim.api.nvim_create_augroup("lsp-detach", { clear = true }),
 							callback = function(event2)
@@ -205,10 +134,6 @@ return {
 						})
 					end
 
-					-- The following autocommand is used to enable inlay hints in your
-					-- code, if the language server you are using supports them
-					--
-					-- This may be unwanted, since they displace some of your code
 					if client and client:supports_method("textDocument/inlayHint") and vim.lsp.inlay_hint then
 						map("<leader>wl", function()
 							vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
@@ -223,103 +148,6 @@ return {
 							vim.diagnostic.config({ virtual_text = virtual_text })
 						end
 					end, "Toggle Virtual Te[X]t")
-				end,
-			})
-
-			-- LSP servers and clients are able to communicate to each other what features they support.
-			--  By default, Neovim doesn't support everything that is in the LSP specification.
-			--  When you add nvim-cmp, luasnip, etc. Neovim now has *more* capabilities.
-			--  So, we create new capabilities with nvim cmp, and then broadcast that to the servers.
-			local capabilities = vim.lsp.protocol.make_client_capabilities()
-			capabilities = vim.tbl_deep_extend("force", capabilities, cmp_nvim_lsp.default_capabilities())
-
-			-- Setup handlers for LSP servers
-			mason_lspconfig.setup_handlers({
-				-- default handler for installed servers
-				function(server_name)
-					lspconfig[server_name].setup({
-						capabilities = capabilities,
-					})
-				end,
-				["ts_ls"] = function()
-					lspconfig["ts_ls"].setup({
-						init_options = {
-							preferences = {
-								importModuleSpecifierPreference = "project-relative",
-								organizeImportsCollation = "ordinal",
-							},
-						},
-						root_dir = require("lspconfig.util").root_pattern(
-							".git",
-							"tsconfig.base.json",
-							"tsconfig.json",
-							"jsconfig.json",
-							"package.json"
-						),
-						capabilities = capabilities,
-					})
-				end,
-				["graphql"] = function()
-					-- configure graphql language server
-					lspconfig["graphql"].setup({
-						capabilities = capabilities,
-						filetypes = {
-							"graphql",
-							"gql",
-							"typescriptreact",
-							"javascriptreact",
-							"typesscript",
-							"javascript",
-						},
-					})
-				end,
-				["emmet_ls"] = function()
-					-- configure emmet language server
-					lspconfig["emmet_ls"].setup({
-						capabilities = capabilities,
-						filetypes = {
-							"html",
-							"typescriptreact",
-							"javascriptreact",
-							"css",
-							"sass",
-							"scss",
-							"less",
-						},
-					})
-				end,
-				["lua_ls"] = function()
-					-- configure lua server (with special settings)
-					lspconfig["lua_ls"].setup({
-						capabilities = capabilities,
-						settings = {
-							Lua = {
-								-- make the language server recognize "vim" global
-								diagnostics = {
-									globals = { "vim" },
-								},
-								completion = {
-									callSnippet = "Replace",
-								},
-							},
-						},
-					})
-				end,
-				["jsonls"] = function()
-					lspconfig["jsonls"].setup({
-						capabilities = capabilities,
-						settings = {
-							json = {
-								schemas = require("schemastore").json.schemas({
-									-- select = {
-									-- 	"Renovate",
-									-- 	"GitHub Workflow Template Properties",
-									-- },
-								}),
-								validate = { enable = true },
-							},
-						},
-					})
 				end,
 			})
 		end,
