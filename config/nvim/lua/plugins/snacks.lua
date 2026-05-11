@@ -17,6 +17,9 @@ require("snacks").setup({
 					buffers = {
 						focus = "list", -- Set focus to the list to start in normal mode
 					},
+					lsp_symbols = {
+						layout = { preset = "default" },
+					},
 				},
 				focus = "input",
 				layout = {
